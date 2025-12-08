@@ -1,10 +1,12 @@
 import Svg, { Path } from "react-native-svg";
 
+const iconSize = 28;
+
 export const HomeIcon = ({ fill = "#fff" }: { fill?: string }) => {
   return (
     <Svg
-      width={24}
-      height={24}
+      width={iconSize}
+      height={iconSize}
       viewBox="0 0 42 42"
     >
       <Path
@@ -18,8 +20,8 @@ export const HomeIcon = ({ fill = "#fff" }: { fill?: string }) => {
 export const SearchIcon = ({ fill = "#fff" }: { fill?: string }) => {
   return (
     <Svg
-      width={24}
-      height={24}
+      width={iconSize}
+      height={iconSize}
       viewBox="0 0 512 512"
     >
       <Path
@@ -30,30 +32,30 @@ export const SearchIcon = ({ fill = "#fff" }: { fill?: string }) => {
   )
 }
 
-export const LibraryIcon = () => {
+export const LibraryIcon = ({ fill = "#fff" }: { fill?: string }) => {
   return (
     <Svg
-      width={24}
-      height={24}
+      width={iconSize}
+      height={iconSize}
       viewBox="0 0 24 24"
     >
       <Path
-        fill="#000000"
+        fill={fill}
         d="M5.5 3A1.5 1.5 0 0 1 7 4.5v15A1.5 1.5 0 0 1 5.5 21h-2A1.5 1.5 0 0 1 2 19.5v-15A1.5 1.5 0 0 1 3.5 3h2Zm6 0A1.5 1.5 0 0 1 13 4.5v15a1.5 1.5 0 0 1-1.5 1.5h-2A1.5 1.5 0 0 1 8 19.5v-15A1.5 1.5 0 0 1 9.5 3h2Zm7.281 3.124l3.214 12.519a1.5 1.5 0 0 1-1.08 1.826l-1.876.48a1.5 1.5 0 0 1-1.826-1.08L13.999 7.354a1.5 1.5 0 0 1 1.08-1.826l1.876-.483a1.502 1.502 0 0 1 1.826 1.08Z"
       />
     </Svg>
   )
 }
 
-export const PlusIcon = () => {
+export const PlusIcon = ({ fill = "#fff" }: { fill?: string }) => {
   return (
     <Svg
-      width={24}
-      height={24}
+      width={iconSize}
+      height={iconSize}
       viewBox="0 0 16 16"
     >
       <Path
-        fill="#000000"
+        fill={fill}
         fillRule="evenodd"
         clipRule="evenodd"
         d="M8 1.75a.75.75 0 0 1 .75.75v4.75h4.75a.75.75 0 0 1 0 1.5H8.75v4.75a.75.75 0 0 1-1.5 0V8.75H2.5a.75.75 0 0 1 0-1.5h4.75V2.5A.75.75 0 0 1 8 1.75"

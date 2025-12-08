@@ -6,7 +6,8 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const styles = StyleSheet.create({
   container: {
-
+    flex: 1,
+    backgroundColor: colors.background
   },
 });
 
@@ -15,7 +16,12 @@ const TabsStack = () => {
 
   return (
     <ThemedView
-      style={[styles.container, { paddingTop: insets.top, flex: 1, backgroundColor: colors.background }]}
+      style={[
+        {
+          paddingTop: insets.top,
+        },
+        styles.container,
+      ]}
     >
       <Slot />
     </ThemedView>

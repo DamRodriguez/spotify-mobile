@@ -12,14 +12,14 @@ const styles = StyleSheet.create({
   },
 });
 
-const SearchScreen = () => {
+const LibraryScreen = () => {
   return (
     <ThemedView style={styles.container}>
       <ThemedText style={styles.text}>
-        Buscar
+        Bibloteca
       </ThemedText>
     </ThemedView>
   );
 };
 
-export default SearchScreen;
+export default LibraryScreen;

@@ -17,4 +17,14 @@ export const TABS = {
     name: "search/index",
     route: ROUTES.MAIN.SEARCH,
   },
+  LIBRARY: {
+    text: "Tu bibloteca",
+    name: "library/index",
+    route: ROUTES.MAIN.LIBRARY,
+  },
+  CREATE: {
+    text: "Crear",
+    name: "create/index",
+    route: ROUTES.MAIN.LIBRARY,
+  },
 } as const satisfies Record<string, Tab>;

@@ -2,12 +2,14 @@ import ThemedView from "@/components/themed/ThemedView";
 import { colors } from "@/themes/colors";
 import { StyleSheet } from "react-native";
 import OptimizedImage from "@/components/image/OptimizedImage";
+import { sizes } from "@/constants/sizes";
 
 const styles = StyleSheet.create({
   container: {
     height: 60,
     backgroundColor: colors.background,
     elevation: 5,
+    paddingHorizontal: sizes.mainPadding
   },
   profileImage: {
     backgroundColor: "red",

@@ -1,8 +1,12 @@
 import ThemedText from "@/components/themed/ThemedText";
 import ThemedView from "@/components/themed/ThemedView";
+import { sizes } from "@/constants/sizes";
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
+  container: {
+    paddingHorizontal: sizes.mainPadding
+  },
   text: {
     color: "#fff"
   },
@@ -10,9 +14,9 @@ const styles = StyleSheet.create({
 
 const HomeScreen = () => {
   return (
-    <ThemedView>
+    <ThemedView style={styles.container}>
       <ThemedText style={styles.text}>
-        Home
+        Inicio
       </ThemedText>
     </ThemedView>
   );

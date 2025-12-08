@@ -1,9 +1,7 @@
-import HomeHeader from "@/components/header/HomeHeader";
-import { HomeIcon, SearchIcon } from "@/components/icons/tabs";
 import BgAbsolute from "@/components/layout/BgAbsolute";
 import TabBar from "@/components/tabs/TabBar";
 import ThemedView from "@/components/themed/ThemedView";
-import { TABS } from "@/navigation/tabs";
+import { tabItems } from "@/config/tabs";
 import { colors } from "@/themes/colors";
 import { Tabs } from "expo-router";
 
@@ -30,24 +28,24 @@ const TabsLayout = () => {
             translateDuration={0}
           />}
       >
-        <Tabs.Screen
-          name={TABS.HOME.name}
-          options={{
-            header: () => <HomeHeader />,
-            title: TABS.HOME.text,
-            tabBarIcon: ({ focused }) => (
-              <HomeIcon fill={focused ? tabActiveColor : tabInactiveColor} />
-            )
-          }}
-        />
-        <Tabs.Screen name={TABS.SEARCH.name} options={{
-          title: TABS.SEARCH.text,
-          tabBarIcon: ({ focused }) => (
-            <SearchIcon fill={focused ? tabActiveColor : tabInactiveColor} />
+        {tabItems.map((item, index) => {
+          const Icon = item.icon;
+          return (
+            <Tabs.Screen
+              key={index}
+              name={item.name}
+              options={{
+                title: item.text,
+                header: item.header ? item.header : () => <></>,
+                tabBarIcon: ({ focused }) => (
+                  <Icon fill={focused ? tabActiveColor : tabInactiveColor} />
+                ),
+              }}
+            />
           )
-        }} />
+        })}
       </Tabs>
-    </ThemedView >
+    </ThemedView>
   );
 };
 
