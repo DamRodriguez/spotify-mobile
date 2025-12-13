@@ -1,8 +1,9 @@
-import ThemedView from '@/components/themed/ThemedView';
 import { colors } from '@/themes/colors';
 import { Slot } from 'expo-router';
 import { StyleSheet } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { StatusBar } from "expo-status-bar";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 const styles = StyleSheet.create({
   container: {
@@ -15,7 +16,7 @@ const TabsStack = () => {
   const insets = useSafeAreaInsets();
 
   return (
-    <ThemedView
+    <GestureHandlerRootView
       style={[
         {
           paddingTop: insets.top,
@@ -23,8 +24,9 @@ const TabsStack = () => {
         styles.container,
       ]}
     >
+      <StatusBar style="light" />
       <Slot />
-    </ThemedView>
+    </GestureHandlerRootView>
   );
 };
 

@@ -21,7 +21,7 @@ const TabBar = ({ translateDuration, navigation, state, descriptors }: TabBarPro
     <ThemedView
       style={{
         flexDirection: "row",
-        paddingBottom: insets.bottom + 10,
+        paddingBottom: insets.bottom + 15,
         paddingTop: insets.bottom
       }}
     >

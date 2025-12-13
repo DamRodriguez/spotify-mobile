@@ -3,18 +3,22 @@ import { colors } from "@/themes/colors";
 import { StyleSheet } from "react-native";
 import OptimizedImage from "@/components/image/OptimizedImage";
 import { sizes } from "@/constants/sizes";
+import HorizontalFilters from "@/components/header/home-header/HorizontalFilters";
 
 const styles = StyleSheet.create({
   container: {
-    height: 60,
     backgroundColor: colors.background,
     elevation: 5,
-    paddingHorizontal: sizes.mainPadding
+    paddingHorizontal: sizes.mainPadding,
+    flexDirection: "row",
+    alignItems: "center",
+    paddingVertical: 14,
+    gap: 14,
   },
   profileImage: {
-    backgroundColor: "red",
-    width: 40,
-    height: 40,
+    backgroundColor: "#fff",
+    width: 38,
+    height: 38,
     borderRadius: 999,
   }
 });
@@ -26,6 +30,7 @@ const HomeHeader = () => {
         source={{}}
         style={styles.profileImage}
       />
+      <HorizontalFilters />
     </ThemedView>
   );
 };

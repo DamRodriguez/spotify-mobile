@@ -1,4 +1,4 @@
-import HomeHeader from "@/components/header/HomeHeader";
+import HomeHeader from "@/components/header/home-header/HomeHeader";
 import { HomeIcon, LibraryIcon, PlusIcon, SearchIcon } from "@/components/icons/tabs";
 import { TABS } from "@/navigation/tabs";
 import { JSX } from "react";
