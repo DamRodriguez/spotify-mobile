@@ -4,13 +4,12 @@ import ThemedView from "@/components/themed/ThemedView";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 type TabBarProps = {
-  translateDuration: number;
   navigation: BottomTabBarProps["navigation"];
   state: BottomTabBarProps["state"];
   descriptors: BottomTabBarProps["descriptors"];
 };
 
-const TabBar = ({ translateDuration, navigation, state, descriptors }: TabBarProps) => {
+const TabBar = ({ navigation, state, descriptors }: TabBarProps) => {
   const insets = useSafeAreaInsets();
 
   const handlePress = (route: string) => {
@@ -39,7 +38,6 @@ const TabBar = ({ translateDuration, navigation, state, descriptors }: TabBarPro
             icon={options.tabBarIcon({ focused: isFocused, color: "", size: 0 })}
             isFocused={isFocused}
             onPress={() => { handlePress(route.name); }}
-            translateDuration={translateDuration}
           />
         );
       })}

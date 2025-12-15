@@ -25,7 +25,6 @@ const TabsLayout = () => {
             descriptors={descriptors}
             state={state}
             navigation={navigation}
-            translateDuration={0}
           />}
       >
         {tabItems.map((item, index) => {

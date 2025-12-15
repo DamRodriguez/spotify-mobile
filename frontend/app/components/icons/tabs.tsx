@@ -47,11 +47,11 @@ export const LibraryIcon = ({ fill = "#fff" }: { fill?: string }) => {
   )
 }
 
-export const PlusIcon = ({ fill = "#fff" }: { fill?: string }) => {
+export const PlusIcon = ({ size = iconSize, fill = "#fff" }: { size?: number, fill?: string }) => {
   return (
     <Svg
-      width={iconSize}
-      height={iconSize}
+      width={size}
+      height={size}
       viewBox="0 0 16 16"
     >
       <Path

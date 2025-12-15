@@ -4,6 +4,7 @@ import { StyleSheet } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { StatusBar } from "expo-status-bar";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { PaperProvider } from 'react-native-paper';
 
 const styles = StyleSheet.create({
   container: {
@@ -24,8 +25,10 @@ const TabsStack = () => {
         styles.container,
       ]}
     >
-      <StatusBar style="light" />
-      <Slot />
+      <PaperProvider>
+        <StatusBar style="light" />
+        <Slot />
+      </PaperProvider>
     </GestureHandlerRootView>
   );
 };

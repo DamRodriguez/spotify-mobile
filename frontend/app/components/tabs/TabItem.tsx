@@ -12,7 +12,6 @@ type TabItemProps = {
   icon: ReactNode;
   isFocused: boolean;
   onPress: (name: string) => void;
-  translateDuration: number;
 };
 
 const TabItem = ({

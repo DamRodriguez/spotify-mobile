@@ -12,9 +12,7 @@ const ThemedScrollView = ({ children, style }: ThemedScrollViewProps) => {
       overScrollMode="never"
       keyboardShouldPersistTaps="handled"
       showsVerticalScrollIndicator={false}
-      style={[{
-      }, style]}
-      contentContainerStyle={{ flexGrow: 1 }}
+      contentContainerStyle={[{ flexGrow: 1 }, style]}
     >
       {children}
     </ScrollView>
