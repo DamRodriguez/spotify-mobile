@@ -46,7 +46,7 @@ const TabItem = ({
         style={
           {
             fontSize: fontSize.b3,
-            fontWeight: 700,
+            fontWeight: 600,
             color: isFocused ? colors.neutral[1000] : colors.softGray,
           }
         }

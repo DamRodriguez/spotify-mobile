@@ -1,3 +1,4 @@
+import { NewMessageIcon } from "@/components/icons/profileDrawer";
 import OptimizedImage from "@/components/image/OptimizedImage";
 import ItemWrapper from "@/components/other/ItemWrapper";
 import ThemedText from "@/components/themed/ThemedText";
@@ -14,7 +15,7 @@ const styles = StyleSheet.create({
   messagesTitle: {
     color: colors.neutral[1000],
     fontSize: fontSize.h7,
-    fontWeight: "700",
+    fontWeight: 600,
   },
   messageImage: {
     width: 45,
@@ -24,12 +25,12 @@ const styles = StyleSheet.create({
   },
   messageItemContainer: {
     flexDirection: "row",
-    gap: 15
+    gap: 10
   },
   messageItemUsernameText: {
     color: colors.neutral[1000],
     fontSize: fontSize.b3,
-    fontWeight: "500",
+    fontWeight: 400,
   },
   messageItemStatusText: {
     color: colors.neutral[800],
@@ -49,10 +50,27 @@ const styles = StyleSheet.create({
     gap: 4
   },
   messageItemFooterSeparator: {
-    color: colors.neutral[1000]
+    color: colors.neutral[800]
   },
   messageItemsContainer: {
     gap: 20
+  },
+  newMessageIcon: {
+    borderRadius: 999,
+    backgroundColor: colors.softGray,
+    width: 45,
+    height: 45,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  newMessageContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 10
+  },
+  newMessageText: {
+    color: colors.neutral[1000],
+    fontSize: fontSize.b3,
   }
 });
 
@@ -126,6 +144,18 @@ const MessagesSection = () => {
             </ItemWrapper>
           )
         })}
+
+        <ItemWrapper
+          onPress={() => { }}
+          style={styles.newMessageContainer}
+        >
+          <ThemedView style={styles.newMessageIcon}>
+            <NewMessageIcon />
+          </ThemedView>
+          <ThemedText style={styles.newMessageText}>
+            Nuevo mensaje
+          </ThemedText>
+        </ItemWrapper>
       </ThemedView>
     </ThemedView>
   );

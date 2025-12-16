@@ -83,7 +83,7 @@ const HorizontalFilters = () => {
           >
             <ThemedText style={[{
               color: getTextColor(),
-              fontWeight: item.text === "Wrapped" ? "700" : "regular",
+              fontWeight: item.text === "Wrapped" ? 600 : 500,
             }, styles.text]}>
               {item.text}
             </ThemedText>

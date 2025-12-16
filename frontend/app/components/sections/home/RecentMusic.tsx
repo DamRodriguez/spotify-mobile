@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
   },
   text: {
     color: colors.neutral[1000],
-    fontWeight: "700",
+    fontWeight: 600,
     fontSize: fontSize.b3,
     width: "55%",
   }
@@ -71,7 +71,7 @@ const RecentMusicSection = () => {
       keyExtractor={item => String(item.id)}
       numColumns={2}
       renderItem={({ item }) => {
-        const gap = 10;
+        const gap = 8;
         return (
           <ItemWrapper
             style={[{

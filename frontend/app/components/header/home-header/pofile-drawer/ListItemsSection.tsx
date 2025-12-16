@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
   listItemText: {
     color: colors.neutral[1000],
     fontSize: fontSize.b1,
-    fontWeight: "500",
+    fontWeight: 400,
     width: "80%"
   },
 });

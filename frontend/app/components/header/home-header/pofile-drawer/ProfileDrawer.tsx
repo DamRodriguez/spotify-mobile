@@ -35,15 +35,15 @@ const styles = StyleSheet.create({
   },
   usernameText: {
     color: colors.neutral[1000],
-    fontWeight: "700",
+    fontWeight: 600,
     fontSize: fontSize.h7
   },
   seeProfileText: {
     color: colors.neutral[800],
-    fontSize: fontSize.b2
+    fontSize: fontSize.b3
   },
   contentSection: {
-    gap: 15,
+    gap: 10,
     paddingBottom: 50
   },
   profileImage: {

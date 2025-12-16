@@ -21,8 +21,8 @@ const styles = StyleSheet.create({
   },
   profileImage: {
     backgroundColor: "#fff",
-    width: 38,
-    height: 38,
+    width: 32,
+    height: 32,
     borderRadius: 999,
   }
 });
