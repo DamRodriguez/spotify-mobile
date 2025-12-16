@@ -8,8 +8,7 @@ import { fontSize } from "@/themes/fontSize";
 import { StyleSheet } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import ListItemsSection from "./ListItemsSection";
-import MessagesSection from "./MessagesSection";
-import ThemedScrollView from "@/components/themed/ThemedScrollView";
+import MessagesList from "./MessagesList";
 
 const styles = StyleSheet.create({
   container: {
@@ -51,6 +50,32 @@ const styles = StyleSheet.create({
     height: 45,
     backgroundColor: "#fff",
     borderRadius: 999
+  },
+  messagesTitle: {
+    color: colors.neutral[1000],
+    fontSize: fontSize.h7,
+    fontWeight: 600,
+    marginBottom: 20
+  },
+  messagesSection: {
+    gap: 40,
+  },
+  newMessageIcon: {
+    borderRadius: 999,
+    backgroundColor: colors.softGray,
+    width: 45,
+    height: 45,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  newMessageContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 10,
+  },
+  newMessageText: {
+    color: colors.neutral[1000],
+    fontSize: fontSize.b3,
   }
 });
 
@@ -93,10 +118,18 @@ const ProfileDrawer = (props: ProfileDrawerProps) => {
         </ItemWrapper>
       </ThemedView>
 
-      <ThemedScrollView style={styles.contentSection}>
-        <ListItemsSection />
-        <MessagesSection />
-      </ThemedScrollView>
+      <MessagesList
+        onEndReached={() => { }}
+        isLoadingMore={false}
+        topSections={
+          <ThemedView style={styles.messagesSection}>
+            <ListItemsSection />
+            <ThemedText style={styles.messagesTitle}>
+              Mensajes
+            </ThemedText>
+          </ThemedView>
+        }
+      />
     </ThemedView>
   );
 };

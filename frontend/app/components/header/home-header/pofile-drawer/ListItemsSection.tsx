@@ -8,7 +8,6 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   listItemsContainer: {
-    padding: 16,
     gap: 30,
   },
   listItem: {
