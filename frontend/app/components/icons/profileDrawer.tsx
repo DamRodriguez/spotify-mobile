@@ -1,6 +1,6 @@
 import Svg, { G, Path } from "react-native-svg"
 
-const iconSize = 30;
+const iconSize = 24;
 
 export const PlusIcon = ({ size = iconSize, fill = "#fff" }: { size?: number, fill?: string }) => {
   return (

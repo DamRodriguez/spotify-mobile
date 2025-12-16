@@ -1,6 +1,6 @@
 import Svg, { Path } from "react-native-svg";
 
-const iconSize = 28;
+const iconSize = 24;
 
 export const HomeIcon = ({ fill = "#fff" }: { fill?: string }) => {
   return (

@@ -9,16 +9,16 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   messagesSection: {
     padding: 16,
-    gap: 30
+    gap: 25
   },
   messagesTitle: {
     color: colors.neutral[1000],
-    fontSize: fontSize.h6,
+    fontSize: fontSize.h7,
     fontWeight: "700",
   },
   messageImage: {
-    width: 60,
-    height: 60,
+    width: 45,
+    height: 45,
     backgroundColor: "#fff",
     borderRadius: 999
   },
@@ -28,20 +28,21 @@ const styles = StyleSheet.create({
   },
   messageItemUsernameText: {
     color: colors.neutral[1000],
-    fontSize: fontSize.b1,
+    fontSize: fontSize.b3,
     fontWeight: "500",
   },
   messageItemStatusText: {
     color: colors.neutral[800],
-    fontSize: fontSize.b1,
+    fontSize: fontSize.b3,
   },
   messageItemDateText: {
     color: colors.neutral[800],
-    fontSize: fontSize.b1,
+    fontSize: fontSize.b3,
   },
   messageItemFooterContainer: {
     flexDirection: "row",
-    gap: 5,
+    gap: 3,
+    alignItems: "center"
   },
   messageItemTextsContainer: {
     justifyContent: "center",

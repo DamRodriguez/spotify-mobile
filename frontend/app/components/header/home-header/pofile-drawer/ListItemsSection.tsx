@@ -9,17 +9,18 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   listItemsContainer: {
     padding: 16,
-    gap: 30
+    gap: 30,
   },
   listItem: {
     flexDirection: "row",
     alignItems: "center",
-    gap: 15
+    gap: 15,
   },
   listItemText: {
     color: colors.neutral[1000],
-    fontSize: fontSize.h7,
-    fontWeight: "500"
+    fontSize: fontSize.b1,
+    fontWeight: "500",
+    width: "80%"
   },
 });
 
@@ -72,6 +73,7 @@ const ListItemsSection = () => {
           >
             {item.icon}
             <ThemedText
+              numberOfLines={1}
               style={styles.listItemText}
             >
               {item.text}

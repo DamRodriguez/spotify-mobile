@@ -10,11 +10,11 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 20,
-    paddingVertical: 8,
+    paddingVertical: 7,
     borderRadius: 999,
   },
   text: {
-    fontSize: fontSize.b1,
+    fontSize: fontSize.b3,
   }
 });
 

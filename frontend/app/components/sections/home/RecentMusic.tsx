@@ -10,22 +10,22 @@ import OptimizedImage from "@/components/image/OptimizedImage";
 const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.quaternary[600],
-    borderRadius: 10,
+    borderRadius: 5,
     flexDirection: "row",
     alignItems: "center",
     gap: 15,
     overflow: "hidden",
   },
   image: {
-    width: 60,
-    height: 60,
+    width: 50,
+    height: 50,
     backgroundColor: "#fff",
-    borderRadius: 10
+    borderRadius: 5
   },
   text: {
     color: colors.neutral[1000],
     fontWeight: "700",
-    fontSize: fontSize.b1,
+    fontSize: fontSize.b3,
     width: "55%",
   }
 });
@@ -71,7 +71,7 @@ const RecentMusicSection = () => {
       keyExtractor={item => String(item.id)}
       numColumns={2}
       renderItem={({ item }) => {
-        const gap = 15;
+        const gap = 10;
         return (
           <ItemWrapper
             style={[{

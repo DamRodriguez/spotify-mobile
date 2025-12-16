@@ -36,37 +36,21 @@ const styles = StyleSheet.create({
   usernameText: {
     color: colors.neutral[1000],
     fontWeight: "700",
-    fontSize: fontSize.h6
+    fontSize: fontSize.h7
   },
   seeProfileText: {
     color: colors.neutral[800],
-    fontSize: fontSize.b1
-  },
-  listItemsContainer: {
-    padding: 16,
-    gap: 30
-  },
-  listItem: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 15
-  },
-  listItemText: {
-    color: colors.neutral[1000],
-    fontSize: fontSize.h7,
-    fontWeight: "500"
+    fontSize: fontSize.b2
   },
   contentSection: {
-    gap: 20,
+    gap: 15,
     paddingBottom: 50
   },
-  messagesSection: {
-    padding: 16
-  },
-  messagesTitle: {
-    color: colors.neutral[1000],
-    fontSize: fontSize.h6,
-    fontWeight: "700",
+  profileImage: {
+    width: 45,
+    height: 45,
+    backgroundColor: "#fff",
+    borderRadius: 999
   }
 });
 
@@ -88,12 +72,7 @@ const ProfileDrawer = (props: ProfileDrawerProps) => {
           >
             <OptimizedImage
               source={{}}
-              style={{
-                width: 60,
-                height: 60,
-                backgroundColor: "#fff",
-                borderRadius: 999
-              }}
+              style={styles.profileImage}
             />
           </ItemWrapper>
           <ThemedView style={styles.usernameTextContainer}>

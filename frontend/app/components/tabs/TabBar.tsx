@@ -20,7 +20,7 @@ const TabBar = ({ navigation, state, descriptors }: TabBarProps) => {
     <ThemedView
       style={{
         flexDirection: "row",
-        paddingBottom: insets.bottom + 15,
+        paddingBottom: insets.bottom + 10,
         paddingTop: insets.bottom
       }}
     >
