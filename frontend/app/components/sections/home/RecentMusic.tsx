@@ -6,6 +6,8 @@ import { FlashList } from "@shopify/flash-list";
 import { StyleSheet } from "react-native";
 import likesImg from "@/assets/images/home/recent-music/likes.png"
 import OptimizedImage from "@/components/image/OptimizedImage";
+import ThemedView from "@/components/themed/ThemedView";
+import { flashListDefaults } from "@/config/flashListDefaults";
 
 const styles = StyleSheet.create({
   container: {
@@ -65,36 +67,38 @@ const RecentMusicSection = () => {
   ]
 
   return (
-    <FlashList
-      data={recentMusicData}
-      showsVerticalScrollIndicator={false}
-      keyExtractor={item => String(item.id)}
-      numColumns={2}
-      renderItem={({ item }) => {
-        const gap = 8;
-        return (
-          <ItemWrapper
-            style={[{
-              marginRight: item.id % 2 === 0 ? 0 : gap / 2,
-              marginLeft: item.id % 2 === 0 ? gap / 2 : 0,
-              marginBottom: gap
-            }, styles.container]}
-          >
-            <OptimizedImage
-              source={item.image}
+    <ThemedView>
+      <FlashList
+        {...flashListDefaults}
+        data={recentMusicData}
+        keyExtractor={(_, index) => String(index)}
+        numColumns={2}
+        renderItem={({ item }) => {
+          const gap = 8;
+          return (
+            <ItemWrapper
               style={[{
+                marginRight: item.id % 2 === 0 ? 0 : gap / 2,
+                marginLeft: item.id % 2 === 0 ? gap / 2 : 0,
+                marginBottom: gap
+              }, styles.container]}
+            >
+              <OptimizedImage
+                source={item.image}
+                style={[{
 
-              }, styles.image]}
-            />
-            <ThemedText
-              numberOfLines={2}
-              style={[{}, styles.text]}>
-              {item.text}
-            </ThemedText>
-          </ItemWrapper>
-        )
-      }}
-    />
+                }, styles.image]}
+              />
+              <ThemedText
+                numberOfLines={2}
+                style={[{}, styles.text]}>
+                {item.text}
+              </ThemedText>
+            </ItemWrapper>
+          )
+        }}
+      />
+    </ThemedView>
   );
 };
 

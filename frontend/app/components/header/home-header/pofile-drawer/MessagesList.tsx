@@ -4,6 +4,7 @@ import ItemWrapper from "@/components/other/ItemWrapper";
 import ListFooterSpinner from "@/components/other/ListFooterSpinner";
 import ThemedText from "@/components/themed/ThemedText";
 import ThemedView from "@/components/themed/ThemedView";
+import { flashListDefaults } from "@/config/flashListDefaults";
 import { colors } from "@/themes/colors";
 import { fontSize } from "@/themes/fontSize";
 import { formatDayMonth } from "@/utils/formatDayMonth";
@@ -113,34 +114,21 @@ const MessagesList = (props: MessagesListProps) => {
     },
     {
       image: "",
-      username: "damrod_",
-      status: "Enviado",
-      date: "2025-12-01",
+      username: "pedro2",
+      status: "Recibido",
+      date: "2025-02-09",
     },
-    {
-      image: "",
-      username: "damrod_",
-      status: "Enviado",
-      date: "2025-12-01",
-    }
   ]
 
   return (
     <ThemedView style={{ flex: 1 }}>
       <FlashList
-        removeClippedSubviews={true}
-        scrollEventThrottle={32}
+        {...flashListDefaults}
         onEndReached={props.onEndReached}
-        onEndReachedThreshold={0.1}
-        overScrollMode="never"
-        bounces={false}
-        bouncesZoom={false}
-        alwaysBounceVertical={false}
         ListHeaderComponent={props.topSections}
         data={messagesItems}
         keyExtractor={(_, index) => String(index)}
         ItemSeparatorComponent={() => <ThemedView style={{ height: 20 }} />}
-        showsVerticalScrollIndicator={false}
         contentContainerStyle={{
           paddingBottom: 40,
           padding: 16,

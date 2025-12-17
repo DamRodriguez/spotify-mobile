@@ -16,7 +16,7 @@ import Animated, {
   withTiming,
 } from "react-native-reanimated";
 
-interface AnimatedHeightModalProps {
+interface AnimatedModalProps {
   visible: SharedValue<boolean>;
   onClose?: () => void;
   children: React.ReactNode;
@@ -25,7 +25,7 @@ interface AnimatedHeightModalProps {
   direction?: "bottom" | "left" | "right";
 }
 
-const AnimatedHeightModal: React.FC<AnimatedHeightModalProps> = ({
+const AnimatedModal: React.FC<AnimatedModalProps> = ({
   visible,
   onClose,
   children,
@@ -136,4 +136,4 @@ const AnimatedHeightModal: React.FC<AnimatedHeightModalProps> = ({
   );
 };
 
-export default AnimatedHeightModal;
+export default AnimatedModal;

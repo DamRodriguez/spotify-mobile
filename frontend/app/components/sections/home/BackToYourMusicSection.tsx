@@ -1,7 +1,7 @@
 import BasicHorizontalList, { BasicHorizontalListData } from '../../other/BasicHorizontalList';
 
-const DailyReleasesSection = () => {
-  const dailyReleasesItems: BasicHorizontalListData[] = [
+const BackToYourMusicSection = () => {
+  const backToYourMusicItems: BasicHorizontalListData[] = [
     {
       id: 1,
       image: "",
@@ -31,10 +31,10 @@ const DailyReleasesSection = () => {
 
   return (
     <BasicHorizontalList
-      title="Viernes de lanzamientos"
-      data={dailyReleasesItems}
+      title="Vuelve a tu música"
+      data={backToYourMusicItems}
     />
   );
 };
 
-export default DailyReleasesSection;
+export default BackToYourMusicSection;

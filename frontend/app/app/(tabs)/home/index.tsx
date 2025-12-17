@@ -1,23 +1,28 @@
+import BackToYourMusicSection from "@/components/sections/home/BackToYourMusicSection";
 import DailyReleasesSection from "@/components/sections/home/DailyReleasesSection";
 import RecentMusicSection from "@/components/sections/home/RecentMusic";
-import ThemedView from "@/components/themed/ThemedView";
+import YourPlaylistsSection from "@/components/sections/home/YourPlaylistsSection";
+import ThemedScrollView from "@/components/themed/ThemedScrollView";
 import { sizes } from "@/constants/sizes";
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
     paddingHorizontal: sizes.mainPadding,
-    flex: 1,
     marginTop: 10,
+    gap: 40,
+    paddingBottom: 50
   },
 });
 
 const HomeScreen = () => {
   return (
-    <ThemedView style={styles.container}>
+    <ThemedScrollView style={styles.container}>
       <RecentMusicSection />
-      {/* <DailyReleasesSection /> */}
-    </ThemedView>
+      <YourPlaylistsSection />
+      <DailyReleasesSection />
+      <BackToYourMusicSection />
+    </ThemedScrollView>
   );
 };
 

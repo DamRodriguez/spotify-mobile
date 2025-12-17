@@ -21,7 +21,7 @@ const TabBar = ({ navigation, state, descriptors }: TabBarProps) => {
       style={{
         flexDirection: "row",
         paddingBottom: insets.bottom + 10,
-        paddingTop: insets.bottom
+        paddingTop: insets.bottom,
       }}
     >
       {state.routes.map((route, index) => {

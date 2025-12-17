@@ -6,9 +6,6 @@ import { colors } from "@/themes/colors";
 import { Tabs } from "expo-router";
 
 const TabsLayout = () => {
-  const tabActiveColor = colors.neutral[1000];
-  const tabInactiveColor = colors.softGray;
-
   return (
     <ThemedView style={{
       flex: 1,
@@ -37,7 +34,7 @@ const TabsLayout = () => {
                 title: item.text,
                 header: item.header ? item.header : () => <></>,
                 tabBarIcon: ({ focused }) => (
-                  <Icon fill={focused ? tabActiveColor : tabInactiveColor} />
+                  <Icon fill={focused ? colors.neutral[1000] : colors.softGray} />
                 ),
               }}
             />

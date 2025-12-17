@@ -5,9 +5,9 @@ import OptimizedImage from "@/components/image/OptimizedImage";
 import { sizes } from "@/constants/sizes";
 import HorizontalFilters from "@/components/header/home-header/HorizontalFilters";
 import ItemWrapper from "@/components/other/ItemWrapper";
-import AnimatedHeightModal from "@/components/modal/AnimatedHeightModal";
 import { useSharedValue } from "react-native-reanimated";
 import ProfileDrawer from "./pofile-drawer/ProfileDrawer";
+import AnimatedModal from "@/components/modal/AnimatedModal";
 
 const styles = StyleSheet.create({
   container: {
@@ -52,9 +52,8 @@ const HomeHeader = () => {
         <HorizontalFilters />
       </ThemedView>
 
-      <AnimatedHeightModal
+      <AnimatedModal
         visible={profileDrawerVisible}
-        height={900}
         direction="left"
         style={{
           top: 0,
@@ -66,7 +65,7 @@ const HomeHeader = () => {
         <ProfileDrawer
           onClose={closeProfileDrawer}
         />
-      </AnimatedHeightModal>
+      </AnimatedModal>
     </>
   );
 };
