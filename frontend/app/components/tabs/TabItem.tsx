@@ -34,7 +34,7 @@ const TabItem = ({
           flex: 1,
           alignItems: "center",
           justifyContent: "center",
-          gap: 10
+          gap: 10,
         }
       }
       activeOpacity={buttons.opacity}

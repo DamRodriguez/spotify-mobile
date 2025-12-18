@@ -1,4 +1,3 @@
-import BgAbsolute from "@/components/layout/BgAbsolute";
 import TabBar from "@/components/tabs/TabBar";
 import ThemedView from "@/components/themed/ThemedView";
 import { tabItems } from "@/config/tabs";
@@ -7,10 +6,7 @@ import { Tabs } from "expo-router";
 
 const TabsLayout = () => {
   return (
-    <ThemedView style={{
-      flex: 1,
-    }}>
-      <BgAbsolute />
+    <ThemedView style={{ flex: 1 }}>
       <Tabs
         screenOptions={({ route }) => ({
           freezeOnBlur: true,

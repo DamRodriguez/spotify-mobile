@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: sizes.mainPadding,
     marginTop: 10,
     gap: 40,
-    paddingBottom: 50
+    paddingBottom: 150
   },
 });
 

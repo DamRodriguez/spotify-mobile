@@ -1,6 +1,7 @@
 import { memo } from "react";
 import { StyleSheet } from "react-native";
 import ThemedView from "@/components/themed/ThemedView";
+import { colors } from "@/themes/colors";
 
 const styles = StyleSheet.create({
   background: {
@@ -10,6 +11,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     pointerEvents: "none",
+    backgroundColor: colors.background
   },
 });
 

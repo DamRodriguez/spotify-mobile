@@ -12,7 +12,6 @@ import AnimatedModal from "@/components/modal/AnimatedModal";
 const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.background,
-    elevation: 5,
     paddingHorizontal: sizes.mainPadding,
     flexDirection: "row",
     alignItems: "center",

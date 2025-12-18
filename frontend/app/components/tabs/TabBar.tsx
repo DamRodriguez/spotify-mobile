@@ -20,8 +20,11 @@ const TabBar = ({ navigation, state, descriptors }: TabBarProps) => {
     <ThemedView
       style={{
         flexDirection: "row",
-        paddingBottom: insets.bottom + 10,
-        paddingTop: 20,
+        paddingBottom: insets.bottom + 5,
+        paddingTop: 15,
+        backgroundColor: "rgba(0,0,0,0.8)",
+        position: "absolute",
+        bottom: 0,
       }}
     >
       {state.routes.map((route, index) => {
