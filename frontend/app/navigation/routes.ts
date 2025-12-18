@@ -1,6 +1,9 @@
 export const ROUTES = {
   MAIN: {
-    HOME: "home",
+    HOME: {
+      index: "home/index",
+      listDinamicPage: "home/listDinamicPage"
+    },
     SEARCH: "search",
     LIBRARY: "library",
     CREATE: "create",

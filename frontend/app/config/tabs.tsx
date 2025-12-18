@@ -1,4 +1,3 @@
-import HomeHeader from "@/components/header/home-header/HomeHeader";
 import { HomeIcon, LibraryIcon, PlusIcon, SearchIcon } from "@/components/icons/tabs";
 import { TABS } from "@/navigation/tabs";
 import { JSX } from "react";
@@ -15,7 +14,6 @@ export const tabItems: tabItemsData[] = [
     name: TABS.HOME.name,
     text: TABS.HOME.text,
     icon: HomeIcon,
-    header: () => <HomeHeader />
   },
   {
     name: TABS.SEARCH.name,

@@ -9,8 +9,8 @@ type Tab = {
 export const TABS = {
   HOME: {
     text: "Inicio",
-    name: "home/index",
-    route: ROUTES.MAIN.HOME,
+    name: "home",
+    route: ROUTES.MAIN.HOME.index,
   },
   SEARCH: {
     text: "Buscar",

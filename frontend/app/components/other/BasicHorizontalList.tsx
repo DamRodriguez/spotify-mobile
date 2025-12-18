@@ -4,6 +4,7 @@ import ListFooterSpinner from '@/components/other/ListFooterSpinner';
 import ThemedText from '@/components/themed/ThemedText';
 import ThemedView from '@/components/themed/ThemedView';
 import { flashListDefaults } from '@/config/flashListDefaults';
+import { ROUTES } from '@/navigation/routes';
 import { colors } from '@/themes/colors';
 import { fontSize } from '@/themes/fontSize';
 import { FlashList } from '@shopify/flash-list';
@@ -67,6 +68,7 @@ const BasicHorizontalList = (props: BasicHorizontalListProps) => {
           <ItemWrapper
             key={index}
             style={styles.itemContainer}
+            routerLink={`${ROUTES.MAIN.HOME.listDinamicPage}/${item.id}`}
           >
             <OptimizedImage
               source={item.image}

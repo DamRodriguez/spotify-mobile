@@ -11,7 +11,6 @@ const TabsLayout = () => {
         screenOptions={({ route }) => ({
           freezeOnBlur: true,
           sceneStyle: { backgroundColor: "transparent" },
-          header: () => <></>,
         })}
         tabBar={({ state, navigation, descriptors }) =>
           <TabBar
