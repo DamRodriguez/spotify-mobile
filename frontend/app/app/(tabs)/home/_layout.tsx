@@ -10,7 +10,7 @@ const homeStackScreens = [
     },
   },
   {
-    name: "listDinamicPage/[id]",
+    name: "listDinamicPage/[type]/[id]",
     options: {
       header: () => <ListDinamicPageHeader />
     },

@@ -7,6 +7,7 @@ import { flashListDefaults } from '@/config/flashListDefaults';
 import { ROUTES } from '@/navigation/routes';
 import { colors } from '@/themes/colors';
 import { fontSize } from '@/themes/fontSize';
+import { HomeListSection } from '@/types/homeListSection';
 import { FlashList } from '@shopify/flash-list';
 import { ImageSourcePropType, StyleSheet } from 'react-native';
 
@@ -36,6 +37,7 @@ const styles = StyleSheet.create({
 });
 
 export type BasicHorizontalListData = {
+  sectionType: HomeListSection;
   id: number;
   image: string | ImageSourcePropType;
   text: string;
@@ -68,7 +70,7 @@ const BasicHorizontalList = (props: BasicHorizontalListProps) => {
           <ItemWrapper
             key={index}
             style={styles.itemContainer}
-            routerLink={`${ROUTES.MAIN.HOME.listDinamicPage}/${item.id}`}
+            routerLink={`${ROUTES.MAIN.HOME.listDinamicPage}/${item.sectionType}/${item.id}`}
           >
             <OptimizedImage
               source={item.image}

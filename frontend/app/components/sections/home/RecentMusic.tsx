@@ -4,10 +4,10 @@ import { colors } from "@/themes/colors";
 import { fontSize } from "@/themes/fontSize";
 import { FlashList } from "@shopify/flash-list";
 import { StyleSheet } from "react-native";
-import likesImg from "@/assets/images/home/recent-music/likes.png"
 import OptimizedImage from "@/components/image/OptimizedImage";
 import ThemedView from "@/components/themed/ThemedView";
 import { flashListDefaults } from "@/config/flashListDefaults";
+import { recentMusicData } from "@/data/home";
 
 const styles = StyleSheet.create({
   container: {
@@ -33,39 +33,6 @@ const styles = StyleSheet.create({
 });
 
 const RecentMusicSection = () => {
-  const recentMusicData = [
-    {
-      id: 1,
-      image: likesImg,
-      text: "Tus me gusta"
-    },
-    {
-      id: 2,
-      image: "",
-      text: "Prueba2"
-    },
-    {
-      id: 3,
-      image: "",
-      text: "Prueba3"
-    },
-    {
-      id: 4,
-      image: "",
-      text: "Prueba4"
-    },
-    {
-      id: 5,
-      image: "",
-      text: "Prueba5"
-    },
-    {
-      id: 6,
-      image: "",
-      text: "Prueba6"
-    }
-  ]
-
   return (
     <ThemedView>
       <FlashList

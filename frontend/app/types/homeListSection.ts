@@ -1,0 +1,1 @@
+export type HomeListSection = "playlist" | "daily-releases" | "back-to-your-music"
