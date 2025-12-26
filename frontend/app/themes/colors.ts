@@ -3,6 +3,7 @@ export const colors = {
   opaqueGray: "FFFFFF33",
   softGray: "#6a6a6aff",
   softSlate: "#475557B2",
+  mainGreen: "#1DB954",
   primary: {
     10: "#3a39731a",
     50: "#514FA080",

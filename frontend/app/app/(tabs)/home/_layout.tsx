@@ -21,7 +21,7 @@ const HomeLayout = () => {
   return (
     <Stack
       screenOptions={{
-        animation: "fade",
+        animation: "slide_from_right",
         contentStyle: { backgroundColor: "transparent" },
         freezeOnBlur: true,
       }}
