@@ -9,10 +9,11 @@ import { colors } from '@/themes/colors';
 import { fontSize } from '@/themes/fontSize';
 import { HomeListSection } from '@/types/homeListSection';
 import { useLocalSearchParams } from 'expo-router';
-import { useState } from 'react';
-import { StyleSheet, TextInput } from 'react-native';
+import { useRef, useState } from 'react';
+import { LayoutChangeEvent, StyleSheet, TextInput } from 'react-native';
 import HorizontalButtons from '@/components/sections/home/list-dinamic-page/HorizontalButtons';
 import SongsList, { SongItem } from '@/components/sections/home/list-dinamic-page/SongsList';
+import ListDinamicPageHeader from '@/components/header/list-dinamic-page-header/ListDinamicPageHeader';
 
 const styles = StyleSheet.create({
   title: {
@@ -28,7 +29,7 @@ export type ListDinamicPageDataType = {
   frontImage: string;
   title: string;
   songsDuration: number;
-  songs: SongItem[]
+  songs: SongItem[];
 }
 
 const ListDinamicPage = () => {
@@ -37,6 +38,11 @@ const ListDinamicPage = () => {
     type: HomeListSection;
     id: string;
   }>();
+  const titleYRef = useRef(0);
+  const [isTitleAtTop, setIsTitleAtTop] = useState(false);
+
+  const playSectionYRef = useRef(0);
+  const [isPlayButtonSticky, setIsPlayButtonSticky] = useState(false);
 
   const item = listDinamicPageData.find(
     (item) => item.sectionType === type && item.id === id
@@ -53,94 +59,118 @@ const ListDinamicPage = () => {
   }
 
   return (
-    <SongsList
-      data={item.songs}
-      artistName={item.title}
-      onEndReached={() => { }}
-      isLoadingMore={false}
-      topSections={
-        <ThemedView style={{
-          gap: 15,
-        }}>
-          <ThemedView>
-            <ThemedView
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                borderRadius: 6,
-                overflow: "hidden",
-                backgroundColor: colors.neutral["10"],
-                paddingHorizontal: 12,
-                gap: 10,
-                minHeight: 40,
-                paddingRight: 60,
-              }}
-            >
-              <SearchIcon />
-              <TextInput
-                placeholder="Buscar en ésta página"
-                value={inputValue}
-                onChangeText={value => { setInputValue(value); }}
-                placeholderTextColor={colors.quaternary[300]}
+    <>
+      <ListDinamicPageHeader
+        title={item.title}
+        showTitle={isTitleAtTop}
+      />
+      <SongsList
+        data={item.songs}
+        artistName={item.title}
+        onEndReached={() => { }}
+        isLoadingMore={false}
+        onScroll={(e) => {
+          const scrollY = e.nativeEvent.contentOffset.y;
+
+          const reachedTitleTop = scrollY - 35 >= titleYRef.current;
+          setIsTitleAtTop(reachedTitleTop);
+
+          const shouldPlayButtonStick = scrollY - 5 >= playSectionYRef.current;
+          setIsPlayButtonSticky(shouldPlayButtonStick);
+        }}
+        topSections={
+          <ThemedView style={{ gap: 15 }}>
+            <ThemedView>
+              <ThemedView
                 style={{
-                  color: colors.neutral[1000],
-                  fontSize: fontSize.b2,
-                  width: "100%",
-                  fontWeight: 500
+                  flexDirection: "row",
+                  alignItems: "center",
+                  borderRadius: 6,
+                  overflow: "hidden",
+                  backgroundColor: colors.neutral["10"],
+                  paddingHorizontal: 12,
+                  gap: 10,
+                  minHeight: 40,
+                  paddingRight: 60,
                 }}
-              />
+              >
+                <SearchIcon />
+                <TextInput
+                  placeholder="Buscar en ésta página"
+                  value={inputValue}
+                  onChangeText={value => { setInputValue(value); }}
+                  placeholderTextColor={colors.quaternary[300]}
+                  style={{
+                    color: colors.neutral[1000],
+                    fontSize: fontSize.b2,
+                    width: "100%",
+                    fontWeight: 500
+                  }}
+                />
+              </ThemedView>
             </ThemedView>
-          </ThemedView>
 
-          <OptimizedImage
-            source={""}
-            style={{
-              width: 300,
-              height: 300,
-              alignSelf: "center",
-              borderRadius: 6,
-              marginTop: 25,
-              marginBottom: 10
-            }}
-          />
-
-          <ThemedText style={styles.title}>
-            {item.title}
-          </ThemedText>
-
-          <ThemedView style={{ flexDirection: "row", alignItems: "center", gap: 10 }}>
             <OptimizedImage
               source={""}
               style={{
-                width: 35,
-                height: 35,
-                borderRadius: 999
+                width: 300,
+                height: 300,
+                alignSelf: "center",
+                borderRadius: 6,
+                marginTop: 25,
+                marginBottom: 10
               }}
             />
-            <ThemedText style={{
-              color: colors.neutral[1000],
-              fontSize: fontSize.b2
-            }}>
-              username
-            </ThemedText>
-          </ThemedView>
 
-          <ThemedView style={{ flexDirection: "row", alignItems: "center", gap: 10 }}>
-            <WorldIcon />
-            <ThemedText style={{
-              color: colors.softGray,
-              fontSize: fontSize.b2
-            }}>
-              {item.songsDuration} min
+            <ThemedText
+              style={styles.title}
+              onLayout={(e: LayoutChangeEvent) => {
+                titleYRef.current = e.nativeEvent.layout.y;
+              }}
+            >
+              {item.title}
             </ThemedText>
-          </ThemedView>
 
-          <InteractiveSection />
-          <HorizontalButtons />
-          <ThemedView />
-        </ThemedView>
-      }
-    />
+            <ThemedView style={{ flexDirection: "row", alignItems: "center", gap: 10 }}>
+              <OptimizedImage
+                source={""}
+                style={{
+                  width: 35,
+                  height: 35,
+                  borderRadius: 999
+                }}
+              />
+              <ThemedText style={{
+                color: colors.neutral[1000],
+                fontSize: fontSize.b2
+              }}>
+                username
+              </ThemedText>
+            </ThemedView>
+
+            <ThemedView style={{ flexDirection: "row", alignItems: "center", gap: 10 }}>
+              <WorldIcon />
+              <ThemedText style={{
+                color: colors.softGray,
+                fontSize: fontSize.b2
+              }}>
+                {item.songsDuration} min
+              </ThemedText>
+            </ThemedView>
+
+            <ThemedView
+              onLayout={(e: LayoutChangeEvent) => {
+                playSectionYRef.current = e.nativeEvent.layout.y;
+              }}
+            >
+              <InteractiveSection isPlayButtonSticky={isPlayButtonSticky} />
+            </ThemedView>
+            <HorizontalButtons />
+            <ThemedView />
+          </ThemedView>
+        }
+      />
+    </>
   );
 };
 

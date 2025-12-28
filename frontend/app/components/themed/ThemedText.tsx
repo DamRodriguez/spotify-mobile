@@ -13,6 +13,7 @@ type ThemedTextProps = {
   onPress?: () => void;
   numberOfLines?: number;
   allowFontScaling?: boolean;
+  onLayout?: (event: any) => void;
 };
 
 const ThemedText = ({
@@ -21,6 +22,7 @@ const ThemedText = ({
   onPress,
   numberOfLines,
   allowFontScaling,
+  onLayout
 }: ThemedTextProps) => {
   const styleSheet = StyleSheet.flatten([style]);
   const finalStyle = StyleSheet.flatten({
@@ -34,6 +36,7 @@ const ThemedText = ({
       onPress={onPress}
       numberOfLines={numberOfLines}
       allowFontScaling={allowFontScaling}
+      onLayout={onLayout}
     >
       {children}
     </Text>

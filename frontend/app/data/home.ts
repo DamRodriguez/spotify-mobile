@@ -155,7 +155,12 @@ export const listDinamicPageData: ListDinamicPageDataType[] = [
       { id: "3", title: "Policy of Truth", mp3: "", image: "" },
       { id: "4", title: "Never Let Me Down Again", mp3: "", image: "" },
       { id: "5", title: "Strangelove", mp3: "", image: "" },
-    ]
+      { id: "6", title: "People Are People", mp3: "", image: "" },
+      { id: "7", title: "Master and Servant", mp3: "", image: "" },
+      { id: "8", title: "Everything Counts", mp3: "", image: "" },
+      { id: "9", title: "Just Can't Get Enough", mp3: "", image: "" },
+      { id: "10", title: "Blasphemous Rumours", mp3: "", image: "" },
+    ],
   },
   {
     sectionType: "playlist",
@@ -169,7 +174,12 @@ export const listDinamicPageData: ListDinamicPageDataType[] = [
       { id: "3", title: "Friday I'm in Love", mp3: "", image: "" },
       { id: "4", title: "Lovesong", mp3: "", image: "" },
       { id: "5", title: "Pictures of You", mp3: "", image: "" },
-    ]
+      { id: "6", title: "Close to Me", mp3: "", image: "" },
+      { id: "7", title: "In Between Days", mp3: "", image: "" },
+      { id: "8", title: "A Forest", mp3: "", image: "" },
+      { id: "9", title: "The Lovecats", mp3: "", image: "" },
+      { id: "10", title: "Lullaby", mp3: "", image: "" },
+    ],
   },
   {
     sectionType: "playlist",
@@ -183,7 +193,12 @@ export const listDinamicPageData: ListDinamicPageDataType[] = [
       { id: "3", title: "Pain", mp3: "", image: "" },
       { id: "4", title: "Riot", mp3: "", image: "" },
       { id: "5", title: "I Hate Everything About You", mp3: "", image: "" },
-    ]
+      { id: "6", title: "Break", mp3: "", image: "" },
+      { id: "7", title: "The Good Life", mp3: "", image: "" },
+      { id: "8", title: "World So Cold", mp3: "", image: "" },
+      { id: "9", title: "Painkiller", mp3: "", image: "" },
+      { id: "10", title: "Just Like You", mp3: "", image: "" },
+    ],
   },
   {
     sectionType: "playlist",
@@ -197,7 +212,12 @@ export const listDinamicPageData: ListDinamicPageDataType[] = [
       { id: "3", title: "Celestica", mp3: "", image: "" },
       { id: "4", title: "Baptism", mp3: "", image: "" },
       { id: "5", title: "Vanished", mp3: "", image: "" },
-    ]
+      { id: "6", title: "Alice Practice", mp3: "", image: "" },
+      { id: "7", title: "Untrust Us", mp3: "", image: "" },
+      { id: "8", title: "Suffocation", mp3: "", image: "" },
+      { id: "9", title: "Plague", mp3: "", image: "" },
+      { id: "10", title: "Doe Deer", mp3: "", image: "" },
+    ],
   },
   {
     sectionType: "playlist",
@@ -211,7 +231,13 @@ export const listDinamicPageData: ListDinamicPageDataType[] = [
       { id: "3", title: "The Funeral of Hearts", mp3: "", image: "" },
       { id: "4", title: "Buried Alive by Love", mp3: "", image: "" },
       { id: "5", title: "Right Here in My Arms", mp3: "", image: "" },
-    ]
-  }
+      { id: "6", title: "Killing Loneliness", mp3: "", image: "" },
+      { id: "7", title: "Poison Girl", mp3: "", image: "" },
+      { id: "8", title: "Gone With the Sin", mp3: "", image: "" },
+      { id: "9", title: "Your Sweet Six Six Six", mp3: "", image: "" },
+      { id: "10", title: "Heartkiller", mp3: "", image: "" },
+    ],
+  },
 ];
+
 

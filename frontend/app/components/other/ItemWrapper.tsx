@@ -9,9 +9,10 @@ type ItemWrapperProps = {
   children: ReactNode;
   style?: StyleProp<ViewStyle>;
   disabled?: boolean;
+  onLayout?: (event: any) => void;
 };
 
-const ItemWrapper = ({ onPress, routerLink, children, style, disabled }: ItemWrapperProps) => {
+const ItemWrapper = ({ onPress, routerLink, children, style, disabled, onLayout }: ItemWrapperProps) => {
   const router = useRouter();
 
   const onItemPress = useCallback(() => {
@@ -24,6 +25,7 @@ const ItemWrapper = ({ onPress, routerLink, children, style, disabled }: ItemWra
       onPress={onItemPress}
       activeOpacity={buttons.opacity}
       disabled={disabled}
+      onLayout={onLayout}
       style={[
         style,
       ]}

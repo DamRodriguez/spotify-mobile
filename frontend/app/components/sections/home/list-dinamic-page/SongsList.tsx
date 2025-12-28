@@ -54,6 +54,7 @@ type SongsListProps = {
   isLoadingMore: boolean;
   data: SongItem[];
   artistName: string;
+  onScroll: (event: any) => void;
 };
 
 const SongsList = (props: SongsListProps) => {
@@ -63,6 +64,7 @@ const SongsList = (props: SongsListProps) => {
         {...flashListDefaults}
         onEndReached={props.onEndReached}
         ListHeaderComponent={props.topSections}
+        onScroll={props.onScroll}
         data={props.data}
         keyExtractor={(_, index) => String(index)}
         ItemSeparatorComponent={() => <ThemedView style={{ height: 15 }} />}

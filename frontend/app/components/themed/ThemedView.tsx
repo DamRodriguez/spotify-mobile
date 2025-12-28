@@ -5,13 +5,15 @@ type ThemedViewProps = {
   children?: ReactNode;
   id?: string;
   style?: StyleProp<ViewStyle>;
+  onLayout?: (event: any) => void;
 };
 
-const ThemedView = ({ children, id, style }: ThemedViewProps) => {
+const ThemedView = ({ children, id, style, onLayout }: ThemedViewProps) => {
   return (
     <View
       id={id}
       style={style}
+      onLayout={onLayout}
     >
       {children}
     </View>

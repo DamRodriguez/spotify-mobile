@@ -8,6 +8,7 @@ import ItemWrapper from "@/components/other/ItemWrapper";
 import { useSharedValue } from "react-native-reanimated";
 import ProfileDrawer from "./pofile-drawer/ProfileDrawer";
 import AnimatedModal from "@/components/modal/AnimatedModal";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 const styles = StyleSheet.create({
   container: {
@@ -27,6 +28,7 @@ const styles = StyleSheet.create({
 });
 
 const HomeHeader = () => {
+  const insets = useSafeAreaInsets();
   const profileDrawerVisible = useSharedValue(false);
 
   const toggleProfileDrawer = () => {
@@ -40,7 +42,11 @@ const HomeHeader = () => {
 
   return (
     <>
-      <ThemedView style={styles.container}>
+      <ThemedView
+        style={[{
+          paddingTop: insets.top + 16,
+        }, styles.container]}
+      >
         <ItemWrapper onPress={toggleProfileDrawer}>
           <OptimizedImage
             source={{}}

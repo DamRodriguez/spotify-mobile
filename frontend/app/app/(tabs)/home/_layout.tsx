@@ -1,5 +1,4 @@
 import HomeHeader from "@/components/header/home-header/HomeHeader";
-import ListDinamicPageHeader from "@/components/header/list-dinamic-page-header/ListDinamicPageHeader";
 import { Stack } from "expo-router";
 
 const homeStackScreens = [
@@ -12,7 +11,7 @@ const homeStackScreens = [
   {
     name: "listDinamicPage/[type]/[id]",
     options: {
-      header: () => <ListDinamicPageHeader />
+      header: () => null
     },
   },
 ];
