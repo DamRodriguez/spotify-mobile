@@ -65,6 +65,13 @@ const ListDinamicPageHeader = ({
       <Animated.View
         style={{
           opacity: opacityAnim,
+          position: "absolute",
+          left: 0,
+          right: 0,
+          top: insets.top + 5,
+          justifyContent: "center",
+          alignItems: "center",
+          pointerEvents: "none",
         }}
       >
         <ThemedText

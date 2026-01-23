@@ -14,7 +14,8 @@ const styles = StyleSheet.create({
   itemContainer: {
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
+    marginTop: 10
   },
   itemSubContainer: {
     flexDirection: "row",
@@ -44,6 +45,7 @@ const styles = StyleSheet.create({
 export type SongItem = {
   id: string;
   title: string;
+  subtitle: string;
   mp3: string;
   image: string | ImageSourcePropType;
 }
@@ -53,7 +55,6 @@ type SongsListProps = {
   onEndReached: () => void;
   isLoadingMore: boolean;
   data: SongItem[];
-  artistName: string;
   onScroll: (event: any) => void;
 };
 
@@ -89,7 +90,7 @@ const SongsList = (props: SongsListProps) => {
                   {item.title}
                 </ThemedText>
                 <ThemedText style={styles.itemSubtitle}>
-                  {props.artistName}
+                  {item.subtitle}
                 </ThemedText>
               </ThemedView>
             </ThemedView>

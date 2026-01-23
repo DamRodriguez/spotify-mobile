@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
   container: {
     paddingHorizontal: sizes.mainPadding,
     marginTop: 10,
-    gap: 40,
+    gap: 30,
     paddingBottom: 150
   },
 });

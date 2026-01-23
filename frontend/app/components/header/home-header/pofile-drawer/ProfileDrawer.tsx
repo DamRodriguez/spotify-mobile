@@ -87,9 +87,12 @@ const ProfileDrawer = (props: ProfileDrawerProps) => {
   const insets = useSafeAreaInsets();
 
   return (
-    <ThemedView style={[{
-      marginBottom: insets.bottom
-    }, styles.container]}>
+    <ThemedView
+      style={[{
+        marginBottom: insets.bottom,
+        marginTop: insets.top,
+      }, styles.container]}
+    >
       <ThemedView style={styles.profileContainer}>
         <ThemedView style={styles.usernameContainer}>
           <ItemWrapper

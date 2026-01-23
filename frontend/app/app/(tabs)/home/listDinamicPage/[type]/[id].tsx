@@ -4,7 +4,6 @@ import OptimizedImage from '@/components/image/OptimizedImage';
 import InteractiveSection from '@/components/sections/home/list-dinamic-page/InteractiveSection';
 import ThemedText from '@/components/themed/ThemedText';
 import ThemedView from '@/components/themed/ThemedView';
-import { listDinamicPageData } from '@/data/home';
 import { colors } from '@/themes/colors';
 import { fontSize } from '@/themes/fontSize';
 import { HomeListSection } from '@/types/homeListSection';
@@ -14,20 +13,15 @@ import { LayoutChangeEvent, StyleSheet, TextInput } from 'react-native';
 import HorizontalButtons from '@/components/sections/home/list-dinamic-page/HorizontalButtons';
 import SongsList, { SongItem } from '@/components/sections/home/list-dinamic-page/SongsList';
 import ListDinamicPageHeader from '@/components/header/list-dinamic-page-header/ListDinamicPageHeader';
-
-const styles = StyleSheet.create({
-  title: {
-    color: colors.neutral[1000],
-    fontSize: fontSize.h5,
-    fontWeight: 700,
-  }
-});
+import spotifyImage from '@/assets/images/logos/spotify-logo.png';
+import { listDinamicPageData } from '@/data/listDinamicPage';
 
 export type ListDinamicPageDataType = {
   sectionType: HomeListSection;
   id: string;
   frontImage: string;
   title: string;
+  abbreviatedTitle?: string;
   songsDuration: number;
   songs: SongItem[];
 }
@@ -48,6 +42,8 @@ const ListDinamicPage = () => {
     (item) => item.sectionType === type && item.id === id
   );
 
+  const userImage = "";
+
   if (!item) {
     return (
       <ThemedView style={{ padding: 16 }}>
@@ -61,12 +57,11 @@ const ListDinamicPage = () => {
   return (
     <>
       <ListDinamicPageHeader
-        title={item.title}
+        title={item.abbreviatedTitle ? item.abbreviatedTitle : item.title}
         showTitle={isTitleAtTop}
       />
       <SongsList
         data={item.songs}
-        artistName={item.title}
         onEndReached={() => { }}
         isLoadingMore={false}
         onScroll={(e) => {
@@ -123,7 +118,16 @@ const ListDinamicPage = () => {
             />
 
             <ThemedText
-              style={styles.title}
+              style={
+                item.abbreviatedTitle ? {
+                  color: colors.quaternary[50],
+                  fontSize: fontSize.b1,
+                } : {
+                  color: colors.neutral[1000],
+                  fontSize: fontSize.h5,
+                  fontWeight: 700,
+                }
+              }
               onLayout={(e: LayoutChangeEvent) => {
                 titleYRef.current = e.nativeEvent.layout.y;
               }}
@@ -133,7 +137,7 @@ const ListDinamicPage = () => {
 
             <ThemedView style={{ flexDirection: "row", alignItems: "center", gap: 10 }}>
               <OptimizedImage
-                source={""}
+                source={item.sectionType === "playlist" ? userImage : spotifyImage}
                 style={{
                   width: 35,
                   height: 35,
@@ -142,9 +146,10 @@ const ListDinamicPage = () => {
               />
               <ThemedText style={{
                 color: colors.neutral[1000],
-                fontSize: fontSize.b2
+                fontSize: fontSize.b2,
+                fontWeight: 600
               }}>
-                username
+                {item.sectionType === "playlist" ? "username" : "Spotify"}
               </ThemedText>
             </ThemedView>
 
@@ -165,7 +170,9 @@ const ListDinamicPage = () => {
             >
               <InteractiveSection isPlayButtonSticky={isPlayButtonSticky} />
             </ThemedView>
-            <HorizontalButtons />
+            {item.sectionType === "playlist" && (
+              <HorizontalButtons />
+            )}
             <ThemedView />
           </ThemedView>
         }
