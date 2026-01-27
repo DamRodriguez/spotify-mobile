@@ -9,12 +9,13 @@ import { fontSize } from '@/themes/fontSize';
 import { HomeListSection } from '@/types/homeListSection';
 import { useLocalSearchParams } from 'expo-router';
 import { useRef, useState } from 'react';
-import { LayoutChangeEvent, StyleSheet, TextInput } from 'react-native';
+import { LayoutChangeEvent, TextInput } from 'react-native';
 import HorizontalButtons from '@/components/sections/home/list-dinamic-page/HorizontalButtons';
 import SongsList, { SongItem } from '@/components/sections/home/list-dinamic-page/SongsList';
 import ListDinamicPageHeader from '@/components/header/list-dinamic-page-header/ListDinamicPageHeader';
 import spotifyImage from '@/assets/images/logos/spotify-logo.png';
 import { listDinamicPageData } from '@/data/listDinamicPage';
+import PlayButtonVariant from '@/components/other/PlayButtonVariant';
 
 export type ListDinamicPageDataType = {
   sectionType: HomeListSection;
@@ -54,11 +55,18 @@ const ListDinamicPage = () => {
     );
   }
 
+  const handlePlayButtonPress = () => {
+  }
+
   return (
     <>
       <ListDinamicPageHeader
         title={item.abbreviatedTitle ? item.abbreviatedTitle : item.title}
         showTitle={isTitleAtTop}
+      />
+      <PlayButtonVariant
+        isPlayButtonSticky={isPlayButtonSticky}
+        handlePlayButtonPress={handlePlayButtonPress}
       />
       <SongsList
         data={item.songs}
@@ -70,7 +78,7 @@ const ListDinamicPage = () => {
           const reachedTitleTop = scrollY - 35 >= titleYRef.current;
           setIsTitleAtTop(reachedTitleTop);
 
-          const shouldPlayButtonStick = scrollY - 5 >= playSectionYRef.current;
+          const shouldPlayButtonStick = scrollY - 45 >= playSectionYRef.current;
           setIsPlayButtonSticky(shouldPlayButtonStick);
         }}
         topSections={
@@ -168,7 +176,10 @@ const ListDinamicPage = () => {
                 playSectionYRef.current = e.nativeEvent.layout.y;
               }}
             >
-              <InteractiveSection isPlayButtonSticky={isPlayButtonSticky} />
+              <InteractiveSection
+                isPlayButtonSticky={isPlayButtonSticky}
+                onPlayButtonPress={handlePlayButtonPress}
+              />
             </ThemedView>
             {item.sectionType === "playlist" && (
               <HorizontalButtons />

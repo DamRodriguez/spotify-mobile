@@ -3,15 +3,19 @@ import { PlayIcon } from "../icons/common";
 import ItemWrapper from "../other/ItemWrapper";
 import ThemedView from "../themed/ThemedView";
 
-const PlayButton = () => {
+type PlayButtonProps = {
+  onPress: () => void;
+}
+
+const PlayButton = (props: PlayButtonProps) => {
   return (
     <ItemWrapper
-      onPress={() => { }}
+      onPress={props.onPress}
       style={{
         backgroundColor: colors.mainGreen,
         borderRadius: 999,
         padding: 10,
-        elevation: 10
+        elevation: 20
       }}
     >
       <ThemedView style={{ left: 2 }}>
