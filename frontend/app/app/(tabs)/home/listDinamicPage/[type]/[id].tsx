@@ -11,11 +11,12 @@ import { useLocalSearchParams } from 'expo-router';
 import { useRef, useState } from 'react';
 import { LayoutChangeEvent, TextInput } from 'react-native';
 import HorizontalButtons from '@/components/sections/home/list-dinamic-page/HorizontalButtons';
-import SongsList, { SongItem } from '@/components/sections/home/list-dinamic-page/SongsList';
+import SongsList from '@/components/sections/home/list-dinamic-page/SongsList';
 import ListDinamicPageHeader from '@/components/header/list-dinamic-page-header/ListDinamicPageHeader';
 import spotifyImage from '@/assets/images/logos/spotify-logo.png';
 import { listDinamicPageData } from '@/data/listDinamicPage';
 import PlayButtonVariant from '@/components/other/PlayButtonVariant';
+import { SongItemData } from '@/components/music/SongItem';
 
 export type ListDinamicPageDataType = {
   sectionType: HomeListSection;
@@ -24,7 +25,7 @@ export type ListDinamicPageDataType = {
   title: string;
   abbreviatedTitle?: string;
   songsDuration: number;
-  songs: SongItem[];
+  songs: SongItemData[];
 }
 
 const ListDinamicPage = () => {

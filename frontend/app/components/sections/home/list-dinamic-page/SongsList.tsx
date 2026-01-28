@@ -21,10 +21,10 @@ const SongsList = (props: SongsListProps) => {
         ListHeaderComponent={props.topSections}
         onScroll={props.onScroll}
         data={props.data}
-        keyExtractor={(_, index) => String(index)}
+        keyExtractor={(item) => item.id}
         ItemSeparatorComponent={() => <ThemedView style={{ height: 15 }} />}
         contentContainerStyle={{
-          paddingBottom: 140,
+          paddingBottom: 200,
           paddingHorizontal: 16,
         }}
         ListFooterComponent={<ListFooterSpinner isLoadingMore={props.isLoadingMore} />}

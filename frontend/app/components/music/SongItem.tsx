@@ -6,6 +6,7 @@ import ThemedText from "../themed/ThemedText";
 import ThemedView from "../themed/ThemedView";
 import { fontSize } from "@/themes/fontSize";
 import { ImageSourcePropType, StyleSheet } from "react-native";
+import useSongItem from "@/features/redux/song-item/useSongItem";
 
 const styles = StyleSheet.create({
   itemContainer: {
@@ -25,7 +26,6 @@ const styles = StyleSheet.create({
     borderRadius: 4,
   },
   itemTitle: {
-    color: colors.neutral[1000],
     fontSize: fontSize.b1
   },
   itemSubtitle: {
@@ -39,10 +39,11 @@ const styles = StyleSheet.create({
 
 export type SongItemData = {
   id: string;
-  title: string;
-  subtitle: string;
+  artistName: string;
+  songName: string;
   mp3: string;
   image: string | ImageSourcePropType;
+  duration: number;
 }
 
 type SongItemProps = {
@@ -51,10 +52,12 @@ type SongItemProps = {
 
 const SongItem = (props: SongItemProps) => {
   const data = props.data;
+  const { setSongItemData, songItemData } = useSongItem();
+  const isSongPlaying = songItemData.id === data.id && songItemData.artistName === data.artistName;
 
   return (
     <ItemWrapper
-      key={data.id}
+      onPress={() => { setSongItemData(props.data) }}
       style={styles.itemContainer}
     >
       <ThemedView style={styles.itemSubContainer}>
@@ -65,15 +68,17 @@ const SongItem = (props: SongItemProps) => {
         <ThemedView style={styles.itemTextsContainer}>
           <ThemedText
             numberOfLines={1}
-            style={styles.itemTitle}
+            style={[styles.itemTitle, {
+              color: isSongPlaying ? colors.mainGreen : colors.neutral[1000]
+            }]}
           >
-            {data.title}
+            {data.songName}
           </ThemedText>
           <ThemedText
             numberOfLines={1}
             style={styles.itemSubtitle}
           >
-            {data.subtitle}
+            {data.artistName}
           </ThemedText>
         </ThemedView>
       </ThemedView>

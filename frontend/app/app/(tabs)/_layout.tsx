@@ -1,3 +1,4 @@
+import FloatSong from "@/components/layout/float-song/FloatSong";
 import TabBar from "@/components/tabs/TabBar";
 import ThemedView from "@/components/themed/ThemedView";
 import { tabItems } from "@/config/tabs";
@@ -36,6 +37,7 @@ const TabsLayout = () => {
           )
         })}
       </Tabs>
+      <FloatSong />
     </ThemedView>
   );
 };
