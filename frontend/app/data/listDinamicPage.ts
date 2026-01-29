@@ -1,4 +1,9 @@
-import { ListDinamicPageDataType } from "@/app/(tabs)/home/listDinamicPage/[type]/[id]";
+import { ListDinamicPageDataType } from "@/app/(player-group)/(tabs)/home/listDinamicPage/[type]/[id]";
+import DepecheModeViolatorAlbumImg from "@/assets/images/albums/depeche-mode/violator.png"
+import DepecheModeMusicForTheMassesAlbumImg from "@/assets/images/albums/depeche-mode/music-for-the-masses.png"
+import DepecheModeSomeGreatRewardAlbumImg from "@/assets/images/albums/depeche-mode/some-great-reward.png"
+import DepecheModeConstructionTimeAgainAlbumImg from "@/assets/images/albums/depeche-mode/construction-time-again.png"
+import DepecheModeSpeakSpellAlbumImg from "@/assets/images/albums/depeche-mode/speak-spell.png"
 
 export const listDinamicPageData: ListDinamicPageDataType[] = [
   {
@@ -8,16 +13,16 @@ export const listDinamicPageData: ListDinamicPageDataType[] = [
     title: "Depeche Mode",
     songsDuration: 40,
     songs: [
-      { id: "1", songName: "Enjoy the Silence", artistName: "Depeche Mode", mp3: "", image: "", duration: 130 },
-      { id: "2", songName: "Personal Jesus", artistName: "Depeche Mode", mp3: "", image: "", duration: 130 },
-      { id: "3", songName: "Policy of Truth", artistName: "Depeche Mode", mp3: "", image: "", duration: 130 },
-      { id: "4", songName: "Never Let Me Down Again", artistName: "Depeche Mode", mp3: "", image: "", duration: 130 },
-      { id: "5", songName: "Strangelove", artistName: "Depeche Mode", mp3: "", image: "", duration: 130 },
-      { id: "6", songName: "People Are People", artistName: "Depeche Mode", mp3: "", image: "", duration: 130 },
-      { id: "7", songName: "Master and Servant", artistName: "Depeche Mode", mp3: "", image: "", duration: 130 },
-      { id: "8", songName: "Everything Counts", artistName: "Depeche Mode", mp3: "", image: "", duration: 130 },
-      { id: "9", songName: "Just Can't Get Enough", artistName: "Depeche Mode", mp3: "", image: "", duration: 130 },
-      { id: "10", songName: "Blasphemous Rumours", artistName: "Depeche Mode", mp3: "", image: "", duration: 130 },
+      { id: "1", songName: "Enjoy the Silence", artistName: "Depeche Mode", mp3: "", image: DepecheModeViolatorAlbumImg, duration: 130 },
+      { id: "2", songName: "Personal Jesus", artistName: "Depeche Mode", mp3: "", image: DepecheModeViolatorAlbumImg, duration: 130 },
+      { id: "3", songName: "Policy of Truth", artistName: "Depeche Mode", mp3: "", image: DepecheModeViolatorAlbumImg, duration: 130 },
+      { id: "4", songName: "Never Let Me Down Again", artistName: "Depeche Mode", mp3: "", image: DepecheModeMusicForTheMassesAlbumImg, duration: 130 },
+      { id: "5", songName: "Strangelove", artistName: "Depeche Mode", mp3: "", image: DepecheModeMusicForTheMassesAlbumImg, duration: 130 },
+      { id: "6", songName: "People Are People", artistName: "Depeche Mode", mp3: "", image: DepecheModeSomeGreatRewardAlbumImg, duration: 130 },
+      { id: "7", songName: "Master and Servant", artistName: "Depeche Mode", mp3: "", image: DepecheModeSomeGreatRewardAlbumImg, duration: 130 },
+      { id: "8", songName: "Everything Counts", artistName: "Depeche Mode", mp3: "", image: DepecheModeConstructionTimeAgainAlbumImg, duration: 130 },
+      { id: "9", songName: "Just Can't Get Enough", artistName: "Depeche Mode", mp3: "", image: DepecheModeSpeakSpellAlbumImg, duration: 130 },
+      { id: "10", songName: "Blasphemous Rumours", artistName: "Depeche Mode", mp3: "", image: DepecheModeSomeGreatRewardAlbumImg, duration: 130 },
     ],
   },
   {

@@ -8,16 +8,19 @@ import DurationBar from "./DurationBar";
 import { ComputerIcon, PlayIcon, PlusIcon } from "@/components/icons/floatSong";
 import ItemWrapper from "@/components/other/ItemWrapper";
 import useSongItem from "@/features/redux/song-item/useSongItem";
+import { useRouter } from "expo-router";
+import { ROUTES } from "@/navigation/routes";
 
 const FloatSong = () => {
   const insets = useSafeAreaInsets();
   const { songItemData } = useSongItem();
   const data = songItemData;
+  const router = useRouter();
   if (!data.duration) return null;
 
   return (
     <ItemWrapper
-      onPress={() => { }}
+      onPress={() => { router.push(ROUTES.PLAYER.index) }}
       style={{
         position: "absolute",
         bottom: insets.bottom + 68,
@@ -49,6 +52,7 @@ const FloatSong = () => {
             flex: 1,
             flexDirection: "row",
             justifyContent: "space-between",
+            gap: 4
           }}
         >
           <ThemedView

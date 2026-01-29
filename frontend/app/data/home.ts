@@ -1,6 +1,7 @@
 import { BasicHorizontalListData } from "@/components/other/BasicHorizontalList";
 import { HorizontalListTitleAndTextData } from "@/components/other/HorizontalListTitleAndText";
 import likesImg from "@/assets/images/home/recent-music/likes.png"
+import DepecheModeViolatorAlbumImg from "@/assets/images/albums/depeche-mode/violator.png"
 
 export const recentMusicData = [
   {
@@ -39,7 +40,7 @@ export const yourPlaylistsItems: HorizontalListTitleAndTextData[] = [
   {
     sectionType: "playlist",
     id: 1,
-    image: "",
+    image: DepecheModeViolatorAlbumImg,
     title: "Depeche Mode",
     subtitle: "username"
   },

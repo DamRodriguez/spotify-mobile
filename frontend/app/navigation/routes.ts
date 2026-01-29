@@ -7,10 +7,9 @@ export const ROUTES = {
     SEARCH: "search",
     LIBRARY: "library",
     CREATE: "create",
-    WITHOUT_TABS: {
-    },
-    DETAILS: {
-    },
+  },
+  PLAYER: {
+    index: "(player)"
   },
   ERROR: "/error",
 };
