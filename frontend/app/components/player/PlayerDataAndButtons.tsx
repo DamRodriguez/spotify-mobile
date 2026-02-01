@@ -28,6 +28,7 @@ const PlayerDataAndButtons = () => {
         <ThemedView
           style={{
             gap: 4,
+            width: "70%"
           }}
         >
           <ThemedText

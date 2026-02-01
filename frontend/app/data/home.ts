@@ -86,7 +86,7 @@ export const yourPlaylistsItemsBase: HorizontalListTitleAndTextData[] = [
 export const yourPlaylistsItems: HorizontalListTitleAndTextData[] =
   yourPlaylistsItemsBase.map(item => ({
     ...item,
-    image: getListImages(item.id, listDinamicPageData),
+    image: getListImages(item.title, listDinamicPageData),
   }));
 
 export const dailyReleasesItems: BasicHorizontalListData[] = [

@@ -315,5 +315,5 @@ export const listDinamicPageItems: ListDinamicPageDataType[] = [
 export const listDinamicPageData: ListDinamicPageDataType[] =
   listDinamicPageItems.map(item => ({
     ...item,
-    frontImage: getListImages(item.id, listDinamicPageItems),
+    frontImage: getListImages(item.title, listDinamicPageItems),
   }));
