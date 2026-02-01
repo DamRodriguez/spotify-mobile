@@ -4,8 +4,17 @@ import DepecheModeMusicForTheMassesAlbumImg from "@/assets/images/albums/depeche
 import DepecheModeSomeGreatRewardAlbumImg from "@/assets/images/albums/depeche-mode/some-great-reward.png"
 import DepecheModeConstructionTimeAgainAlbumImg from "@/assets/images/albums/depeche-mode/construction-time-again.png"
 import DepecheModeSpeakSpellAlbumImg from "@/assets/images/albums/depeche-mode/speak-spell.png"
+import TheCureKissMeAlbumImg from "@/assets/images/albums/the-cure/kiss-me.png"
+import TheCureBoysDontCryAlbumImg from "@/assets/images/albums/the-cure/boys-dont-cry.png"
+import TheCureFridayImInLoveAlbumImg from "@/assets/images/albums/the-cure/friday-im-in-love.png"
+import TheCureDesintegrationAlbumImg from "@/assets/images/albums/the-cure/desintegration.png"
+import TheCureTheHeadOnTheDoorAlbumImg from "@/assets/images/albums/the-cure/the-head-on-the-door.png"
+import TheCureSeventeenSecondsAlbumImg from "@/assets/images/albums/the-cure/seventeen-seconds.png"
+import TheCureJapaneseWhispersAlbumImg from "@/assets/images/albums/the-cure/japanese-whispers.png"
+import ThreeDaysGraceOneXAlbumImg from "@/assets/images/albums/three-days-grace/one-x.png"
+import { getListImages } from "@/utils/getPlaylistImages";
 
-export const listDinamicPageData: ListDinamicPageDataType[] = [
+export const listDinamicPageItems: ListDinamicPageDataType[] = [
   {
     sectionType: "playlist",
     id: "1",
@@ -32,16 +41,16 @@ export const listDinamicPageData: ListDinamicPageDataType[] = [
     title: "The Cure",
     songsDuration: 32,
     songs: [
-      { id: "1", songName: "Just Like Heaven", artistName: "The Cure", mp3: "", image: "", duration: 130 },
-      { id: "2", songName: "Boys Don't Cry", artistName: "The Cure", mp3: "", image: "", duration: 130 },
-      { id: "3", songName: "Friday I'm in Love", artistName: "The Cure", mp3: "", image: "", duration: 130 },
-      { id: "4", songName: "Lovesong", artistName: "The Cure", mp3: "", image: "", duration: 130 },
-      { id: "5", songName: "Pictures of You", artistName: "The Cure", mp3: "", image: "", duration: 130 },
-      { id: "6", songName: "Close to Me", artistName: "The Cure", mp3: "", image: "", duration: 130 },
-      { id: "7", songName: "In Between Days", artistName: "The Cure", mp3: "", image: "", duration: 130 },
-      { id: "8", songName: "A Forest", artistName: "The Cure", mp3: "", image: "", duration: 130 },
-      { id: "9", songName: "The Lovecats", artistName: "The Cure", mp3: "", image: "", duration: 130 },
-      { id: "10", songName: "Lullaby", artistName: "The Cure", mp3: "", image: "", duration: 130 },
+      { id: "1", songName: "Just Like Heaven", artistName: "The Cure", mp3: "", image: TheCureKissMeAlbumImg, duration: 130 },
+      { id: "2", songName: "Boys Don't Cry", artistName: "The Cure", mp3: "", image: TheCureBoysDontCryAlbumImg, duration: 130 },
+      { id: "3", songName: "Friday I'm in Love", artistName: "The Cure", mp3: "", image: TheCureFridayImInLoveAlbumImg, duration: 130 },
+      { id: "4", songName: "Lovesong", artistName: "The Cure", mp3: "", image: TheCureDesintegrationAlbumImg, duration: 130 },
+      { id: "5", songName: "Pictures of You", artistName: "The Cure", mp3: "", image: TheCureDesintegrationAlbumImg, duration: 130 },
+      { id: "6", songName: "Close to Me", artistName: "The Cure", mp3: "", image: TheCureTheHeadOnTheDoorAlbumImg, duration: 130 },
+      { id: "7", songName: "In Between Days", artistName: "The Cure", mp3: "", image: TheCureTheHeadOnTheDoorAlbumImg, duration: 130 },
+      { id: "8", songName: "A Forest", artistName: "The Cure", mp3: "", image: TheCureSeventeenSecondsAlbumImg, duration: 130 },
+      { id: "9", songName: "The Lovecats", artistName: "The Cure", mp3: "", image: TheCureJapaneseWhispersAlbumImg, duration: 130 },
+      { id: "10", songName: "Lullaby", artistName: "The Cure", mp3: "", image: TheCureDesintegrationAlbumImg, duration: 130 },
     ],
   },
   {
@@ -51,7 +60,7 @@ export const listDinamicPageData: ListDinamicPageDataType[] = [
     title: "Three Days Grace",
     songsDuration: 55,
     songs: [
-      { id: "1", songName: "Animal I Have Become", artistName: "Three Days Grace", mp3: "", image: "", duration: 130 },
+      { id: "1", songName: "Animal I Have Become", artistName: "Three Days Grace", mp3: "", image: ThreeDaysGraceOneXAlbumImg, duration: 130 },
       { id: "2", songName: "Never Too Late", artistName: "Three Days Grace", mp3: "", image: "", duration: 130 },
       { id: "3", songName: "Pain", artistName: "Three Days Grace", mp3: "", image: "", duration: 130 },
       { id: "4", songName: "Riot", artistName: "Three Days Grace", mp3: "", image: "", duration: 130 },
@@ -302,3 +311,9 @@ export const listDinamicPageData: ListDinamicPageDataType[] = [
     ],
   },
 ];
+
+export const listDinamicPageData: ListDinamicPageDataType[] =
+  listDinamicPageItems.map(item => ({
+    ...item,
+    frontImage: getListImages(item.id, listDinamicPageItems),
+  }));

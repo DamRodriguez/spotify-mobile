@@ -9,7 +9,7 @@ import { fontSize } from '@/themes/fontSize';
 import { HomeListSection } from '@/types/homeListSection';
 import { useLocalSearchParams } from 'expo-router';
 import { useRef, useState } from 'react';
-import { LayoutChangeEvent, TextInput } from 'react-native';
+import { ImageSourcePropType, LayoutChangeEvent, TextInput } from 'react-native';
 import HorizontalButtons from '@/components/sections/home/list-dinamic-page/HorizontalButtons';
 import SongsList from '@/components/sections/home/list-dinamic-page/SongsList';
 import ListDinamicPageHeader from '@/components/header/list-dinamic-page-header/ListDinamicPageHeader';
@@ -21,7 +21,7 @@ import { SongItemData } from '@/components/music/SongItem';
 export type ListDinamicPageDataType = {
   sectionType: HomeListSection;
   id: string;
-  frontImage: string;
+  frontImage: string | ImageSourcePropType | ImageSourcePropType[];
   title: string;
   abbreviatedTitle?: string;
   songsDuration: number;
@@ -114,17 +114,46 @@ const ListDinamicPage = () => {
               </ThemedView>
             </ThemedView>
 
-            <OptimizedImage
-              source={""}
+            <ThemedView
               style={{
-                width: 300,
-                height: 300,
-                alignSelf: "center",
-                borderRadius: 6,
                 marginTop: 25,
-                marginBottom: 10
+                marginBottom: 10,
               }}
-            />
+            >
+              {item.frontImage instanceof Array ? (
+                <ThemedView
+                  style={{
+                    backgroundColor: "#fff",
+                    borderRadius: 6,
+                    width: "100%",
+                    aspectRatio: 1,
+                    flexWrap: "wrap",
+                    overflow: "hidden"
+                  }}
+                >
+                  {item.frontImage.map((image, index) => (
+                    <OptimizedImage
+                      key={index}
+                      source={image}
+                      style={{
+                        width: "50%",
+                        height: "50%",
+                      }}
+                    />
+                  ))}
+                </ThemedView>
+              ) : (
+                <OptimizedImage
+                  source={item.frontImage}
+                  style={{
+                    width: "100%",
+                    aspectRatio: 1,
+                    alignSelf: "center",
+                    borderRadius: 6,
+                  }}
+                />
+              )}
+            </ThemedView>
 
             <ThemedText
               style={

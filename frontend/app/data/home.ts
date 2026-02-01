@@ -1,7 +1,16 @@
 import { BasicHorizontalListData } from "@/components/other/BasicHorizontalList";
 import { HorizontalListTitleAndTextData } from "@/components/other/HorizontalListTitleAndText";
 import likesImg from "@/assets/images/home/recent-music/likes.png"
+import { listDinamicPageData } from "./listDinamicPage";
+import { getListImages } from "@/utils/getPlaylistImages";
+import nuevoLanzamientoImg from "@/assets/images/daily-releases/nuevo-lanzamiento.png"
+import propuestaDinamicaImg from "@/assets/images/daily-releases/propuesta-dinamica.png"
+import energiaMelodiaImg from "@/assets/images/daily-releases/energia-melodia.png"
 import DepecheModeViolatorAlbumImg from "@/assets/images/albums/depeche-mode/violator.png"
+import ThisIsRammsteinImg from "@/assets/images/recent-music/this-is-rammstein.png"
+import PlaceboImg from "@/assets/images/recent-music/placebo.png"
+import TheCureDesintegrationAlbumImg from "@/assets/images/albums/the-cure/desintegration.png"
+import ThreeDaysGraceOneXAlbumImg from "@/assets/images/albums/three-days-grace/one-x.png"
 
 export const recentMusicData = [
   {
@@ -11,86 +20,92 @@ export const recentMusicData = [
   },
   {
     id: 2,
-    image: "",
-    text: "Prueba2"
+    image: DepecheModeViolatorAlbumImg,
+    text: "Depeche Mode - Violator"
   },
   {
     id: 3,
-    image: "",
-    text: "Prueba3"
+    image: ThisIsRammsteinImg,
+    text: "This is Rammstein"
   },
   {
     id: 4,
-    image: "",
-    text: "Prueba4"
+    image: PlaceboImg,
+    text: "Placebo"
   },
   {
     id: 5,
-    image: "",
-    text: "Prueba5"
+    image: TheCureDesintegrationAlbumImg,
+    text: "The Cure"
   },
   {
     id: 6,
-    image: "",
-    text: "Prueba6"
+    image: ThreeDaysGraceOneXAlbumImg,
+    text: "Three Days Grace"
   }
 ]
 
-export const yourPlaylistsItems: HorizontalListTitleAndTextData[] = [
+export const yourPlaylistsItemsBase: HorizontalListTitleAndTextData[] = [
   {
     sectionType: "playlist",
-    id: 1,
-    image: DepecheModeViolatorAlbumImg,
+    id: "1",
+    image: "",
     title: "Depeche Mode",
     subtitle: "username"
   },
   {
     sectionType: "playlist",
-    id: 2,
+    id: "2",
     image: "",
     title: "The Cure",
     subtitle: "username"
   },
   {
     sectionType: "playlist",
-    id: 3,
+    id: "3",
     image: "",
     title: "Three Days Grace",
     subtitle: "username"
   },
   {
     sectionType: "playlist",
-    id: 4,
+    id: "4",
     image: "",
     title: "Crystal Castles",
     subtitle: "username"
   },
   {
     sectionType: "playlist",
-    id: 5,
+    id: "5",
     image: "",
     title: "HIM",
     subtitle: "username"
   }
 ]
 
+export const yourPlaylistsItems: HorizontalListTitleAndTextData[] =
+  yourPlaylistsItemsBase.map(item => ({
+    ...item,
+    image: getListImages(item.id, listDinamicPageData),
+  }));
+
 export const dailyReleasesItems: BasicHorizontalListData[] = [
   {
     sectionType: "daily-releases",
     id: 1,
-    image: "",
+    image: nuevoLanzamientoImg,
     text: "Nuevo lanzamiento del día: sonidos frescos que mezclan ritmos actuales con una producción moderna. Ideal para descubrir algo distinto en pocos minutos.",
   },
   {
     sectionType: "daily-releases",
     id: 2,
-    image: "",
+    image: propuestaDinamicaImg,
     text: "Estreno reciente que ya empieza a sonar fuerte. Una propuesta dinámica, perfecta para sumar a tu playlist diaria.",
   },
   {
     sectionType: "daily-releases",
     id: 3,
-    image: "",
+    image: energiaMelodiaImg,
     text: "Una novedad que combina energía y melodía, pensada para acompañarte durante el día con un estilo actual y envolvente.",
   },
   {

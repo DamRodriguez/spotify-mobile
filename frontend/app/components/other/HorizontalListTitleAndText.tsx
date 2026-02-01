@@ -28,7 +28,9 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     borderRadius: 6,
     width: 140,
-    height: 140
+    height: 140,
+    flexWrap: "wrap",
+    overflow: "hidden"
   },
   itemTitle: {
     color: colors.neutral[1000],
@@ -40,13 +42,17 @@ const styles = StyleSheet.create({
   },
   itemTextContainer: {
     gap: 4
+  },
+  arrayImage: {
+    width: 70,
+    height: 70
   }
 });
 
 export type HorizontalListTitleAndTextData = {
   sectionType: HomeListSection;
-  id: number;
-  image: string | ImageSourcePropType;
+  id: string;
+  image: string | ImageSourcePropType | ImageSourcePropType[];
   title: string;
   subtitle: string;
 }
@@ -64,7 +70,6 @@ const HorizontalListTitleAndText = (props: HorizontalListTitleAndTextProps) => {
       >
         {props.title}
       </ThemedText>
-
       <FlashList
         {...flashListDefaults}
         data={props.data}
@@ -72,9 +77,6 @@ const HorizontalListTitleAndText = (props: HorizontalListTitleAndTextProps) => {
         onEndReached={() => { }}
         keyExtractor={(_, index) => String(index)}
         ItemSeparatorComponent={() => <ThemedView style={{ width: 15 }} />}
-        contentContainerStyle={{
-
-        }}
         ListFooterComponent={
           <ListFooterSpinner isLoadingMore={false} />
         }
@@ -85,10 +87,24 @@ const HorizontalListTitleAndText = (props: HorizontalListTitleAndTextProps) => {
             style={styles.itemContainer}
             routerLink={`${ROUTES.MAIN.HOME.listDinamicPage}/${item.sectionType}/${item.id}`}
           >
-            <OptimizedImage
-              source={item.image}
-              style={styles.itemImage}
-            />
+            {item.image instanceof Array ? (
+              <ThemedView
+                style={styles.itemImage}
+              >
+                {item.image.map((image, index) => (
+                  <OptimizedImage
+                    key={index}
+                    source={image}
+                    style={styles.arrayImage}
+                  />
+                ))}
+              </ThemedView>
+            ) : (
+              <OptimizedImage
+                source={item.image}
+                style={styles.itemImage}
+              />
+            )}
             <ThemedView style={styles.itemTextContainer}>
               <ThemedText
                 numberOfLines={1}
