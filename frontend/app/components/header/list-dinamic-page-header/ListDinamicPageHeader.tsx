@@ -11,11 +11,13 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 type ListDinamicPageHeaderProps = {
   title: string;
   showTitle: boolean;
+  headerColor: string;
 };
 
 const ListDinamicPageHeader = ({
   title,
   showTitle,
+  headerColor,
 }: ListDinamicPageHeaderProps) => {
   const insets = useSafeAreaInsets();
   const router = useRouter();
@@ -40,7 +42,7 @@ const ListDinamicPageHeader = ({
 
   const backgroundColor = bgAnim.interpolate({
     inputRange: [0, 1],
-    outputRange: ["transparent", colors.softSlate],
+    outputRange: ["transparent", headerColor],
   });
 
   return (

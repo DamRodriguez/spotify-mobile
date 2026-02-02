@@ -44,6 +44,7 @@ export type SongItemData = {
   mp3: string;
   image: string | ImageSourcePropType;
   duration: number;
+  color?: string;
 }
 
 type SongItemProps = {

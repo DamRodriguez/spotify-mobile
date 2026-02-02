@@ -14,7 +14,7 @@ const PlayerScreen = () => {
     <ThemedScrollView
       style={{
         flex: 1,
-        backgroundColor: colors.neutral[500],
+        backgroundColor: songItemData.color || colors.neutral[500],
         paddingTop: insets.top + 16,
         paddingHorizontal: 16,
         paddingBottom: insets.bottom,

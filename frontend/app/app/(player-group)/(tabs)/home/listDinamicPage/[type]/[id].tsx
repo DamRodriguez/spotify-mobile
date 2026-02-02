@@ -26,6 +26,7 @@ export type ListDinamicPageDataType = {
   abbreviatedTitle?: string;
   songsDuration: number;
   songs: SongItemData[];
+  headerColor?: string;
 }
 
 const ListDinamicPage = () => {
@@ -64,6 +65,7 @@ const ListDinamicPage = () => {
       <ListDinamicPageHeader
         title={item.abbreviatedTitle ? item.abbreviatedTitle : item.title}
         showTitle={isTitleAtTop}
+        headerColor={item.headerColor || colors.softSlate}
       />
       <PlayButtonVariant
         isPlayButtonSticky={isPlayButtonSticky}
@@ -118,6 +120,7 @@ const ListDinamicPage = () => {
               style={{
                 marginTop: 25,
                 marginBottom: 10,
+                alignItems: "center"
               }}
             >
               {item.frontImage instanceof Array ? (
@@ -125,7 +128,7 @@ const ListDinamicPage = () => {
                   style={{
                     backgroundColor: "#fff",
                     borderRadius: 6,
-                    width: "100%",
+                    width: "75%",
                     aspectRatio: 1,
                     flexWrap: "wrap",
                     overflow: "hidden"
@@ -146,7 +149,7 @@ const ListDinamicPage = () => {
                 <OptimizedImage
                   source={item.frontImage}
                   style={{
-                    width: "100%",
+                    width: "75%",
                     aspectRatio: 1,
                     alignSelf: "center",
                     borderRadius: 6,

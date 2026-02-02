@@ -36,7 +36,7 @@ export const recentMusicData = [
   {
     id: 5,
     image: TheCureDesintegrationAlbumImg,
-    text: "The Cure"
+    text: "The Cure - Desintegration"
   },
   {
     id: 6,

@@ -32,7 +32,7 @@ const FloatSong = () => {
     >
       <ThemedView
         style={{
-          backgroundColor: colors.neutral[500],
+          backgroundColor: data.color || colors.neutral[500],
           flexDirection: "row",
           padding: 10,
           gap: 10,
