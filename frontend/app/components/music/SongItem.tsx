@@ -56,9 +56,20 @@ const SongItem = (props: SongItemProps) => {
   const { setSongItemData, songItemData } = useSongItem();
   const isSongPlaying = songItemData.id === data.id && songItemData.artistName === data.artistName;
 
+  const handleSongItemPress = () => {
+    if (!data.color) {
+      setSongItemData({
+        ...data,
+        color: "",
+      })
+    } else {
+      setSongItemData(data);
+    }
+  }
+
   return (
     <ItemWrapper
-      onPress={() => { setSongItemData(props.data) }}
+      onPress={handleSongItemPress}
       style={styles.itemContainer}
     >
       <ThemedView style={styles.itemSubContainer}>

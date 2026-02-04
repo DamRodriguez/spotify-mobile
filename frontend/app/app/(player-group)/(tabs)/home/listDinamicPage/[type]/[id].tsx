@@ -6,7 +6,6 @@ import ThemedText from '@/components/themed/ThemedText';
 import ThemedView from '@/components/themed/ThemedView';
 import { colors } from '@/themes/colors';
 import { fontSize } from '@/themes/fontSize';
-import { HomeListSection } from '@/types/homeListSection';
 import { useLocalSearchParams } from 'expo-router';
 import { useRef, useState } from 'react';
 import { ImageSourcePropType, LayoutChangeEvent, TextInput } from 'react-native';
@@ -17,9 +16,10 @@ import spotifyImage from '@/assets/images/logos/spotify-logo.png';
 import { listDinamicPageData } from '@/data/listDinamicPage';
 import PlayButtonVariant from '@/components/other/PlayButtonVariant';
 import { SongItemData } from '@/components/music/SongItem';
+import { HomeListSectionType } from '@/types/homeListSection';
 
 export type ListDinamicPageDataType = {
-  sectionType: HomeListSection;
+  sectionType: HomeListSectionType;
   id: string;
   frontImage: string | ImageSourcePropType | ImageSourcePropType[];
   title: string;

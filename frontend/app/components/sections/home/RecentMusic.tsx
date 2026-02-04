@@ -5,7 +5,6 @@ import { fontSize } from "@/themes/fontSize";
 import { FlashList } from "@shopify/flash-list";
 import { StyleSheet } from "react-native";
 import OptimizedImage from "@/components/image/OptimizedImage";
-import ThemedView from "@/components/themed/ThemedView";
 import { flashListDefaults } from "@/config/flashListDefaults";
 import { recentMusicData } from "@/data/home";
 
@@ -34,38 +33,36 @@ const styles = StyleSheet.create({
 
 const RecentMusicSection = () => {
   return (
-    <ThemedView>
-      <FlashList
-        {...flashListDefaults}
-        data={recentMusicData}
-        keyExtractor={(_, index) => String(index)}
-        numColumns={2}
-        renderItem={({ item }) => {
-          const gap = 8;
-          return (
-            <ItemWrapper
+    <FlashList
+      {...flashListDefaults}
+      data={recentMusicData}
+      keyExtractor={(_, index) => String(index)}
+      numColumns={2}
+      renderItem={({ item }) => {
+        const gap = 8;
+        return (
+          <ItemWrapper
+            style={[{
+              marginRight: item.id % 2 === 0 ? 0 : gap / 2,
+              marginLeft: item.id % 2 === 0 ? gap / 2 : 0,
+              marginBottom: gap
+            }, styles.container]}
+          >
+            <OptimizedImage
+              source={item.image}
               style={[{
-                marginRight: item.id % 2 === 0 ? 0 : gap / 2,
-                marginLeft: item.id % 2 === 0 ? gap / 2 : 0,
-                marginBottom: gap
-              }, styles.container]}
-            >
-              <OptimizedImage
-                source={item.image}
-                style={[{
 
-                }, styles.image]}
-              />
-              <ThemedText
-                numberOfLines={2}
-                style={[{}, styles.text]}>
-                {item.text}
-              </ThemedText>
-            </ItemWrapper>
-          )
-        }}
-      />
-    </ThemedView>
+              }, styles.image]}
+            />
+            <ThemedText
+              numberOfLines={2}
+              style={[{}, styles.text]}>
+              {item.text}
+            </ThemedText>
+          </ItemWrapper>
+        )
+      }}
+    />
   );
 };
 

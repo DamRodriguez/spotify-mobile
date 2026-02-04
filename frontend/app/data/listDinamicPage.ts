@@ -23,7 +23,7 @@ export const listDinamicPageItems: ListDinamicPageDataType[] = [
     songsDuration: 40,
     headerColor: "#473b3b",
     songs: [
-      { id: "1", songName: "Enjoy the Silence", artistName: "Depeche Mode", mp3: "", image: DepecheModeViolatorAlbumImg, duration: 130, color: "#826618" },
+      { id: "1", songName: "Enjoy the Silence", artistName: "Depeche Mode", mp3: "", image: DepecheModeViolatorAlbumImg, duration: 130, color: "#5c1212" },
       { id: "2", songName: "Personal Jesus", artistName: "Depeche Mode", mp3: "", image: DepecheModeViolatorAlbumImg, duration: 130, color: "#8e4227" },
       { id: "3", songName: "Policy of Truth", artistName: "Depeche Mode", mp3: "", image: DepecheModeViolatorAlbumImg, duration: 130, color: "#4a6a85" },
       { id: "4", songName: "Never Let Me Down Again", artistName: "Depeche Mode", mp3: "", image: DepecheModeMusicForTheMassesAlbumImg, duration: 130, color: "#752371" },

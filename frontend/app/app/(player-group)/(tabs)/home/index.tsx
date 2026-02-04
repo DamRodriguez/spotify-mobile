@@ -1,10 +1,11 @@
-import BackToYourMusicSection from "@/components/sections/home/BackToYourMusicSection";
-import DailyReleasesSection from "@/components/sections/home/DailyReleasesSection";
+import BackToYourMusicSection from "@/components/sections/home/horizontal-lists/BackToYourMusicSection";
+import DailyReleasesSection from "@/components/sections/home/horizontal-lists/DailyReleasesSection";
 import RecentMusicSection from "@/components/sections/home/RecentMusic";
-import YourPlaylistsSection from "@/components/sections/home/YourPlaylistsSection";
+import YourPlaylistsSection from "@/components/sections/home/horizontal-lists/YourPlaylistsSection";
 import ThemedScrollView from "@/components/themed/ThemedScrollView";
 import { sizes } from "@/constants/sizes";
 import { StyleSheet } from "react-native";
+import YourFavoriteArtistsSection from "@/components/sections/home/horizontal-lists/YourFavoriteArtistsSection";
 
 const styles = StyleSheet.create({
   container: {
@@ -20,6 +21,7 @@ const HomeScreen = () => {
     <ThemedScrollView style={styles.container}>
       <RecentMusicSection />
       <YourPlaylistsSection />
+      <YourFavoriteArtistsSection />
       <DailyReleasesSection />
       <BackToYourMusicSection />
     </ThemedScrollView>
