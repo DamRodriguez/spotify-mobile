@@ -29,14 +29,15 @@ const styles = StyleSheet.create({
 
 const HomeHeader = () => {
   const insets = useSafeAreaInsets();
-  const profileDrawerVisible = useSharedValue(false);
+  const profileDrawerVisible = useSharedValue<boolean>(false);
 
-  const toggleProfileDrawer = () => {
+  const openProfileDrawer = () => {
     Keyboard.dismiss();
-    profileDrawerVisible.value = !profileDrawerVisible.value;
+    profileDrawerVisible.value = true;
   };
 
   const closeProfileDrawer = () => {
+    Keyboard.dismiss();
     profileDrawerVisible.value = false;
   };
 
@@ -47,7 +48,7 @@ const HomeHeader = () => {
           paddingTop: insets.top + 16,
         }, styles.container]}
       >
-        <ItemWrapper onPress={toggleProfileDrawer}>
+        <ItemWrapper onPress={openProfileDrawer}>
           <OptimizedImage
             source={{}}
             style={styles.profileImage}

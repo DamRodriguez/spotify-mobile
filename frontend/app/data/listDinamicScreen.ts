@@ -1,4 +1,4 @@
-import { ListDinamicPageDataType } from "@/app/(player-group)/(tabs)/home/listDinamicPage/[type]/[id]";
+import { ListDinamicScreenDataType } from "@/app/(player-group)/(tabs)/home/list-dinamic-screen/[type]/[id]";
 import DepecheModeViolatorAlbumImg from "@/assets/images/albums/depeche-mode/violator.png"
 import DepecheModeMusicForTheMassesAlbumImg from "@/assets/images/albums/depeche-mode/music-for-the-masses.png"
 import DepecheModeSomeGreatRewardAlbumImg from "@/assets/images/albums/depeche-mode/some-great-reward.png"
@@ -14,7 +14,7 @@ import TheCureJapaneseWhispersAlbumImg from "@/assets/images/albums/the-cure/jap
 import ThreeDaysGraceOneXAlbumImg from "@/assets/images/albums/three-days-grace/one-x.png"
 import { getListImages } from "@/utils/getPlaylistImages";
 
-export const listDinamicPageItems: ListDinamicPageDataType[] = [
+const listDinamicScreenItems: ListDinamicScreenDataType[] = [
   {
     sectionType: "playlist",
     id: "1",
@@ -314,8 +314,8 @@ export const listDinamicPageItems: ListDinamicPageDataType[] = [
   },
 ];
 
-export const listDinamicPageData: ListDinamicPageDataType[] =
-  listDinamicPageItems.map(item => ({
+export const listDinamicScreenData: ListDinamicScreenDataType[] =
+  listDinamicScreenItems.map(item => ({
     ...item,
-    frontImage: getListImages(item.title, listDinamicPageItems),
+    frontImage: getListImages(item.title, listDinamicScreenItems),
   }));

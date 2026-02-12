@@ -18,9 +18,9 @@ const IconButton = ({ icon, bgColor = "", onPress, style }: IconButtonProps) => 
       activeOpacity={buttons.opacity}
       style={[{
         backgroundColor: bgColor,
-        width: 40,
-        height: 40,
-        borderRadius: 30,
+        width: 50,
+        height: 50,
+        borderRadius: 999,
         alignItems: "center",
         justifyContent: "center",
       }, style]}

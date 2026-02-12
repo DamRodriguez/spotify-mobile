@@ -1,8 +1,8 @@
-import { ListDinamicPageDataType } from "@/app/(player-group)/(tabs)/home/listDinamicPage/[type]/[id]";
+import { ListDinamicScreenDataType } from "@/app/(player-group)/(tabs)/home/list-dinamic-screen/[type]/[id]";
 
 export const getListImages = (
   title: string,
-  dynamicData: ListDinamicPageDataType[]
+  dynamicData: ListDinamicScreenDataType[]
 ): any | any[] => {
   const playlist = dynamicData.find(
     item => item.sectionType === "playlist" && item.title === title

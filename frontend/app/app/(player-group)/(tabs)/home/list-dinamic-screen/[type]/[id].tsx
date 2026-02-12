@@ -1,7 +1,7 @@
 import { SearchIcon } from '@/components/icons/common';
 import { WorldIcon } from '@/components/icons/listDinamicPage';
 import OptimizedImage from '@/components/image/OptimizedImage';
-import InteractiveSection from '@/components/sections/home/list-dinamic-page/InteractiveSection';
+import InteractiveSection from '@/components/common/InteractiveSection';
 import ThemedText from '@/components/themed/ThemedText';
 import ThemedView from '@/components/themed/ThemedView';
 import { colors } from '@/themes/colors';
@@ -9,16 +9,16 @@ import { fontSize } from '@/themes/fontSize';
 import { useLocalSearchParams } from 'expo-router';
 import { useRef, useState } from 'react';
 import { ImageSourcePropType, LayoutChangeEvent, TextInput } from 'react-native';
-import HorizontalButtons from '@/components/sections/home/list-dinamic-page/HorizontalButtons';
-import SongsList from '@/components/sections/home/list-dinamic-page/SongsList';
-import ListDinamicPageHeader from '@/components/header/list-dinamic-page-header/ListDinamicPageHeader';
+import HorizontalButtons from '@/components/sections/list-dinamic-screen/HorizontalButtons';
+import SongsList from '@/components/sections/list-dinamic-screen/SongsList';
 import spotifyImage from '@/assets/images/logos/spotify-logo.png';
-import { listDinamicPageData } from '@/data/listDinamicPage';
+import { listDinamicScreenData } from '@/data/listDinamicScreen';
 import PlayButtonVariant from '@/components/other/PlayButtonVariant';
 import { SongItemData } from '@/components/music/SongItem';
 import { HomeListSectionType } from '@/types/homeListSection';
+import ListDinamicScreenHeader from '@/components/header/list-dinamic-screen-header/ListDinamicScreenHeader';
 
-export type ListDinamicPageDataType = {
+export type ListDinamicScreenDataType = {
   sectionType: HomeListSectionType;
   id: string;
   frontImage: string | ImageSourcePropType | ImageSourcePropType[];
@@ -29,10 +29,10 @@ export type ListDinamicPageDataType = {
   headerColor?: string;
 }
 
-const ListDinamicPage = () => {
+const ListDinamicScreen = () => {
   const [inputValue, setInputValue] = useState<string>("");
   const { type, id } = useLocalSearchParams<{
-    type: HomeListSection;
+    type: HomeListSectionType;
     id: string;
   }>();
   const titleYRef = useRef(0);
@@ -41,7 +41,7 @@ const ListDinamicPage = () => {
   const playSectionYRef = useRef(0);
   const [isPlayButtonSticky, setIsPlayButtonSticky] = useState(false);
 
-  const item = listDinamicPageData.find(
+  const item = listDinamicScreenData.find(
     (item) => item.sectionType === type && item.id === id
   );
 
@@ -62,7 +62,7 @@ const ListDinamicPage = () => {
 
   return (
     <>
-      <ListDinamicPageHeader
+      <ListDinamicScreenHeader
         title={item.abbreviatedTitle ? item.abbreviatedTitle : item.title}
         showTitle={isTitleAtTop}
         headerColor={item.headerColor || colors.softSlate}
@@ -212,6 +212,11 @@ const ListDinamicPage = () => {
               <InteractiveSection
                 isPlayButtonSticky={isPlayButtonSticky}
                 onPlayButtonPress={handlePlayButtonPress}
+                onVideoButtonPress={() => { }}
+                onDownloadButtonPress={() => { }}
+                onShareButtonPress={() => { }}
+                onOptionsButtonPress={() => { }}
+                onRemixButtonPress={() => { }}
               />
             </ThemedView>
             {item.sectionType === "playlist" && (
@@ -225,4 +230,4 @@ const ListDinamicPage = () => {
   );
 };
 
-export default ListDinamicPage;
+export default ListDinamicScreen;

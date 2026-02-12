@@ -43,7 +43,7 @@ const DailyReleasesSection = () => {
         <ItemWrapper
           key={index}
           style={styles.itemContainer}
-          routerLink={`${ROUTES.MAIN.HOME.listDinamicPage}/${sectionType}/${item.id}`}
+          routerLink={`${ROUTES.MAIN.HOME.listDinamicScreen}/${sectionType}/${item.id}`}
         >
           <OptimizedImage
             source={item.image}

@@ -7,13 +7,14 @@ import ThemedView from "../themed/ThemedView";
 import { fontSize } from "@/themes/fontSize";
 import { ImageSourcePropType, StyleSheet } from "react-native";
 import useSongItem from "@/features/redux/song-item/useSongItem";
+import { formatWithCommas } from "@/utils/formatWithCommas";
 
 const styles = StyleSheet.create({
   itemContainer: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    marginTop: 10
+    marginTop: 10,
   },
   itemSubContainer: {
     flexDirection: "row",
@@ -33,7 +34,7 @@ const styles = StyleSheet.create({
     fontSize: fontSize.b2
   },
   itemTextsContainer: {
-    gap: 4
+    gap: 4,
   },
 });
 
@@ -45,10 +46,13 @@ export type SongItemData = {
   image: string | ImageSourcePropType;
   duration: number;
   color?: string;
+  reproductions?: number;
 }
 
 type SongItemProps = {
   data: SongItemData;
+  enumerateSongs?: boolean;
+  index?: number;
 }
 
 const SongItem = (props: SongItemProps) => {
@@ -73,6 +77,17 @@ const SongItem = (props: SongItemProps) => {
       style={styles.itemContainer}
     >
       <ThemedView style={styles.itemSubContainer}>
+        {props.enumerateSongs && (
+          <ThemedText
+            style={{
+              color: colors.neutral[1000],
+              fontSize: fontSize.b3,
+              width: 20,
+            }}
+          >
+            {props.index}
+          </ThemedText>
+        )}
         <OptimizedImage
           source={data.image}
           style={styles.itemImage}
@@ -86,12 +101,21 @@ const SongItem = (props: SongItemProps) => {
           >
             {data.songName}
           </ThemedText>
-          <ThemedText
-            numberOfLines={1}
-            style={styles.itemSubtitle}
-          >
-            {data.artistName}
-          </ThemedText>
+          {data.reproductions ? (
+            <ThemedText
+              numberOfLines={1}
+              style={styles.itemSubtitle}
+            >
+              {formatWithCommas(data.reproductions)}
+            </ThemedText>
+          ) : (
+            <ThemedText
+              numberOfLines={1}
+              style={styles.itemSubtitle}
+            >
+              {data.artistName}
+            </ThemedText>
+          )}
         </ThemedView>
       </ThemedView>
 

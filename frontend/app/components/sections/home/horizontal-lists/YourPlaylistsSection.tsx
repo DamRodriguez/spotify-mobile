@@ -59,7 +59,7 @@ const YourPlaylistsSection = () => {
         <ItemWrapper
           key={index}
           style={styles.itemContainer}
-          routerLink={`${ROUTES.MAIN.HOME.listDinamicPage}/${sectionType}/${item.id}`}
+          routerLink={`${ROUTES.MAIN.HOME.listDinamicScreen}/${sectionType}/${item.id}`}
         >
           {item.image instanceof Array ? (
             <ThemedView

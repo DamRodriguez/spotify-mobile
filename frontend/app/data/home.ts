@@ -11,11 +11,11 @@ import ThreeDaysGraceOneXAlbumImg from "@/assets/images/albums/three-days-grace/
 import { HorizontalPlaylistData } from "@/components/sections/home/horizontal-lists/YourPlaylistsSection";
 import { HorizontalDailyReleasesListData } from "@/components/sections/home/horizontal-lists/DailyReleasesSection";
 import { HorizontalBackToYourMusicListData } from "@/components/sections/home/horizontal-lists/BackToYourMusicSection";
-import { listDinamicPageData } from "./listDinamicPage";
 import { HorizontalFavoriteArtistsListData } from "@/components/sections/home/horizontal-lists/YourFavoriteArtistsSection";
 import LacunaCoilArtistImg from "@/assets/images/artists/lacuna-coil.png"
 import DepecheModeArtistImg from "@/assets/images/artists/depeche-mode.png"
 import BabasonicosArtistImg from "@/assets/images/artists/babasonicos.png"
+import { listDinamicScreenData } from "./listDinamicScreen";
 
 export const recentMusicData = [
   {
@@ -81,7 +81,7 @@ export const yourPlaylistsItemsBase: HorizontalPlaylistData[] = [
 export const yourPlaylistsItems: HorizontalPlaylistData[] =
   yourPlaylistsItemsBase.map(item => ({
     ...item,
-    image: getListImages(item.artistName, listDinamicPageData),
+    image: getListImages(item.artistName, listDinamicScreenData),
   }));
 
 export const dailyReleasesItems: HorizontalDailyReleasesListData[] = [
@@ -143,13 +143,13 @@ export const backToYourMusicItems: HorizontalBackToYourMusicListData[] = [
 export const favoriteArtistsItems: HorizontalFavoriteArtistsListData[] = [
   {
     id: "1",
-    image: LacunaCoilArtistImg,
-    artistName: "Lacuna Coil"
+    image: DepecheModeArtistImg,
+    artistName: "Depeche Mode"
   },
   {
     id: "2",
-    image: DepecheModeArtistImg,
-    artistName: "Depeche Mode"
+    image: LacunaCoilArtistImg,
+    artistName: "Lacuna Coil"
   },
   {
     id: "3",

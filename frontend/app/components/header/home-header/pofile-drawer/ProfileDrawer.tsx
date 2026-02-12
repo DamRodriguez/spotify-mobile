@@ -9,6 +9,7 @@ import { StyleSheet } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import ListItemsSection from "./ListItemsSection";
 import MessagesList from "./MessagesList";
+import { sizes } from "@/constants/sizes";
 
 const styles = StyleSheet.create({
   container: {
@@ -20,7 +21,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    padding: 16,
+    padding: sizes.mainPadding,
     borderBottomWidth: 1,
     borderBottomColor: colors.softSlate
   },

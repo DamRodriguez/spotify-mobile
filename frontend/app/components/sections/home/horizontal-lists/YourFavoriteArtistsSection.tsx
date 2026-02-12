@@ -6,6 +6,7 @@ import ThemedText from '@/components/themed/ThemedText';
 import { colors } from '@/themes/colors';
 import { fontSize } from '@/themes/fontSize';
 import { ImageSourcePropType, StyleSheet } from 'react-native';
+import { ROUTES } from '@/navigation/routes';
 
 const styles = StyleSheet.create({
   itemContainer: {
@@ -41,7 +42,7 @@ const YourFavoriteArtistsSection = () => {
         <ItemWrapper
           key={index}
           style={styles.itemContainer}
-        // routerLink={`${ROUTES.MAIN.HOME.listDinamicPage}/${sectionType}/${item.id}`}
+          routerLink={`${ROUTES.MAIN.HOME.artistDinamicScreen}/${item.id}`}
         >
           <OptimizedImage
             source={item.image}

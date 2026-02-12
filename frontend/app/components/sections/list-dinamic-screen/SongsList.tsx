@@ -2,6 +2,7 @@ import SongItem, { SongItemData } from "@/components/music/SongItem";
 import ListFooterSpinner from "@/components/other/ListFooterSpinner";
 import ThemedView from "@/components/themed/ThemedView";
 import { flashListDefaults } from "@/config/flashListDefaults";
+import { sizes } from "@/constants/sizes";
 import { FlashList } from "@shopify/flash-list";
 
 type SongsListProps = {
@@ -25,7 +26,7 @@ const SongsList = (props: SongsListProps) => {
         ItemSeparatorComponent={() => <ThemedView style={{ height: 6 }} />}
         contentContainerStyle={{
           paddingBottom: 200,
-          paddingHorizontal: 16,
+          paddingHorizontal: sizes.mainPadding,
         }}
         ListFooterComponent={<ListFooterSpinner isLoadingMore={props.isLoadingMore} />}
         ListEmptyComponent={<></>}

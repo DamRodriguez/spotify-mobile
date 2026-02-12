@@ -5,10 +5,20 @@ import OptimizedImage from "@/components/image/OptimizedImage";
 import ItemWrapper from "@/components/other/ItemWrapper";
 import ThemedView from "@/components/themed/ThemedView";
 import { colors } from "@/themes/colors";
+import FollowingButton from "../buttons/FollowingButton";
 
 type InteractiveSectionProps = {
-  isPlayButtonSticky: boolean;
+  isPlayButtonSticky?: boolean;
+  onVideoButtonPress: () => void;
+  onDownloadButtonPress: () => void;
+  onShareButtonPress: () => void;
+  onOptionsButtonPress: () => void;
+  onRemixButtonPress: () => void;
   onPlayButtonPress: () => void;
+  followingButtonVariantProps?: {
+    artistId: string;
+    isFollowing: boolean;
+  }
 };
 
 const InteractiveSection = (props: InteractiveSectionProps) => {
@@ -27,20 +37,31 @@ const InteractiveSection = (props: InteractiveSectionProps) => {
           <OptimizedImage
             source={""}
             style={{
-              height: 40,
-              width: 30,
+              height: 35,
+              width: 25,
               borderRadius: 6,
             }}
           />
         </ItemWrapper>
 
-        <ItemWrapper onPress={() => { }}>
-          <DownloadIcon />
-        </ItemWrapper>
+        {!props.followingButtonVariantProps && (
+          <>
+            <ItemWrapper onPress={() => { }}>
+              <DownloadIcon />
+            </ItemWrapper>
 
-        <ItemWrapper onPress={() => { }}>
-          <ShareIcon />
-        </ItemWrapper>
+            <ItemWrapper onPress={() => { }}>
+              <ShareIcon />
+            </ItemWrapper>
+          </>
+        )}
+
+        {props.followingButtonVariantProps && (
+          <FollowingButton
+            artistId={props.followingButtonVariantProps.artistId}
+            isFollowing={props.followingButtonVariantProps.isFollowing}
+          />
+        )}
 
         <ItemWrapper onPress={() => { }}>
           <VerticalDotsIcon size={32} />

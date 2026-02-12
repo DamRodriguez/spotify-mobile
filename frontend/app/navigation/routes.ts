@@ -2,7 +2,8 @@ export const ROUTES = {
   MAIN: {
     HOME: {
       index: "home/index",
-      listDinamicPage: "home/listDinamicPage"
+      listDinamicScreen: "home/list-dinamic-screen",
+      artistDinamicScreen: "home/artist-dinamic-screen"
     },
     SEARCH: "search",
     LIBRARY: "library",

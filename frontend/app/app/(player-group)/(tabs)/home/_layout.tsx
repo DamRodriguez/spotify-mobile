@@ -9,7 +9,13 @@ const homeStackScreens = [
     },
   },
   {
-    name: "listDinamicPage/[type]/[id]",
+    name: "list-dinamic-screen/[type]/[id]",
+    options: {
+      header: () => null
+    },
+  },
+  {
+    name: "artist-dinamic-screen/[id]",
     options: {
       header: () => null
     },
