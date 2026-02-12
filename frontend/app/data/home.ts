@@ -86,27 +86,27 @@ export const yourPlaylistsItems: HorizontalPlaylistData[] =
 
 export const dailyReleasesItems: HorizontalDailyReleasesListData[] = [
   {
-    id: "1",
+    id: "6",
     image: nuevoLanzamientoImg,
     description: "Nuevo lanzamiento del día: sonidos frescos que mezclan ritmos actuales con una producción moderna. Ideal para descubrir algo distinto en pocos minutos.",
   },
   {
-    id: "2",
+    id: "7",
     image: propuestaDinamicaImg,
     description: "Estreno reciente que ya empieza a sonar fuerte. Una propuesta dinámica, perfecta para sumar a tu playlist diaria.",
   },
   {
-    id: "3",
+    id: "8",
     image: energiaMelodiaImg,
     description: "Una novedad que combina energía y melodía, pensada para acompañarte durante el día con un estilo actual y envolvente.",
   },
   {
-    id: "4",
+    id: "9",
     image: "",
     description: "Lanzamiento recién salido: ritmo pegadizo, producción cuidada y un sonido que destaca entre las novedades de hoy.",
   },
   {
-    id: "5",
+    id: "10",
     image: "",
     description: "Descubrí este estreno diario con una vibra moderna y fresca, ideal para quienes buscan algo nuevo sin perder identidad.",
   }
@@ -114,27 +114,27 @@ export const dailyReleasesItems: HorizontalDailyReleasesListData[] = [
 
 export const backToYourMusicItems: HorizontalBackToYourMusicListData[] = [
   {
-    id: "1",
+    id: "11",
     image: "",
     description: "Volvé a escuchar esos temas que no podés dejar atrás. Canciones que ya conocés y siempre suenan bien, sin importar el momento.",
   },
   {
-    id: "2",
+    id: "12",
     image: "",
     description: "Tu música de siempre, esa que acompañó distintos momentos y que hoy vuelve a sonar como la primera vez.",
   },
   {
-    id: "3",
+    id: "13",
     image: "",
     description: "Reviví tus favoritos y retomá esas canciones que marcaron etapas. Perfectas para escuchar sin pensarlo demasiado.",
   },
   {
-    id: "4",
+    id: "14",
     image: "",
     description: "Un viaje directo a tu historial musical: temas que escuchaste, repetiste y siguen teniendo algo especial.",
   },
   {
-    id: "5",
+    id: "15",
     image: "",
     description: "Volvé a tu zona de confort musical con canciones que ya son parte de tu día a día.",
   },
@@ -142,27 +142,27 @@ export const backToYourMusicItems: HorizontalBackToYourMusicListData[] = [
 
 export const favoriteArtistsItems: HorizontalFavoriteArtistsListData[] = [
   {
-    id: "1",
+    id: "16",
     image: DepecheModeArtistImg,
     artistName: "Depeche Mode"
   },
   {
-    id: "2",
+    id: "17",
     image: LacunaCoilArtistImg,
     artistName: "Lacuna Coil"
   },
   {
-    id: "3",
+    id: "18",
     image: BabasonicosArtistImg,
     artistName: "Babasonicos"
   },
   {
-    id: "4",
+    id: "19",
     image: "",
     artistName: "Rammstein"
   },
   {
-    id: "5",
+    id: "20",
     image: "",
     artistName: "Lady Gaga"
   },

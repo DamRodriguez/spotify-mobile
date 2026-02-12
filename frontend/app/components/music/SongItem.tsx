@@ -53,21 +53,23 @@ type SongItemProps = {
   data: SongItemData;
   enumerateSongs?: boolean;
   index?: number;
+  sectionId: string
 }
 
 const SongItem = (props: SongItemProps) => {
   const data = props.data;
   const { setSongItemData, songItemData } = useSongItem();
-  const isSongPlaying = songItemData.id === data.id && songItemData.artistName === data.artistName;
+  const isSongActive = songItemData.id === data.id && songItemData.sectionId === props.sectionId;
 
   const handleSongItemPress = () => {
     if (!data.color) {
       setSongItemData({
         ...data,
         color: "",
+        sectionId: props.sectionId
       })
     } else {
-      setSongItemData(data);
+      setSongItemData({ ...data, sectionId: props.sectionId });
     }
   }
 
@@ -96,7 +98,7 @@ const SongItem = (props: SongItemProps) => {
           <ThemedText
             numberOfLines={1}
             style={[styles.itemTitle, {
-              color: isSongPlaying ? colors.mainGreen : colors.neutral[1000]
+              color: isSongActive ? colors.mainGreen : colors.neutral[1000]
             }]}
           >
             {data.songName}

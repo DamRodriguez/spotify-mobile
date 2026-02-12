@@ -114,7 +114,7 @@ const listDinamicScreenItems: ListDinamicScreenDataType[] = [
   },
   {
     sectionType: "daily-releases",
-    id: "1",
+    id: "6",
     frontImage: "",
     title: "Nuevo lanzamiento del día: sonidos frescos que mezclan ritmos actuales con una producción moderna. Ideal para descubrir algo distinto en pocos minutos.",
     abbreviatedTitle: "Sonidos frescos",
@@ -134,7 +134,7 @@ const listDinamicScreenItems: ListDinamicScreenDataType[] = [
   },
   {
     sectionType: "daily-releases",
-    id: "2",
+    id: "7",
     frontImage: "",
     title: "Estreno reciente que ya empieza a sonar fuerte. Una propuesta dinámica, perfecta para sumar a tu playlist diaria.",
     abbreviatedTitle: "Propuesta dinámica",
@@ -154,7 +154,7 @@ const listDinamicScreenItems: ListDinamicScreenDataType[] = [
   },
   {
     sectionType: "daily-releases",
-    id: "3",
+    id: "8",
     frontImage: "",
     title: "Una novedad que combina energía y melodía, pensada para acompañarte durante el día con un estilo actual y envolvente.",
     abbreviatedTitle: "Energía y melodía",
@@ -174,7 +174,7 @@ const listDinamicScreenItems: ListDinamicScreenDataType[] = [
   },
   {
     sectionType: "daily-releases",
-    id: "4",
+    id: "9",
     frontImage: "",
     title: "Lanzamiento recién salido: ritmo pegadizo, producción cuidada y un sonido que destaca entre las novedades de hoy.",
     abbreviatedTitle: "Ritmo pegadizo",
@@ -194,7 +194,7 @@ const listDinamicScreenItems: ListDinamicScreenDataType[] = [
   },
   {
     sectionType: "daily-releases",
-    id: "5",
+    id: "10",
     frontImage: "",
     title: "Descubrí este estreno diario con una vibra moderna y fresca, ideal para quienes buscan algo nuevo sin perder identidad.",
     abbreviatedTitle: "Vibra moderna",
@@ -214,7 +214,7 @@ const listDinamicScreenItems: ListDinamicScreenDataType[] = [
   },
   {
     sectionType: "back-to-your-music",
-    id: "1",
+    id: "11",
     frontImage: "",
     title: "Volvé a escuchar esos temas que no podés dejar atrás. Canciones que ya conocés y siempre suenan bien, sin importar el momento.",
     abbreviatedTitle: "Tus clásicos",
@@ -234,7 +234,7 @@ const listDinamicScreenItems: ListDinamicScreenDataType[] = [
   },
   {
     sectionType: "back-to-your-music",
-    id: "2",
+    id: "12",
     frontImage: "",
     title: "Tu música de siempre, esa que acompañó distintos momentos y que hoy vuelve a sonar como la primera vez.",
     abbreviatedTitle: "Tu música de siempre",
@@ -254,7 +254,7 @@ const listDinamicScreenItems: ListDinamicScreenDataType[] = [
   },
   {
     sectionType: "back-to-your-music",
-    id: "3",
+    id: "13",
     frontImage: "",
     title: "Reviví tus favoritos y retomá esas canciones que marcaron etapas. Perfectas para escuchar sin pensarlo demasiado.",
     abbreviatedTitle: "Para volver",
@@ -274,7 +274,7 @@ const listDinamicScreenItems: ListDinamicScreenDataType[] = [
   },
   {
     sectionType: "back-to-your-music",
-    id: "4",
+    id: "14",
     frontImage: "",
     title: "Un viaje directo a tu historial musical: temas que escuchaste, repetiste y siguen teniendo algo especial.",
     abbreviatedTitle: "Viaje musical",
@@ -294,7 +294,7 @@ const listDinamicScreenItems: ListDinamicScreenDataType[] = [
   },
   {
     sectionType: "back-to-your-music",
-    id: "5",
+    id: "15",
     frontImage: "",
     title: "Volvé a tu zona de confort musical con canciones que ya son parte de tu día a día.",
     abbreviatedTitle: "Zona de confort",

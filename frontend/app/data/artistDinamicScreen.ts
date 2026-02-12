@@ -8,7 +8,7 @@ import DepecheModeSpeakSpellAlbumImg from "@/assets/images/albums/depeche-mode/s
 
 export const artistDinamicScreenData: ArtistDinamicScreenDataType[] = [
   {
-    id: "1",
+    id: "16",
     coverImage: dmCoverImage,
     artistName: "Depeche Mode",
     monthlyListeners: 10232990,

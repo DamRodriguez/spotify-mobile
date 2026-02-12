@@ -1,1 +1,1 @@
-export type HomeListSectionType = "playlist" | "daily-releases" | "back-to-your-music";
+export type HomeListSectionType = "playlist" | "daily-releases" | "back-to-your-music" | "artist" | "album" | "";

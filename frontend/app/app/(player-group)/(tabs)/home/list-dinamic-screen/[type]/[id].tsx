@@ -41,13 +41,13 @@ const ListDinamicScreen = () => {
   const playSectionYRef = useRef(0);
   const [isPlayButtonSticky, setIsPlayButtonSticky] = useState(false);
 
-  const item = listDinamicScreenData.find(
+  const data = listDinamicScreenData.find(
     (item) => item.sectionType === type && item.id === id
   );
 
   const userImage = "";
 
-  if (!item) {
+  if (!data) {
     return (
       <ThemedView style={{ padding: 16 }}>
         <ThemedText style={{ color: "#fff" }}>
@@ -63,16 +63,17 @@ const ListDinamicScreen = () => {
   return (
     <>
       <ListDinamicScreenHeader
-        title={item.abbreviatedTitle ? item.abbreviatedTitle : item.title}
+        title={data.abbreviatedTitle ? data.abbreviatedTitle : data.title}
         showTitle={isTitleAtTop}
-        headerColor={item.headerColor || colors.softSlate}
+        headerColor={data.headerColor || colors.softSlate}
       />
       <PlayButtonVariant
         isPlayButtonSticky={isPlayButtonSticky}
         handlePlayButtonPress={handlePlayButtonPress}
       />
       <SongsList
-        data={item.songs}
+        data={data.songs}
+        sectionId={data.id}
         onEndReached={() => { }}
         isLoadingMore={false}
         onScroll={(e) => {
@@ -123,7 +124,7 @@ const ListDinamicScreen = () => {
                 alignItems: "center"
               }}
             >
-              {item.frontImage instanceof Array ? (
+              {data.frontImage instanceof Array ? (
                 <ThemedView
                   style={{
                     backgroundColor: "#fff",
@@ -134,7 +135,7 @@ const ListDinamicScreen = () => {
                     overflow: "hidden"
                   }}
                 >
-                  {item.frontImage.map((image, index) => (
+                  {data.frontImage.map((image, index) => (
                     <OptimizedImage
                       key={index}
                       source={image}
@@ -147,7 +148,7 @@ const ListDinamicScreen = () => {
                 </ThemedView>
               ) : (
                 <OptimizedImage
-                  source={item.frontImage}
+                  source={data.frontImage}
                   style={{
                     width: "75%",
                     aspectRatio: 1,
@@ -160,7 +161,7 @@ const ListDinamicScreen = () => {
 
             <ThemedText
               style={
-                item.abbreviatedTitle ? {
+                data.abbreviatedTitle ? {
                   color: colors.quaternary[50],
                   fontSize: fontSize.b1,
                 } : {
@@ -173,12 +174,12 @@ const ListDinamicScreen = () => {
                 titleYRef.current = e.nativeEvent.layout.y;
               }}
             >
-              {item.title}
+              {data.title}
             </ThemedText>
 
             <ThemedView style={{ flexDirection: "row", alignItems: "center", gap: 10 }}>
               <OptimizedImage
-                source={item.sectionType === "playlist" ? userImage : spotifyImage}
+                source={data.sectionType === "playlist" ? userImage : spotifyImage}
                 style={{
                   width: 35,
                   height: 35,
@@ -190,7 +191,7 @@ const ListDinamicScreen = () => {
                 fontSize: fontSize.b2,
                 fontWeight: 600
               }}>
-                {item.sectionType === "playlist" ? "username" : "Spotify"}
+                {data.sectionType === "playlist" ? "username" : "Spotify"}
               </ThemedText>
             </ThemedView>
 
@@ -200,7 +201,7 @@ const ListDinamicScreen = () => {
                 color: colors.softGray,
                 fontSize: fontSize.b2
               }}>
-                {item.songsDuration} min
+                {data.songsDuration} min
               </ThemedText>
             </ThemedView>
 
@@ -219,7 +220,7 @@ const ListDinamicScreen = () => {
                 onRemixButtonPress={() => { }}
               />
             </ThemedView>
-            {item.sectionType === "playlist" && (
+            {data.sectionType === "playlist" && (
               <HorizontalButtons />
             )}
             <ThemedView />

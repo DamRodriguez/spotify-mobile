@@ -11,6 +11,7 @@ type SongsListProps = {
   isLoadingMore: boolean;
   data: SongItemData[];
   onScroll: (event: any) => void;
+  sectionId: string;
 };
 
 const SongsList = (props: SongsListProps) => {
@@ -31,7 +32,7 @@ const SongsList = (props: SongsListProps) => {
         ListFooterComponent={<ListFooterSpinner isLoadingMore={props.isLoadingMore} />}
         ListEmptyComponent={<></>}
         renderItem={({ item }) => (
-          <SongItem data={item} />
+          <SongItem data={item} sectionId={props.sectionId} />
         )}
       />
     </ThemedView>

@@ -1,7 +1,6 @@
 import ListDinamicScreenHeader from "@/components/header/list-dinamic-screen-header/ListDinamicScreenHeader";
 import ThemedScrollView from "@/components/themed/ThemedScrollView";
 import ThemedView from "@/components/themed/ThemedView";
-import bgArtistTest from "@/assets/images/bgArtistTest.png"
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { fontSize } from "@/themes/fontSize";
 import { colors } from "@/themes/colors";
@@ -34,11 +33,11 @@ const ArtistDinamicScreen = () => {
   const bgImageHeight = 250;
   const scrollY = useSharedValue(0);
 
-  const item = artistDinamicScreenData.find(
+  const data = artistDinamicScreenData.find(
     (item) => item.id === id
   );
 
-  if (!item) {
+  if (!data) {
     return (
       <ThemedView style={{ padding: 16 }}>
         <ThemedText style={{ color: "#fff" }}>
@@ -51,7 +50,7 @@ const ArtistDinamicScreen = () => {
   return (
     <>
       <ListDinamicScreenHeader
-        title={item.artistName}
+        title={data.artistName}
         showTitle={isTitleAtTop}
         headerColor={colors.softGray}
         iconBgColor={isTitleAtTop ? "transparent" : colors.opaqueBlack}
@@ -65,7 +64,7 @@ const ArtistDinamicScreen = () => {
       <ArtistImageCover
         bgImageHeight={bgImageHeight}
         scrollY={scrollY}
-        artistCoverImage={item.coverImage}
+        artistCoverImage={data.coverImage}
       />
       <ThemedScrollView
         style={{
@@ -103,12 +102,12 @@ const ArtistDinamicScreen = () => {
               fontSize: fontSize.b2
             }}
           >
-            {formatCompactNumber(item.monthlyListeners)} oyentes mensuales
+            {formatCompactNumber(data.monthlyListeners)} oyentes mensuales
           </ThemedText>
           <InteractiveSection
             followingButtonVariantProps={{
-              artistId: item.id,
-              isFollowing: item.isFollowing
+              artistId: data.id,
+              isFollowing: data.isFollowing
             }}
             onPlayButtonPress={() => { }}
             onVideoButtonPress={() => { }}
@@ -129,8 +128,8 @@ const ArtistDinamicScreen = () => {
             Populares
           </ThemedText>
           <ThemedView>
-            {item.songs.map((item, index) => (
-              <SongItem key={index} index={index + 1} data={item} enumerateSongs />
+            {data.songs.map((item, index) => (
+              <SongItem key={index} index={index + 1} data={item} enumerateSongs sectionId={data.id} />
             ))}
           </ThemedView>
         </ThemedView>
