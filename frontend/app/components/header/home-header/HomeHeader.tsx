@@ -9,6 +9,7 @@ import { useSharedValue } from "react-native-reanimated";
 import ProfileDrawer from "./pofile-drawer/ProfileDrawer";
 import AnimatedModal from "@/components/modal/AnimatedModal";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import userImage from "@/assets/images/other/user.png"
 
 const styles = StyleSheet.create({
   container: {
@@ -50,7 +51,7 @@ const HomeHeader = () => {
       >
         <ItemWrapper onPress={openProfileDrawer}>
           <OptimizedImage
-            source={{}}
+            source={userImage}
             style={styles.profileImage}
           />
         </ItemWrapper>

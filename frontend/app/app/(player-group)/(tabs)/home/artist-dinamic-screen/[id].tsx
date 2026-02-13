@@ -19,6 +19,7 @@ import SongItem, { SongItemData } from "@/components/music/SongItem";
 export type ArtistDinamicScreenDataType = {
   id: string;
   coverImage: string | ImageSourcePropType;
+  videoImage: string | ImageSourcePropType;
   artistName: string;
   monthlyListeners: number;
   isFollowing: boolean;
@@ -99,6 +100,7 @@ const ArtistDinamicScreen = () => {
             {formatCompactNumber(data.monthlyListeners)} oyentes mensuales
           </ThemedText>
           <InteractiveSection
+            videoImage={data.videoImage}
             followingButtonVariantProps={{
               artistId: data.id,
               isFollowing: data.isFollowing

@@ -44,7 +44,7 @@ const PlayerDataAndButtons = () => {
           <ThemedText
             numberOfLines={1}
             style={{
-              fontSize: fontSize.h7,
+              fontSize: fontSize.h8,
               color: colors.opaqueWhite,
             }}
           >

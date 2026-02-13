@@ -17,11 +17,15 @@ import PlayButtonVariant from '@/components/other/PlayButtonVariant';
 import { SongItemData } from '@/components/music/SongItem';
 import { HomeListSectionType } from '@/types/homeListSection';
 import ListDinamicScreenHeader from '@/components/header/list-dinamic-screen-header/ListDinamicScreenHeader';
+import userImage from "@/assets/images/other/user.png"
+import BorderGradient from '@/components/other/BorderGradient';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export type ListDinamicScreenDataType = {
   sectionType: HomeListSectionType;
   id: string;
   frontImage: string | ImageSourcePropType | ImageSourcePropType[];
+  videoImage: string | ImageSourcePropType;
   title: string;
   abbreviatedTitle?: string;
   songsDuration: number;
@@ -30,6 +34,7 @@ export type ListDinamicScreenDataType = {
 }
 
 const ListDinamicScreen = () => {
+  const insets = useSafeAreaInsets();
   const [inputValue, setInputValue] = useState<string>("");
   const { type, id } = useLocalSearchParams<{
     type: HomeListSectionType;
@@ -44,8 +49,6 @@ const ListDinamicScreen = () => {
   const data = listDinamicScreenData.find(
     (item) => item.sectionType === type && item.id === id
   );
-
-  const userImage = "";
 
   if (!data) {
     return (
@@ -62,6 +65,13 @@ const ListDinamicScreen = () => {
 
   return (
     <>
+      <BorderGradient
+        direction="top"
+        shadowDistance={insets.top}
+        shadowColor={colors.background}
+        widthFull
+        style={{ zIndex: 99 }}
+      />
       <ListDinamicScreenHeader
         title={data.abbreviatedTitle ? data.abbreviatedTitle : data.title}
         showTitle={isTitleAtTop}
@@ -83,7 +93,7 @@ const ListDinamicScreen = () => {
           const reachedTitleTop = scrollY - 35 >= titleYRef.current;
           setIsTitleAtTop(reachedTitleTop);
 
-          const shouldPlayButtonStick = scrollY - 45 >= playSectionYRef.current;
+          const shouldPlayButtonStick = scrollY - 70 >= playSectionYRef.current;
           setIsPlayButtonSticky(shouldPlayButtonStick);
         }}
         topSections={
@@ -107,7 +117,7 @@ const ListDinamicScreen = () => {
                   placeholder="Buscar en ésta página"
                   value={inputValue}
                   onChangeText={value => { setInputValue(value); }}
-                  placeholderTextColor={colors.quaternary[300]}
+                  placeholderTextColor={colors.softWhite}
                   style={{
                     color: colors.neutral[1000],
                     fontSize: fontSize.b2,
@@ -122,7 +132,7 @@ const ListDinamicScreen = () => {
               style={{
                 marginTop: 25,
                 marginBottom: 10,
-                alignItems: "center"
+                alignItems: "center",
               }}
             >
               {data.frontImage instanceof Array ? (
@@ -130,7 +140,7 @@ const ListDinamicScreen = () => {
                   style={{
                     backgroundColor: "#fff",
                     borderRadius: 6,
-                    width: "75%",
+                    width: "70%",
                     aspectRatio: 1,
                     flexWrap: "wrap",
                     overflow: "hidden"
@@ -151,7 +161,7 @@ const ListDinamicScreen = () => {
                 <OptimizedImage
                   source={data.frontImage}
                   style={{
-                    width: "75%",
+                    width: "70%",
                     aspectRatio: 1,
                     alignSelf: "center",
                     borderRadius: 6,
@@ -212,6 +222,7 @@ const ListDinamicScreen = () => {
               }}
             >
               <InteractiveSection
+                videoImage={data.videoImage}
                 isPlayButtonSticky={isPlayButtonSticky}
                 onPlayButtonPress={handlePlayButtonPress}
                 onVideoButtonPress={() => { }}
@@ -227,6 +238,12 @@ const ListDinamicScreen = () => {
             <ThemedView />
           </ThemedView>
         }
+      />
+      <BorderGradient
+        direction="top"
+        shadowDistance={insets.top + 60}
+        shadowColor={colors.background}
+        widthFull
       />
     </>
   );

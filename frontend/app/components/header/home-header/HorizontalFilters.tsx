@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 7,
     borderRadius: 999,
+    justifyContent: "center"
   },
   text: {
     fontSize: fontSize.b3,

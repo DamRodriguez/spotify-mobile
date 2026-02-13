@@ -3,7 +3,8 @@ import ListFooterSpinner from "@/components/other/ListFooterSpinner";
 import ThemedView from "@/components/themed/ThemedView";
 import { flashListDefaults } from "@/config/flashListDefaults";
 import { sizes } from "@/constants/sizes";
-import { FlashList } from "@shopify/flash-list";
+import { FlashList, FlashListRef } from "@shopify/flash-list";
+import { useEffect, useRef } from "react";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 type SongsListProps = {
@@ -17,10 +18,21 @@ type SongsListProps = {
 
 const SongsList = (props: SongsListProps) => {
   const insets = useSafeAreaInsets();
+  const listRef = useRef<FlashListRef<SongItemData>>(null);
+
+  useEffect(() => {
+    requestAnimationFrame(() => {
+      listRef.current?.scrollToOffset({
+        offset: insets.top + 110,
+        animated: false
+      });
+    });
+  }, [insets.top]);
 
   return (
     <ThemedView style={{ flex: 1 }}>
       <FlashList
+        ref={listRef}
         {...flashListDefaults}
         onEndReached={props.onEndReached}
         ListHeaderComponent={props.topSections}

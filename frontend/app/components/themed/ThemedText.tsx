@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
-import { type StyleProp, StyleSheet, Text, type TextStyle } from "react-native";
-import type { FontFamilyType } from "@/themes/fontFamily";
+import { LayoutChangeEvent, type StyleProp, StyleSheet, Text, type TextStyle } from "react-native";
+import { type FontFamilyType } from "@/themes/fontFamily";
 import { fontSize, type FontSizeType } from "@/themes/fontSize";
 import { lineHeight, type LineHeightType } from "@/themes/lineHeight";
 
@@ -13,7 +13,7 @@ type ThemedTextProps = {
   onPress?: () => void;
   numberOfLines?: number;
   allowFontScaling?: boolean;
-  onLayout?: (event: any) => void;
+  onLayout?: (event: LayoutChangeEvent) => void;
 };
 
 const ThemedText = ({

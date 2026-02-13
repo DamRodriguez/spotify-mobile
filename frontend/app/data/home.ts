@@ -15,6 +15,9 @@ import { HorizontalFavoriteArtistsListData } from "@/components/sections/home/ho
 import LacunaCoilArtistImg from "@/assets/images/artists/lacuna-coil.png"
 import DepecheModeArtistImg from "@/assets/images/artists/depeche-mode.png"
 import BabasonicosArtistImg from "@/assets/images/artists/babasonicos.png"
+import RammsteinArtistImg from "@/assets/images/artists/rammstein.png"
+import LadyGagaArtistImg from "@/assets/images/artists/lady-gaga.png"
+
 import { listDinamicScreenData } from "./listDinamicScreen";
 
 export const recentMusicData = [
@@ -158,12 +161,12 @@ export const favoriteArtistsItems: HorizontalFavoriteArtistsListData[] = [
   },
   {
     id: "19",
-    image: "",
+    image: RammsteinArtistImg,
     artistName: "Rammstein"
   },
   {
     id: "20",
-    image: "",
+    image: LadyGagaArtistImg,
     artistName: "Lady Gaga"
   },
 ];

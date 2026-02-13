@@ -5,11 +5,13 @@ import DepecheModeMusicForTheMassesAlbumImg from "@/assets/images/albums/depeche
 import DepecheModeSomeGreatRewardAlbumImg from "@/assets/images/albums/depeche-mode/some-great-reward.png"
 import DepecheModeConstructionTimeAgainAlbumImg from "@/assets/images/albums/depeche-mode/construction-time-again.png"
 import DepecheModeSpeakSpellAlbumImg from "@/assets/images/albums/depeche-mode/speak-spell.png"
+import DepecheModeVideoImage from "@/assets/images/other/depeche-mode-temporal.png"
 
 export const artistDinamicScreenData: ArtistDinamicScreenDataType[] = [
   {
     id: "16",
     coverImage: dmCoverImage,
+    videoImage: DepecheModeVideoImage,
     artistName: "Depeche Mode",
     monthlyListeners: 10232990,
     isFollowing: true,

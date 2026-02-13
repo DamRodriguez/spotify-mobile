@@ -13,6 +13,9 @@ import TheCureSeventeenSecondsAlbumImg from "@/assets/images/albums/the-cure/sev
 import TheCureJapaneseWhispersAlbumImg from "@/assets/images/albums/the-cure/japanese-whispers.png"
 import ThreeDaysGraceOneXAlbumImg from "@/assets/images/albums/three-days-grace/one-x.png"
 import { getListImages } from "@/utils/getPlaylistImages";
+import CrystalCastlesAlbumImg from "@/assets/images/albums/crystal-castles/crystal-castles.png"
+import HimRazorbladeRomanceAlbumImg from "@/assets/images/albums/him/razorblade-romance.png"
+import DepecheModeVideoImage from "@/assets/images/other/depeche-mode-temporal.png"
 
 const listDinamicScreenItems: ListDinamicScreenDataType[] = [
   {
@@ -22,6 +25,7 @@ const listDinamicScreenItems: ListDinamicScreenDataType[] = [
     title: "Depeche Mode",
     songsDuration: 40,
     headerColor: "#473b3b",
+    videoImage: DepecheModeVideoImage,
     songs: [
       { id: "1", songName: "Enjoy the Silence", artistName: "Depeche Mode", mp3: "", image: DepecheModeViolatorAlbumImg, duration: 130, color: "#5c1212" },
       { id: "2", songName: "Personal Jesus", artistName: "Depeche Mode", mp3: "", image: DepecheModeViolatorAlbumImg, duration: 130, color: "#8e4227" },
@@ -42,6 +46,7 @@ const listDinamicScreenItems: ListDinamicScreenDataType[] = [
     title: "The Cure",
     songsDuration: 32,
     headerColor: "#5c1515",
+    videoImage: "",
     songs: [
       { id: "1", songName: "Just Like Heaven", artistName: "The Cure", mp3: "", image: TheCureKissMeAlbumImg, duration: 130 },
       { id: "2", songName: "Boys Don't Cry", artistName: "The Cure", mp3: "", image: TheCureBoysDontCryAlbumImg, duration: 130 },
@@ -61,6 +66,7 @@ const listDinamicScreenItems: ListDinamicScreenDataType[] = [
     frontImage: "",
     title: "Three Days Grace",
     songsDuration: 55,
+    videoImage: "",
     songs: [
       { id: "1", songName: "Animal I Have Become", artistName: "Three Days Grace", mp3: "", image: ThreeDaysGraceOneXAlbumImg, duration: 130 },
       { id: "2", songName: "Never Too Late", artistName: "Three Days Grace", mp3: "", image: "", duration: 130 },
@@ -80,8 +86,9 @@ const listDinamicScreenItems: ListDinamicScreenDataType[] = [
     frontImage: "",
     title: "Crystal Castles",
     songsDuration: 60,
+    videoImage: "",
     songs: [
-      { id: "1", songName: "Crimewave", artistName: "Crystal Castles", mp3: "", image: "", duration: 130 },
+      { id: "1", songName: "Crimewave", artistName: "Crystal Castles", mp3: "", image: CrystalCastlesAlbumImg, duration: 130 },
       { id: "2", songName: "Not In Love", artistName: "Crystal Castles", mp3: "", image: "", duration: 130 },
       { id: "3", songName: "Celestica", artistName: "Crystal Castles", mp3: "", image: "", duration: 130 },
       { id: "4", songName: "Baptism", artistName: "Crystal Castles", mp3: "", image: "", duration: 130 },
@@ -99,6 +106,7 @@ const listDinamicScreenItems: ListDinamicScreenDataType[] = [
     frontImage: "",
     title: "HIM",
     songsDuration: 29,
+    videoImage: "",
     songs: [
       { id: "1", songName: "Join Me in Death", artistName: "HIM", mp3: "", image: "", duration: 130 },
       { id: "2", songName: "Wings of a Butterfly", artistName: "HIM", mp3: "", image: "", duration: 130 },
@@ -106,7 +114,7 @@ const listDinamicScreenItems: ListDinamicScreenDataType[] = [
       { id: "4", songName: "Buried Alive by Love", artistName: "HIM", mp3: "", image: "", duration: 130 },
       { id: "5", songName: "Right Here in My Arms", artistName: "HIM", mp3: "", image: "", duration: 130 },
       { id: "6", songName: "Killing Loneliness", artistName: "HIM", mp3: "", image: "", duration: 130 },
-      { id: "7", songName: "Poison Girl", artistName: "HIM", mp3: "", image: "", duration: 130 },
+      { id: "7", songName: "Poison Girl", artistName: "HIM", mp3: "", image: HimRazorbladeRomanceAlbumImg, duration: 130 },
       { id: "8", songName: "Gone With the Sin", artistName: "HIM", mp3: "", image: "", duration: 130 },
       { id: "9", songName: "Your Sweet Six Six Six", artistName: "HIM", mp3: "", image: "", duration: 130 },
       { id: "10", songName: "Heartkiller", artistName: "HIM", mp3: "", image: "", duration: 130 },
@@ -119,6 +127,7 @@ const listDinamicScreenItems: ListDinamicScreenDataType[] = [
     title: "Nuevo lanzamiento del día: sonidos frescos que mezclan ritmos actuales con una producción moderna. Ideal para descubrir algo distinto en pocos minutos.",
     abbreviatedTitle: "Sonidos frescos",
     songsDuration: 40,
+    videoImage: "",
     songs: [
       { id: "1", songName: "Blinding Lights", artistName: "The Weeknd", mp3: "", image: "", duration: 130 },
       { id: "2", songName: "Do I Wanna Know?", artistName: "Arctic Monkeys", mp3: "", image: "", duration: 130 },
@@ -139,6 +148,7 @@ const listDinamicScreenItems: ListDinamicScreenDataType[] = [
     title: "Estreno reciente que ya empieza a sonar fuerte. Una propuesta dinámica, perfecta para sumar a tu playlist diaria.",
     abbreviatedTitle: "Propuesta dinámica",
     songsDuration: 38,
+    videoImage: "",
     songs: [
       { id: "1", songName: "As It Was", artistName: "Harry Styles", mp3: "", image: "", duration: 130 },
       { id: "2", songName: "Bad Habits", artistName: "Ed Sheeran", mp3: "", image: "", duration: 130 },
@@ -159,6 +169,7 @@ const listDinamicScreenItems: ListDinamicScreenDataType[] = [
     title: "Una novedad que combina energía y melodía, pensada para acompañarte durante el día con un estilo actual y envolvente.",
     abbreviatedTitle: "Energía y melodía",
     songsDuration: 42,
+    videoImage: "",
     songs: [
       { id: "1", songName: "Midnight City", artistName: "M83", mp3: "", image: "", duration: 130 },
       { id: "2", songName: "Electric Feel", artistName: "MGMT", mp3: "", image: "", duration: 130 },
@@ -179,6 +190,7 @@ const listDinamicScreenItems: ListDinamicScreenDataType[] = [
     title: "Lanzamiento recién salido: ritmo pegadizo, producción cuidada y un sonido que destaca entre las novedades de hoy.",
     abbreviatedTitle: "Ritmo pegadizo",
     songsDuration: 36,
+    videoImage: "",
     songs: [
       { id: "1", songName: "Dance The Night", artistName: "Dua Lipa", mp3: "", image: "", duration: 130 },
       { id: "2", songName: "Flowers", artistName: "Miley Cyrus", mp3: "", image: "", duration: 130 },
@@ -199,6 +211,7 @@ const listDinamicScreenItems: ListDinamicScreenDataType[] = [
     title: "Descubrí este estreno diario con una vibra moderna y fresca, ideal para quienes buscan algo nuevo sin perder identidad.",
     abbreviatedTitle: "Vibra moderna",
     songsDuration: 39,
+    videoImage: "",
     songs: [
       { id: "1", songName: "Space Song", artistName: "Beach House", mp3: "", image: "", duration: 130 },
       { id: "2", songName: "Cherry Wine", artistName: "Hozier", mp3: "", image: "", duration: 130 },
@@ -219,6 +232,7 @@ const listDinamicScreenItems: ListDinamicScreenDataType[] = [
     title: "Volvé a escuchar esos temas que no podés dejar atrás. Canciones que ya conocés y siempre suenan bien, sin importar el momento.",
     abbreviatedTitle: "Tus clásicos",
     songsDuration: 40,
+    videoImage: "",
     songs: [
       { id: "1", songName: "Wonderwall", artistName: "Oasis", mp3: "", image: "", duration: 130 },
       { id: "2", songName: "Yellow", artistName: "Coldplay", mp3: "", image: "", duration: 130 },
@@ -239,6 +253,7 @@ const listDinamicScreenItems: ListDinamicScreenDataType[] = [
     title: "Tu música de siempre, esa que acompañó distintos momentos y que hoy vuelve a sonar como la primera vez.",
     abbreviatedTitle: "Tu música de siempre",
     songsDuration: 38,
+    videoImage: "",
     songs: [
       { id: "1", songName: "Clocks", artistName: "Coldplay", mp3: "", image: "", duration: 130 },
       { id: "2", songName: "Somebody That I Used to Know", artistName: "Gotye", mp3: "", image: "", duration: 130 },
@@ -259,6 +274,7 @@ const listDinamicScreenItems: ListDinamicScreenDataType[] = [
     title: "Reviví tus favoritos y retomá esas canciones que marcaron etapas. Perfectas para escuchar sin pensarlo demasiado.",
     abbreviatedTitle: "Para volver",
     songsDuration: 42,
+    videoImage: "",
     songs: [
       { id: "1", songName: "Mr. Brightside", artistName: "The Killers", mp3: "", image: "", duration: 130 },
       { id: "2", songName: "Seven Nation Army", artistName: "The White Stripes", mp3: "", image: "", duration: 130 },
@@ -279,6 +295,7 @@ const listDinamicScreenItems: ListDinamicScreenDataType[] = [
     title: "Un viaje directo a tu historial musical: temas que escuchaste, repetiste y siguen teniendo algo especial.",
     abbreviatedTitle: "Viaje musical",
     songsDuration: 36,
+    videoImage: "",
     songs: [
       { id: "1", songName: "Counting Stars", artistName: "OneRepublic", mp3: "", image: "", duration: 130 },
       { id: "2", songName: "Demons", artistName: "Imagine Dragons", mp3: "", image: "", duration: 130 },
@@ -299,6 +316,7 @@ const listDinamicScreenItems: ListDinamicScreenDataType[] = [
     title: "Volvé a tu zona de confort musical con canciones que ya son parte de tu día a día.",
     abbreviatedTitle: "Zona de confort",
     songsDuration: 41,
+    videoImage: "",
     songs: [
       { id: "1", songName: "Dreams", artistName: "Fleetwood Mac", mp3: "", image: "", duration: 130 },
       { id: "2", songName: "Go Your Own Way", artistName: "Fleetwood Mac", mp3: "", image: "", duration: 130 },

@@ -6,8 +6,10 @@ import ItemWrapper from "@/components/other/ItemWrapper";
 import ThemedView from "@/components/themed/ThemedView";
 import { colors } from "@/themes/colors";
 import FollowingButton from "../buttons/FollowingButton";
+import { ImageSourcePropType } from "react-native";
 
 type InteractiveSectionProps = {
+  videoImage: string | ImageSourcePropType;
   isPlayButtonSticky?: boolean;
   onVideoButtonPress: () => void;
   onDownloadButtonPress: () => void;
@@ -35,7 +37,7 @@ const InteractiveSection = (props: InteractiveSectionProps) => {
           }}
         >
           <OptimizedImage
-            source={""}
+            source={props.videoImage}
             style={{
               height: 35,
               width: 25,

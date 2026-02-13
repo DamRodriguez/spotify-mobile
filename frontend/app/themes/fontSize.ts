@@ -7,6 +7,7 @@ export const fontSize = {
   h5: 28,
   h6: 24,
   h7: 20,
+  h8: 18,
   b1: 16,
   b2: 14,
   b3: 12,

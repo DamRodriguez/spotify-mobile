@@ -10,6 +10,7 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import ListItemsSection from "./ListItemsSection";
 import MessagesList from "./MessagesList";
 import { sizes } from "@/constants/sizes";
+import userImage from "@/assets/images/other/user.png"
 
 const styles = StyleSheet.create({
   container: {
@@ -100,7 +101,7 @@ const ProfileDrawer = (props: ProfileDrawerProps) => {
             onPress={() => { }}
           >
             <OptimizedImage
-              source={{}}
+              source={userImage}
               style={styles.profileImage}
             />
           </ItemWrapper>
