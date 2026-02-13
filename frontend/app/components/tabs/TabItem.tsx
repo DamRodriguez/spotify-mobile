@@ -29,15 +29,13 @@ const TabItem = ({
   return (
     <TouchableOpacity
       onPress={handlePress}
-      style={
-        {
-          flex: 1,
-          alignItems: "center",
-          justifyContent: "center",
-          gap: 10,
-        }
-      }
       activeOpacity={buttons.opacity}
+      style={{
+        flex: 1,
+        alignItems: "center",
+        justifyContent: "center",
+        gap: 10,
+      }}
     >
       <ThemedView>
         {icon}
@@ -47,7 +45,7 @@ const TabItem = ({
           {
             fontSize: fontSize.b3,
             fontWeight: 600,
-            color: isFocused ? colors.neutral[1000] : colors.softGray,
+            color: isFocused ? colors.neutral[1000] : colors.softWhite,
           }
         }
       >

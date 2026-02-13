@@ -12,7 +12,8 @@ import { colors } from "@/themes/colors";
 import { fontSize } from "@/themes/fontSize";
 import { useRouter } from "expo-router";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { StyleProp, ViewStyle } from "react-native";
+import { Dimensions, StyleProp, ViewStyle } from "react-native";
+import BorderGradient from "@/components/other/BorderGradient";
 
 type ListDinamicScreenHeaderProps = {
   title: string;
@@ -20,6 +21,7 @@ type ListDinamicScreenHeaderProps = {
   headerColor: string;
   containerStyle?: StyleProp<ViewStyle>;
   iconBgColor?: string;
+  absolute?: boolean;
 };
 
 const ListDinamicScreenHeader = ({
@@ -28,7 +30,9 @@ const ListDinamicScreenHeader = ({
   headerColor,
   containerStyle,
   iconBgColor,
+  absolute
 }: ListDinamicScreenHeaderProps) => {
+  const sizes = Dimensions.get("window");
   const insets = useSafeAreaInsets();
   const router = useRouter();
 
@@ -62,17 +66,29 @@ const ListDinamicScreenHeader = ({
           flexDirection: "row",
           alignItems: "center",
           gap: 50,
-          elevation: 999,
           zIndex: 10,
         },
         headerStyle,
-        containerStyle
+        containerStyle,
+        absolute && {
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+        }
       ]}
     >
+      {showTitle && (
+        <BorderGradient
+          direction="bottom"
+          shadowSize={sizes.width}
+          style={{ elevation: 20 }}
+        />
+      )}
       <IconButton
         onPress={() => router.back()}
         icon={<BackIcon />}
-        bgColor={iconBgColor}
+        bgColor={iconBgColor ?? showTitle ? "transparent" : colors.opaqueBlack}
       />
       <Animated.View
         style={[
@@ -94,7 +110,7 @@ const ListDinamicScreenHeader = ({
           {title}
         </ThemedText>
       </Animated.View>
-    </Animated.View>
+    </Animated.View >
   );
 };
 

@@ -42,7 +42,7 @@ const PlayerHeader = (props: PlayerHeaderProps) => {
           style={{
             fontSize: fontSize.b3,
             textTransform: "uppercase",
-            color: colors.neutral[900]
+            color: colors.opaqueWhite
           }}
         >
           Reproduciendo desde {props.fromWhere}

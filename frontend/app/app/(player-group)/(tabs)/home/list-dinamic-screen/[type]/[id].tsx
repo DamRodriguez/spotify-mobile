@@ -65,7 +65,8 @@ const ListDinamicScreen = () => {
       <ListDinamicScreenHeader
         title={data.abbreviatedTitle ? data.abbreviatedTitle : data.title}
         showTitle={isTitleAtTop}
-        headerColor={data.headerColor || colors.softSlate}
+        headerColor={data.headerColor || colors.softGray}
+        absolute
       />
       <PlayButtonVariant
         isPlayButtonSticky={isPlayButtonSticky}

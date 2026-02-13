@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     height: 140
   },
   itemText: {
-    color: colors.quaternary[300],
+    color: colors.opaqueWhite,
     fontSize: fontSize.b2
   }
 });

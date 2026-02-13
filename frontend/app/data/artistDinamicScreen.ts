@@ -1,5 +1,5 @@
 import { ArtistDinamicScreenDataType } from "@/app/(player-group)/(tabs)/home/artist-dinamic-screen/[id]";
-import dmCoverImage from "@/assets/images/bgArtistTest.png"
+import dmCoverImage from "@/assets/images/artists/depeche-mode.png"
 import DepecheModeViolatorAlbumImg from "@/assets/images/albums/depeche-mode/violator.png"
 import DepecheModeMusicForTheMassesAlbumImg from "@/assets/images/albums/depeche-mode/music-for-the-masses.png"
 import DepecheModeSomeGreatRewardAlbumImg from "@/assets/images/albums/depeche-mode/some-great-reward.png"

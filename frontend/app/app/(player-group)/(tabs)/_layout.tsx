@@ -30,7 +30,7 @@ const TabsLayout = () => {
                 title: item.text,
                 header: item.header ? item.header : () => <></>,
                 tabBarIcon: ({ focused }) => (
-                  <Icon fill={focused ? colors.neutral[1000] : colors.softGray} />
+                  <Icon fill={focused ? colors.neutral[1000] : colors.softWhite} />
                 ),
               }}
             />

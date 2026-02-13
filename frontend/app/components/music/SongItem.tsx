@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     fontSize: fontSize.b1
   },
   itemSubtitle: {
-    color: colors.quaternary[300],
+    color: colors.opaqueWhite,
     fontSize: fontSize.b2
   },
   itemTextsContainer: {

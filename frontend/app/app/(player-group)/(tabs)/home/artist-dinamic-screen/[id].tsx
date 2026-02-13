@@ -53,13 +53,7 @@ const ArtistDinamicScreen = () => {
         title={data.artistName}
         showTitle={isTitleAtTop}
         headerColor={colors.softGray}
-        iconBgColor={isTitleAtTop ? "transparent" : colors.opaqueBlack}
-        containerStyle={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          right: 0,
-        }}
+        absolute
       />
       <ArtistImageCover
         bgImageHeight={bgImageHeight}
@@ -88,7 +82,7 @@ const ArtistDinamicScreen = () => {
             color: colors.neutral[1000],
             fontWeight: 900,
             position: "absolute",
-            top: -60,
+            top: -50,
             left: sizes.mainPadding,
             elevation: 20,
           }}
@@ -98,7 +92,7 @@ const ArtistDinamicScreen = () => {
         <ThemedView style={{ gap: 10 }}>
           <ThemedText
             style={{
-              color: colors.softGray,
+              color: colors.opaqueWhite,
               fontSize: fontSize.b2
             }}
           >

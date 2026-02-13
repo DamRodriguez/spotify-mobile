@@ -1,3 +1,3 @@
 export const sizes = {
-  mainPadding: 16,
+  mainPadding: 18,
 };

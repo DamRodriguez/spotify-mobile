@@ -7,6 +7,7 @@ import Animated, {
   useAnimatedStyle,
 } from "react-native-reanimated";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import BorderGradient from "@/components/other/BorderGradient";
 
 type ArtistImageCoverProps = {
   bgImageHeight: number;
@@ -28,28 +29,52 @@ const ArtistImageCover = ({
   }));
 
   return (
-    <>
+    <Animated.View
+      style={{
+        position: "absolute",
+        top: 0,
+        left: 0,
+        width: sizes.width,
+        height,
+        overflow: "hidden",
+      }}
+    >
       <OptimizedImage
         source={artistCoverImage}
         style={{
-          width: sizes.width,
-          position: "absolute",
-          height
+          width: "100%",
+          height: "100%",
         }}
+      />
+      <BorderGradient
+        direction="left"
+        shadowSize={height}
+      />
+      <BorderGradient
+        direction="right"
+        shadowSize={height}
+      />
+      <BorderGradient
+        direction="bottom"
+        shadowSize={sizes.width}
+        style={{ elevation: 20 }}
       />
       <Animated.View
         style={[
           {
-            width: sizes.width,
             position: "absolute",
+            top: 0,
+            left: 0,
+            width: sizes.width,
+            height,
             backgroundColor: colors.background,
-            height
           },
           fadeStyle,
         ]}
       />
-    </>
+    </Animated.View>
   );
+
 };
 
 export default ArtistImageCover;

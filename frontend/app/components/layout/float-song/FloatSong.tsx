@@ -76,7 +76,7 @@ const FloatSong = () => {
               numberOfLines={1}
               style={{
                 fontSize: fontSize.b3,
-                color: colors.neutral[800]
+                color: colors.opaqueWhite
               }}
             >
               {data.artistName}

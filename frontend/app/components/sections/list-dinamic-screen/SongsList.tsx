@@ -4,6 +4,7 @@ import ThemedView from "@/components/themed/ThemedView";
 import { flashListDefaults } from "@/config/flashListDefaults";
 import { sizes } from "@/constants/sizes";
 import { FlashList } from "@shopify/flash-list";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 type SongsListProps = {
   topSections: React.ReactElement;
@@ -15,6 +16,8 @@ type SongsListProps = {
 };
 
 const SongsList = (props: SongsListProps) => {
+  const insets = useSafeAreaInsets();
+
   return (
     <ThemedView style={{ flex: 1 }}>
       <FlashList
@@ -26,6 +29,7 @@ const SongsList = (props: SongsListProps) => {
         keyExtractor={(item) => item.id}
         ItemSeparatorComponent={() => <ThemedView style={{ height: 6 }} />}
         contentContainerStyle={{
+          paddingTop: insets.top + 70,
           paddingBottom: 200,
           paddingHorizontal: sizes.mainPadding,
         }}

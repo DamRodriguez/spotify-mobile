@@ -45,7 +45,7 @@ const PlayerDataAndButtons = () => {
             numberOfLines={1}
             style={{
               fontSize: fontSize.h7,
-              color: colors.neutral[800],
+              color: colors.opaqueWhite,
             }}
           >
             {songItemData.artistName}

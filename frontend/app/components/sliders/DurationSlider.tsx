@@ -51,7 +51,7 @@ const DurationSlider: React.FC<DurationSliderProps> = ({
         <ThemedText
           style={{
             fontSize: fontSize.b2,
-            color: colors.neutral[800],
+            color: colors.opaqueWhite,
           }}
         >
           {formatTime(localValue)}
@@ -60,7 +60,7 @@ const DurationSlider: React.FC<DurationSliderProps> = ({
         <ThemedText
           style={{
             fontSize: fontSize.b2,
-            color: colors.neutral[800],
+            color: colors.opaqueWhite,
           }}
         >
           {formatTime(max)}

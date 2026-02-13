@@ -2,6 +2,8 @@ import type { BottomTabBarProps } from "@react-navigation/bottom-tabs";
 import TabItem from "@/components/tabs/TabItem";
 import ThemedView from "@/components/themed/ThemedView";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import BorderGradient from "../other/BorderGradient";
+import { Dimensions } from "react-native";
 
 type TabBarProps = {
   navigation: BottomTabBarProps["navigation"];
@@ -10,6 +12,7 @@ type TabBarProps = {
 };
 
 const TabBar = ({ navigation, state, descriptors }: TabBarProps) => {
+  const sizes = Dimensions.get("window");
   const insets = useSafeAreaInsets();
 
   const handlePress = (route: string) => {
@@ -22,11 +25,19 @@ const TabBar = ({ navigation, state, descriptors }: TabBarProps) => {
         flexDirection: "row",
         paddingBottom: insets.bottom + 5,
         paddingTop: 15,
-        backgroundColor: "rgba(0,0,0,0.8)",
         position: "absolute",
         bottom: 0,
       }}
     >
+      {Array.from({ length: 3 }, (_, i) => (
+        <BorderGradient
+          key={i}
+          direction="bottom"
+          shadowSize={sizes.width}
+          shadowDistance={insets.bottom + 75}
+          shadowColor="rgb(0, 0, 0)"
+        />
+      ))}
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
         const isFocused = index === state.index;
