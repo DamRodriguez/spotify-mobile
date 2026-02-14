@@ -3,7 +3,7 @@ export const colors = {
   opaqueBlack: "rgba(0,0,0,0.5)",
   opaqueWhite: "rgba(255, 255, 255, 0.7)",
   softWhite: "rgba(255, 255, 255, 0.6)",
-  opaqueGray: "FFFFFF33",
+  opaqueGray: "#FFFFFF33",
   softGray: "#6a6a6aff",
   softSlate: "#475557B2",
   mainGreen: "#1DB954",

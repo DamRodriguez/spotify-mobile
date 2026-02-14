@@ -6,9 +6,11 @@ import ThemedText from "../themed/ThemedText";
 import { VerticalDotsIcon } from "../icons/common";
 import { colors } from "@/themes/colors";
 import { fontSize } from "@/themes/fontSize";
+import { formatSectionType } from "@/utils/formatSectionType";
+import { HomeListSectionType } from "@/types/homeListSection";
 
 type PlayerHeaderProps = {
-  fromWhere: string;
+  fromWhere: HomeListSectionType;
   artistName: string;
 }
 
@@ -45,7 +47,7 @@ const PlayerHeader = (props: PlayerHeaderProps) => {
             color: colors.opaqueWhite
           }}
         >
-          Reproduciendo desde {props.fromWhere}
+          Reproduciendo desde {formatSectionType(props.fromWhere)}
         </ThemedText>
         <ThemedText
           numberOfLines={1}

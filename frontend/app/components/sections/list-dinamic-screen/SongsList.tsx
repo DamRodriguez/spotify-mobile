@@ -3,6 +3,7 @@ import ListFooterSpinner from "@/components/other/ListFooterSpinner";
 import ThemedView from "@/components/themed/ThemedView";
 import { flashListDefaults } from "@/config/flashListDefaults";
 import { sizes } from "@/constants/sizes";
+import { HomeListSectionType } from "@/types/homeListSection";
 import { FlashList, FlashListRef } from "@shopify/flash-list";
 import { useEffect, useRef } from "react";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
@@ -14,6 +15,7 @@ type SongsListProps = {
   data: SongItemData[];
   onScroll: (event: any) => void;
   sectionId: string;
+  sectionType: HomeListSectionType;
 };
 
 const SongsList = (props: SongsListProps) => {
@@ -48,7 +50,11 @@ const SongsList = (props: SongsListProps) => {
         ListFooterComponent={<ListFooterSpinner isLoadingMore={props.isLoadingMore} />}
         ListEmptyComponent={<></>}
         renderItem={({ item }) => (
-          <SongItem data={item} sectionId={props.sectionId} />
+          <SongItem
+            data={item}
+            sectionId={props.sectionId}
+            sectionType={props.sectionType}
+          />
         )}
       />
     </ThemedView>

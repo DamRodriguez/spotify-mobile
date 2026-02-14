@@ -6,6 +6,10 @@ import DepecheModeSomeGreatRewardAlbumImg from "@/assets/images/albums/depeche-m
 import DepecheModeConstructionTimeAgainAlbumImg from "@/assets/images/albums/depeche-mode/construction-time-again.png"
 import DepecheModeSpeakSpellAlbumImg from "@/assets/images/albums/depeche-mode/speak-spell.png"
 import DepecheModeVideoImage from "@/assets/images/other/depeche-mode-temporal.png"
+import LadyGagaArtistImg from "@/assets/images/artists/lady-gaga.png"
+import LadyGagaTheFameAlbumImg from "@/assets/images/albums/lady-gaga/the-fame.png"
+import LadyGagaBornThisWayAlbumImg from "@/assets/images/albums/lady-gaga/born-this-way.png"
+import LadyGagaChromaticaAlbumImg from "@/assets/images/albums/lady-gaga/chromatica.png"
 
 export const artistDinamicScreenData: ArtistDinamicScreenDataType[] = [
   {
@@ -15,6 +19,7 @@ export const artistDinamicScreenData: ArtistDinamicScreenDataType[] = [
     artistName: "Depeche Mode",
     monthlyListeners: 10232990,
     isFollowing: true,
+    headerColor: "#851515",
     songs: [
       { id: "1", songName: "Enjoy the Silence", artistName: "Depeche Mode", mp3: "", image: DepecheModeViolatorAlbumImg, duration: 130, color: "#5c1212", reproductions: 920091098 },
       { id: "2", songName: "Personal Jesus", artistName: "Depeche Mode", mp3: "", image: DepecheModeViolatorAlbumImg, duration: 130, color: "#8e4227", reproductions: 810100239 },
@@ -27,5 +32,27 @@ export const artistDinamicScreenData: ArtistDinamicScreenDataType[] = [
       { id: "9", songName: "Just Can't Get Enough", artistName: "Depeche Mode", mp3: "", image: DepecheModeSpeakSpellAlbumImg, duration: 130, color: "#761818", reproductions: 200900111 },
       { id: "10", songName: "Blasphemous Rumours", artistName: "Depeche Mode", mp3: "", image: DepecheModeSomeGreatRewardAlbumImg, duration: 130, color: "#7e8d2c", reproductions: 90123100 },
     ],
+  },
+  {
+    id: "20",
+    coverImage: LadyGagaArtistImg,
+    videoImage: LadyGagaArtistImg,
+    artistName: "Lady Gaga",
+    monthlyListeners: 7890129,
+    isFollowing: false,
+    headerColor: "#771e62",
+    songs: [
+      { id: "1", songName: "Just Dance", artistName: "Lady Gaga", mp3: "", image: LadyGagaTheFameAlbumImg, duration: 244, color: "#5c3e86", reproductions: 1800000000 },
+      { id: "2", songName: "Poker Face", artistName: "Lady Gaga", mp3: "", image: LadyGagaTheFameAlbumImg, duration: 238, color: "#432581", reproductions: 3200000000 },
+      { id: "3", songName: "Paparazzi", artistName: "Lady Gaga", mp3: "", image: LadyGagaTheFameAlbumImg, duration: 208, color: "#903769", reproductions: 1400000000 },
+      { id: "4", songName: "Born This Way", artistName: "Lady Gaga", mp3: "", image: LadyGagaBornThisWayAlbumImg, duration: 252, color: "#877634", reproductions: 1700000000 },
+      { id: "5", songName: "Judas", artistName: "Lady Gaga", mp3: "", image: LadyGagaBornThisWayAlbumImg, duration: 249, color: "#762727", reproductions: 950000000 },
+      { id: "6", songName: "The Edge of Glory", artistName: "Lady Gaga", mp3: "", image: LadyGagaBornThisWayAlbumImg, duration: 320, color: "#9e7529", reproductions: 1100000000 },
+      { id: "7", songName: "Stupid Love", artistName: "Lady Gaga", mp3: "", image: LadyGagaChromaticaAlbumImg, duration: 193, color: "#722461", reproductions: 800000000 },
+      { id: "8", songName: "Rain On Me", artistName: "Lady Gaga", mp3: "", image: LadyGagaChromaticaAlbumImg, duration: 182, color: "#26718a", reproductions: 1500000000 },
+      { id: "9", songName: "911", artistName: "Lady Gaga", mp3: "", image: LadyGagaChromaticaAlbumImg, duration: 173, color: "#902727", reproductions: 500000000 },
+      { id: "10", songName: "Replay", artistName: "Lady Gaga", mp3: "", image: LadyGagaChromaticaAlbumImg, duration: 187, color: "#47257d", reproductions: 420000000 },
+    ],
+
   }
 ]

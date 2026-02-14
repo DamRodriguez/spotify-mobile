@@ -14,7 +14,9 @@ import { artistDinamicScreenData } from "@/data/artistDinamicScreen";
 import { useLocalSearchParams } from "expo-router";
 import { formatCompactNumber } from "@/utils/formatCompactNumber";
 import InteractiveSection from "@/components/common/InteractiveSection";
-import SongItem, { SongItemData } from "@/components/music/SongItem";
+import { SongItemData } from "@/components/music/SongItem";
+import PopularSongsSection from "@/components/sections/artist-dinamic-screen/PopularSongsSection";
+import { HomeListSectionType } from "@/types/homeListSection";
 
 export type ArtistDinamicScreenDataType = {
   id: string;
@@ -24,6 +26,7 @@ export type ArtistDinamicScreenDataType = {
   monthlyListeners: number;
   isFollowing: boolean;
   songs: SongItemData[];
+  headerColor: string;
 }
 
 const ArtistDinamicScreen = () => {
@@ -33,6 +36,7 @@ const ArtistDinamicScreen = () => {
   const [isTitleAtTop, setIsTitleAtTop] = useState<boolean>(false);
   const bgImageHeight = 250;
   const scrollY = useSharedValue(0);
+  const sectionType: HomeListSectionType = "artist"
 
   const data = artistDinamicScreenData.find(
     (item) => item.id === id
@@ -53,7 +57,7 @@ const ArtistDinamicScreen = () => {
       <ListDinamicScreenHeader
         title={data.artistName}
         showTitle={isTitleAtTop}
-        headerColor={colors.softGray}
+        headerColor={data.headerColor}
         absolute
       />
       <ArtistImageCover
@@ -88,7 +92,7 @@ const ArtistDinamicScreen = () => {
             elevation: 20,
           }}
         >
-          Depeche Mode
+          {data.artistName}
         </ThemedText>
         <ThemedView style={{ gap: 10 }}>
           <ThemedText
@@ -113,22 +117,13 @@ const ArtistDinamicScreen = () => {
             onRemixButtonPress={() => { }}
           />
         </ThemedView>
-        <ThemedView style={{ gap: 10 }}>
-          <ThemedText
-            style={{
-              fontSize: fontSize.h7,
-              color: colors.neutral[1000],
-              fontWeight: 800
-            }}
-          >
-            Populares
-          </ThemedText>
-          <ThemedView>
-            {data.songs.map((item, index) => (
-              <SongItem key={index} index={index + 1} data={item} enumerateSongs sectionId={data.id} />
-            ))}
-          </ThemedView>
-        </ThemedView>
+
+        <PopularSongsSection
+          songs={data.songs}
+          sectionId={data.id}
+          sectionType={sectionType}
+        />
+
       </ThemedScrollView>
     </>
   );

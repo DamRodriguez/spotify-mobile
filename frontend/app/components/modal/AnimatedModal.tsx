@@ -89,7 +89,7 @@ const AnimatedModal: React.FC<AnimatedModalProps> = ({
           transform: [{ translateX: screenWidth - animatedValue.value }],
         };
       default:
-        return {};
+        return {}
     }
   });
 

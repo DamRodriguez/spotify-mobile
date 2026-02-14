@@ -1,8 +1,10 @@
 import { SongItemData } from "@/components/music/SongItem";
+import { HomeListSectionType } from "@/types/homeListSection";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export type SongState = SongItemData & {
   sectionId: string;
+  sectionType: HomeListSectionType;
 }
 
 const initialState: SongState = {
@@ -13,6 +15,7 @@ const initialState: SongState = {
   image: "",
   duration: 0,
   sectionId: "",
+  sectionType: "",
 };
 
 const SongItemSlice = createSlice({

@@ -8,6 +8,7 @@ import { fontSize } from "@/themes/fontSize";
 import { ImageSourcePropType, StyleSheet } from "react-native";
 import useSongItem from "@/features/redux/song-item/useSongItem";
 import { formatWithCommas } from "@/utils/formatWithCommas";
+import { HomeListSectionType } from "@/types/homeListSection";
 
 const styles = StyleSheet.create({
   itemContainer: {
@@ -54,6 +55,7 @@ type SongItemProps = {
   enumerateSongs?: boolean;
   index?: number;
   sectionId: string
+  sectionType: HomeListSectionType;
 }
 
 const SongItem = (props: SongItemProps) => {
@@ -66,10 +68,11 @@ const SongItem = (props: SongItemProps) => {
       setSongItemData({
         ...data,
         color: "",
-        sectionId: props.sectionId
+        sectionId: props.sectionId,
+        sectionType: props.sectionType
       })
     } else {
-      setSongItemData({ ...data, sectionId: props.sectionId });
+      setSongItemData({ ...data, sectionId: props.sectionId, sectionType: props.sectionType });
     }
   }
 

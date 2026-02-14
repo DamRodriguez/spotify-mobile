@@ -29,7 +29,7 @@ const PlayerScreen = () => {
         shadowDistance={400}
       />
       <PlayerHeader
-        fromWhere="playlist"
+        fromWhere={songItemData.sectionType}
         artistName={songItemData.artistName}
       />
       <OptimizedImage

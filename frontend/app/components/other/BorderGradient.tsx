@@ -66,6 +66,8 @@ const BorderGradient = (props: BorderGradientProps) => {
           height: shadowConfig.distance,
           width: shadowConfig.size
         };
+      default:
+        return {}
     }
   };
 

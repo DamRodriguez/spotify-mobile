@@ -77,6 +77,7 @@ const ListDinamicScreen = () => {
       <SongsList
         data={data.songs}
         sectionId={data.id}
+        sectionType={data.sectionType}
         onEndReached={() => { }}
         isLoadingMore={false}
         onScroll={(e) => {
