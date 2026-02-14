@@ -1,6 +1,5 @@
 import { SearchIcon } from '@/components/icons/common';
 import { WorldIcon } from '@/components/icons/listDinamicPage';
-import OptimizedImage from '@/components/image/OptimizedImage';
 import InteractiveSection from '@/components/common/InteractiveSection';
 import ThemedText from '@/components/themed/ThemedText';
 import ThemedView from '@/components/themed/ThemedView';
@@ -11,15 +10,15 @@ import { useRef, useState } from 'react';
 import { ImageSourcePropType, LayoutChangeEvent, TextInput } from 'react-native';
 import HorizontalButtons from '@/components/sections/list-dinamic-screen/HorizontalButtons';
 import SongsList from '@/components/sections/list-dinamic-screen/SongsList';
-import spotifyImage from '@/assets/images/logos/spotify-logo.png';
 import { listDinamicScreenData } from '@/data/listDinamicScreen';
 import PlayButtonVariant from '@/components/other/PlayButtonVariant';
 import { SongItemData } from '@/components/music/SongItem';
 import { HomeListSectionType } from '@/types/homeListSection';
 import ListDinamicScreenHeader from '@/components/header/list-dinamic-screen-header/ListDinamicScreenHeader';
-import userImage from "@/assets/images/other/user.png"
 import BorderGradient from '@/components/other/BorderGradient';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import CoverImage from '@/components/sections/list-dinamic-screen/CoverImage';
+import UsernameSection from '@/components/sections/list-dinamic-screen/UsernameSection';
 
 export type ListDinamicScreenDataType = {
   sectionType: HomeListSectionType;
@@ -65,13 +64,6 @@ const ListDinamicScreen = () => {
 
   return (
     <>
-      <BorderGradient
-        direction="top"
-        shadowDistance={insets.top}
-        shadowColor={colors.background}
-        widthFull
-        style={{ zIndex: 99 }}
-      />
       <ListDinamicScreenHeader
         title={data.abbreviatedTitle ? data.abbreviatedTitle : data.title}
         showTitle={isTitleAtTop}
@@ -128,47 +120,7 @@ const ListDinamicScreen = () => {
               </ThemedView>
             </ThemedView>
 
-            <ThemedView
-              style={{
-                marginTop: 25,
-                marginBottom: 10,
-                alignItems: "center",
-              }}
-            >
-              {data.frontImage instanceof Array ? (
-                <ThemedView
-                  style={{
-                    backgroundColor: "#fff",
-                    borderRadius: 6,
-                    width: "70%",
-                    aspectRatio: 1,
-                    flexWrap: "wrap",
-                    overflow: "hidden"
-                  }}
-                >
-                  {data.frontImage.map((image, index) => (
-                    <OptimizedImage
-                      key={index}
-                      source={image}
-                      style={{
-                        width: "50%",
-                        height: "50%",
-                      }}
-                    />
-                  ))}
-                </ThemedView>
-              ) : (
-                <OptimizedImage
-                  source={data.frontImage}
-                  style={{
-                    width: "70%",
-                    aspectRatio: 1,
-                    alignSelf: "center",
-                    borderRadius: 6,
-                  }}
-                />
-              )}
-            </ThemedView>
+            <CoverImage frontImage={data.frontImage} />
 
             <ThemedText
               style={
@@ -178,7 +130,7 @@ const ListDinamicScreen = () => {
                 } : {
                   color: colors.neutral[1000],
                   fontSize: fontSize.h5,
-                  fontWeight: 700,
+                  fontWeight: 800,
                 }
               }
               onLayout={(e: LayoutChangeEvent) => {
@@ -188,29 +140,13 @@ const ListDinamicScreen = () => {
               {data.title}
             </ThemedText>
 
-            <ThemedView style={{ flexDirection: "row", alignItems: "center", gap: 10 }}>
-              <OptimizedImage
-                source={data.sectionType === "playlist" ? userImage : spotifyImage}
-                style={{
-                  width: 35,
-                  height: 35,
-                  borderRadius: 999
-                }}
-              />
-              <ThemedText style={{
-                color: colors.neutral[1000],
-                fontSize: fontSize.b2,
-                fontWeight: 600
-              }}>
-                {data.sectionType === "playlist" ? "username" : "Spotify"}
-              </ThemedText>
-            </ThemedView>
+            <UsernameSection sectionType={data.sectionType} />
 
-            <ThemedView style={{ flexDirection: "row", alignItems: "center", gap: 10 }}>
+            <ThemedView style={{ flexDirection: "row", alignItems: "center", gap: 8 }}>
               <WorldIcon />
               <ThemedText style={{
-                color: colors.softGray,
-                fontSize: fontSize.b2
+                color: colors.opaqueWhite,
+                fontSize: fontSize.b3
               }}>
                 {data.songsDuration} min
               </ThemedText>

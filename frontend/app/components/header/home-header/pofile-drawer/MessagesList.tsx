@@ -10,6 +10,7 @@ import { fontSize } from "@/themes/fontSize";
 import { formatDayMonth } from "@/utils/formatDayMonth";
 import { FlashList } from "@shopify/flash-list";
 import { ImageSourcePropType, StyleSheet } from "react-native";
+import userImage from "@/assets/images/other/user.png"
 
 const styles = StyleSheet.create({
   messageImage: {
@@ -156,7 +157,7 @@ const MessagesList = (props: MessagesListProps) => {
             style={styles.messageItemContainer}
           >
             <OptimizedImage
-              source={item.image}
+              source={userImage}
               style={styles.messageImage}
             />
             <ThemedView style={styles.messageItemTextsContainer}>

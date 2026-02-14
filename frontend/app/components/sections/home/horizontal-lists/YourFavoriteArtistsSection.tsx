@@ -15,7 +15,6 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   itemImage: {
-    backgroundColor: "#fff",
     borderRadius: 999,
     width: 140,
     height: 140,

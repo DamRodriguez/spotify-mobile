@@ -1,7 +1,7 @@
 import { colors } from "@/themes/colors";
 import Svg, { Circle, G, Path } from "react-native-svg";
 
-export const WorldIcon = ({ size = 23, color = colors.softGray }: { size?: number, width?: string, height?: string, color?: string }) => {
+export const WorldIcon = ({ size = 20, color = colors.softGray }: { size?: number, width?: string, height?: string, color?: string }) => {
   return (
     <Svg width={size} height={size} viewBox="0 0 24 24" fill={color}>
       <G fill="none" stroke={color} strokeLinecap="round" strokeLinejoin="round" strokeWidth="2">

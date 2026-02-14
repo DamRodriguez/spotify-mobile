@@ -16,6 +16,8 @@ import { getListImages } from "@/utils/getPlaylistImages";
 import CrystalCastlesAlbumImg from "@/assets/images/albums/crystal-castles/crystal-castles.png"
 import HimRazorbladeRomanceAlbumImg from "@/assets/images/albums/him/razorblade-romance.png"
 import DepecheModeVideoImage from "@/assets/images/other/depeche-mode-temporal.png"
+import nuevoLanzamientoImg from "@/assets/images/daily-releases/nuevo-lanzamiento.png"
+import discImage from "@/assets/images/other/disc.png"
 
 const listDinamicScreenItems: ListDinamicScreenDataType[] = [
   {
@@ -123,11 +125,11 @@ const listDinamicScreenItems: ListDinamicScreenDataType[] = [
   {
     sectionType: "daily-releases",
     id: "6",
-    frontImage: "",
+    frontImage: nuevoLanzamientoImg,
     title: "Nuevo lanzamiento del día: sonidos frescos que mezclan ritmos actuales con una producción moderna. Ideal para descubrir algo distinto en pocos minutos.",
     abbreviatedTitle: "Sonidos frescos",
     songsDuration: 40,
-    videoImage: "",
+    videoImage: nuevoLanzamientoImg,
     songs: [
       { id: "1", songName: "Blinding Lights", artistName: "The Weeknd", mp3: "", image: "", duration: 130 },
       { id: "2", songName: "Do I Wanna Know?", artistName: "Arctic Monkeys", mp3: "", image: "", duration: 130 },
@@ -228,7 +230,7 @@ const listDinamicScreenItems: ListDinamicScreenDataType[] = [
   {
     sectionType: "back-to-your-music",
     id: "11",
-    frontImage: "",
+    frontImage: discImage,
     title: "Volvé a escuchar esos temas que no podés dejar atrás. Canciones que ya conocés y siempre suenan bien, sin importar el momento.",
     abbreviatedTitle: "Tus clásicos",
     songsDuration: 40,
@@ -249,7 +251,7 @@ const listDinamicScreenItems: ListDinamicScreenDataType[] = [
   {
     sectionType: "back-to-your-music",
     id: "12",
-    frontImage: "",
+    frontImage: discImage,
     title: "Tu música de siempre, esa que acompañó distintos momentos y que hoy vuelve a sonar como la primera vez.",
     abbreviatedTitle: "Tu música de siempre",
     songsDuration: 38,
@@ -270,7 +272,7 @@ const listDinamicScreenItems: ListDinamicScreenDataType[] = [
   {
     sectionType: "back-to-your-music",
     id: "13",
-    frontImage: "",
+    frontImage: discImage,
     title: "Reviví tus favoritos y retomá esas canciones que marcaron etapas. Perfectas para escuchar sin pensarlo demasiado.",
     abbreviatedTitle: "Para volver",
     songsDuration: 42,
@@ -291,7 +293,7 @@ const listDinamicScreenItems: ListDinamicScreenDataType[] = [
   {
     sectionType: "back-to-your-music",
     id: "14",
-    frontImage: "",
+    frontImage: discImage,
     title: "Un viaje directo a tu historial musical: temas que escuchaste, repetiste y siguen teniendo algo especial.",
     abbreviatedTitle: "Viaje musical",
     songsDuration: 36,
@@ -312,7 +314,7 @@ const listDinamicScreenItems: ListDinamicScreenDataType[] = [
   {
     sectionType: "back-to-your-music",
     id: "15",
-    frontImage: "",
+    frontImage: discImage,
     title: "Volvé a tu zona de confort musical con canciones que ya son parte de tu día a día.",
     abbreviatedTitle: "Zona de confort",
     songsDuration: 41,
@@ -335,5 +337,5 @@ const listDinamicScreenItems: ListDinamicScreenDataType[] = [
 export const listDinamicScreenData: ListDinamicScreenDataType[] =
   listDinamicScreenItems.map(item => ({
     ...item,
-    frontImage: getListImages(item.title, listDinamicScreenItems),
+    frontImage: item.sectionType === "playlist" ? getListImages(item.title, listDinamicScreenItems) : item.frontImage,
   }));

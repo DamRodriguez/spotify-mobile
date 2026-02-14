@@ -17,8 +17,8 @@ import DepecheModeArtistImg from "@/assets/images/artists/depeche-mode.png"
 import BabasonicosArtistImg from "@/assets/images/artists/babasonicos.png"
 import RammsteinArtistImg from "@/assets/images/artists/rammstein.png"
 import LadyGagaArtistImg from "@/assets/images/artists/lady-gaga.png"
-
 import { listDinamicScreenData } from "./listDinamicScreen";
+import discImage from "@/assets/images/other/disc.png"
 
 export const recentMusicData = [
   {
@@ -118,27 +118,27 @@ export const dailyReleasesItems: HorizontalDailyReleasesListData[] = [
 export const backToYourMusicItems: HorizontalBackToYourMusicListData[] = [
   {
     id: "11",
-    image: "",
+    image: discImage,
     description: "Volvé a escuchar esos temas que no podés dejar atrás. Canciones que ya conocés y siempre suenan bien, sin importar el momento.",
   },
   {
     id: "12",
-    image: "",
+    image: discImage,
     description: "Tu música de siempre, esa que acompañó distintos momentos y que hoy vuelve a sonar como la primera vez.",
   },
   {
     id: "13",
-    image: "",
+    image: discImage,
     description: "Reviví tus favoritos y retomá esas canciones que marcaron etapas. Perfectas para escuchar sin pensarlo demasiado.",
   },
   {
     id: "14",
-    image: "",
+    image: discImage,
     description: "Un viaje directo a tu historial musical: temas que escuchaste, repetiste y siguen teniendo algo especial.",
   },
   {
     id: "15",
-    image: "",
+    image: discImage,
     description: "Volvé a tu zona de confort musical con canciones que ya son parte de tu día a día.",
   },
 ];
@@ -150,14 +150,9 @@ export const favoriteArtistsItems: HorizontalFavoriteArtistsListData[] = [
     artistName: "Depeche Mode"
   },
   {
-    id: "17",
-    image: LacunaCoilArtistImg,
-    artistName: "Lacuna Coil"
-  },
-  {
-    id: "18",
-    image: BabasonicosArtistImg,
-    artistName: "Babasonicos"
+    id: "20",
+    image: LadyGagaArtistImg,
+    artistName: "Lady Gaga"
   },
   {
     id: "19",
@@ -165,9 +160,14 @@ export const favoriteArtistsItems: HorizontalFavoriteArtistsListData[] = [
     artistName: "Rammstein"
   },
   {
-    id: "20",
-    image: LadyGagaArtistImg,
-    artistName: "Lady Gaga"
+    id: "18",
+    image: BabasonicosArtistImg,
+    artistName: "Babasonicos"
+  },
+  {
+    id: "17",
+    image: LacunaCoilArtistImg,
+    artistName: "Lacuna Coil"
   },
 ];
 

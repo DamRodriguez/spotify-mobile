@@ -16,7 +16,6 @@ const styles = StyleSheet.create({
     gap: 10
   },
   itemImage: {
-    backgroundColor: "#fff",
     borderRadius: 6,
     width: 140,
     height: 140,

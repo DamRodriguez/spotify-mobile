@@ -23,7 +23,7 @@ const SongsList = (props: SongsListProps) => {
   useEffect(() => {
     requestAnimationFrame(() => {
       listRef.current?.scrollToOffset({
-        offset: insets.top + 110,
+        offset: 150,
         animated: false
       });
     });
