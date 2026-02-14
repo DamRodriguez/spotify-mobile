@@ -19,6 +19,7 @@ import BorderGradient from '@/components/other/BorderGradient';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import CoverImage from '@/components/sections/list-dinamic-screen/CoverImage';
 import UsernameSection from '@/components/sections/list-dinamic-screen/UsernameSection';
+import usePlayFromList from '@/hooks/usePlayFromList';
 
 export type ListDinamicScreenDataType = {
   sectionType: HomeListSectionType;
@@ -49,6 +50,12 @@ const ListDinamicScreen = () => {
     (item) => item.sectionType === type && item.id === id
   );
 
+  const { handlePlayButtonPress } = usePlayFromList({
+    songs: data?.songs,
+    sectionId: data?.id,
+    sectionType: data?.sectionType,
+  });
+
   if (!data) {
     return (
       <ThemedView style={{ padding: 16 }}>
@@ -57,9 +64,6 @@ const ListDinamicScreen = () => {
         </ThemedText>
       </ThemedView>
     );
-  }
-
-  const handlePlayButtonPress = () => {
   }
 
   return (
@@ -73,6 +77,7 @@ const ListDinamicScreen = () => {
       <PlayButtonVariant
         isPlayButtonSticky={isPlayButtonSticky}
         handlePlayButtonPress={handlePlayButtonPress}
+        sectionId={data.id}
       />
       <SongsList
         data={data.songs}
@@ -159,6 +164,7 @@ const ListDinamicScreen = () => {
               }}
             >
               <InteractiveSection
+                sectionId={data.id}
                 videoImage={data.videoImage}
                 isPlayButtonSticky={isPlayButtonSticky}
                 onPlayButtonPress={handlePlayButtonPress}

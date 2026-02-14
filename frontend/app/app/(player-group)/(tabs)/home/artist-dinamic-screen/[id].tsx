@@ -17,6 +17,7 @@ import InteractiveSection from "@/components/common/InteractiveSection";
 import { SongItemData } from "@/components/music/SongItem";
 import PopularSongsSection from "@/components/sections/artist-dinamic-screen/PopularSongsSection";
 import { HomeListSectionType } from "@/types/homeListSection";
+import usePlayFromList from "@/hooks/usePlayFromList";
 
 export type ArtistDinamicScreenDataType = {
   id: string;
@@ -41,6 +42,12 @@ const ArtistDinamicScreen = () => {
   const data = artistDinamicScreenData.find(
     (item) => item.id === id
   );
+
+  const { handlePlayButtonPress } = usePlayFromList({
+    songs: data?.songs,
+    sectionId: data?.id,
+    sectionType: sectionType,
+  });
 
   if (!data) {
     return (
@@ -104,12 +111,13 @@ const ArtistDinamicScreen = () => {
             {formatCompactNumber(data.monthlyListeners)} oyentes mensuales
           </ThemedText>
           <InteractiveSection
+            sectionId={data.id}
             videoImage={data.videoImage}
             followingButtonVariantProps={{
               artistId: data.id,
               isFollowing: data.isFollowing
             }}
-            onPlayButtonPress={() => { }}
+            onPlayButtonPress={handlePlayButtonPress}
             onVideoButtonPress={() => { }}
             onDownloadButtonPress={() => { }}
             onShareButtonPress={() => { }}

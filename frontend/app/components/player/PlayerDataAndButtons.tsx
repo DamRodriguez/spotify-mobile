@@ -4,13 +4,13 @@ import { fontSize } from "@/themes/fontSize";
 import { colors } from "@/themes/colors";
 import ItemWrapper from "../other/ItemWrapper";
 import { BackIcon, HideIcon, MixIcon, NextIcon, RepeatIcon } from "../icons/player";
-import { PlusIcon } from "../icons/floatSong";
+import { PauseIcon, PlusIcon } from "../icons/floatSong";
 import DurationSlider from "../sliders/DurationSlider";
 import useSongItem from "@/features/redux/song-item/useSongItem";
 import { PlayIcon } from "../icons/common";
 
 const PlayerDataAndButtons = () => {
-  const { songItemData } = useSongItem();
+  const { songData, togglePlay } = useSongItem();
 
   return (
     <ThemedView
@@ -39,7 +39,7 @@ const PlayerDataAndButtons = () => {
               color: colors.neutral[1000]
             }}
           >
-            {songItemData.songName}
+            {songData.songName}
           </ThemedText>
           <ThemedText
             numberOfLines={1}
@@ -48,7 +48,7 @@ const PlayerDataAndButtons = () => {
               color: colors.opaqueWhite,
             }}
           >
-            {songItemData.artistName}
+            {songData.artistName}
           </ThemedText>
         </ThemedView>
 
@@ -72,7 +72,7 @@ const PlayerDataAndButtons = () => {
       <DurationSlider
         value={0}
         onValueChange={() => { }}
-        max={songItemData.duration}
+        max={songData.duration}
       />
 
       <ThemedView
@@ -102,7 +102,7 @@ const PlayerDataAndButtons = () => {
           </ItemWrapper>
 
           <ItemWrapper
-            onPress={() => { }}
+            onPress={togglePlay}
             style={{
               backgroundColor: colors.neutral[1000],
               borderRadius: 999,
@@ -112,9 +112,13 @@ const PlayerDataAndButtons = () => {
               alignItems: "center"
             }}
           >
-            <ThemedView style={{ left: 2 }}>
-              <PlayIcon size={35} />
-            </ThemedView>
+            {songData.isPlaying ? (
+              <PauseIcon size={35} color="black" />
+            ) : (
+              <ThemedView style={{ left: 2 }}>
+                <PlayIcon size={35} />
+              </ThemedView>
+            )}
           </ItemWrapper>
 
           <ItemWrapper

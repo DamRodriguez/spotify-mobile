@@ -9,6 +9,7 @@ import FollowingButton from "../buttons/FollowingButton";
 import { ImageSourcePropType } from "react-native";
 
 type InteractiveSectionProps = {
+  sectionId: string;
   videoImage: string | ImageSourcePropType;
   isPlayButtonSticky?: boolean;
   onVideoButtonPress: () => void;
@@ -80,7 +81,10 @@ const InteractiveSection = (props: InteractiveSectionProps) => {
             pointerEvents: props.isPlayButtonSticky ? "none" : "auto",
           }}
         >
-          <PlayButton onPress={props.onPlayButtonPress} />
+          <PlayButton
+            onPress={props.onPlayButtonPress}
+            sectionId={props.sectionId}
+          />
         </ThemedView>
       </ThemedView>
     </ThemedView>

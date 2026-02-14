@@ -5,7 +5,7 @@ import ThemedView from "@/components/themed/ThemedView";
 import OptimizedImage from "@/components/image/OptimizedImage";
 import ThemedText from "@/components/themed/ThemedText";
 import DurationBar from "./DurationBar";
-import { ComputerIcon, PlayIcon, PlusIcon } from "@/components/icons/floatSong";
+import { ComputerIcon, PauseIcon, PlayIcon, PlusIcon } from "@/components/icons/floatSong";
 import ItemWrapper from "@/components/other/ItemWrapper";
 import useSongItem from "@/features/redux/song-item/useSongItem";
 import { useRouter } from "expo-router";
@@ -13,10 +13,13 @@ import { ROUTES } from "@/navigation/routes";
 
 const FloatSong = () => {
   const insets = useSafeAreaInsets();
-  const { songItemData } = useSongItem();
-  const data = songItemData;
+  const { songData, togglePlay } = useSongItem();
   const router = useRouter();
-  if (!data.duration) return null;
+  if (!songData.duration) return null;
+
+  const handleTogglePlayButton = () => {
+    togglePlay()
+  }
 
   return (
     <ItemWrapper
@@ -32,14 +35,14 @@ const FloatSong = () => {
     >
       <ThemedView
         style={{
-          backgroundColor: data.color || colors.neutral[500],
+          backgroundColor: songData.color || colors.neutral[500],
           flexDirection: "row",
           padding: 10,
           gap: 10,
         }}
       >
         <OptimizedImage
-          source={data.image}
+          source={songData.image}
           style={{
             width: 40,
             height: 40,
@@ -70,7 +73,7 @@ const FloatSong = () => {
                 color: colors.neutral[1000]
               }}
             >
-              {data.songName}
+              {songData.songName}
             </ThemedText>
             <ThemedText
               numberOfLines={1}
@@ -79,7 +82,7 @@ const FloatSong = () => {
                 color: colors.opaqueWhite
               }}
             >
-              {data.artistName}
+              {songData.artistName}
             </ThemedText>
           </ThemedView>
 
@@ -102,16 +105,24 @@ const FloatSong = () => {
               <PlusIcon />
             </ItemWrapper>
 
-            <ItemWrapper
-              onPress={() => { }}
-            >
-              <PlayIcon />
-            </ItemWrapper>
+            {songData.isPlaying ? (
+              <ItemWrapper
+                onPress={handleTogglePlayButton}
+              >
+                <PauseIcon />
+              </ItemWrapper>
+            ) : (
+              <ItemWrapper
+                onPress={handleTogglePlayButton}
+              >
+                <PlayIcon />
+              </ItemWrapper>
+            )}
           </ThemedView>
         </ThemedView>
 
       </ThemedView>
-      <DurationBar duration={data.duration} />
+      <DurationBar duration={songData.duration} />
     </ItemWrapper>
   );
 };

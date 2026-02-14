@@ -2,12 +2,18 @@ import { colors } from "@/themes/colors";
 import { PlayIcon } from "../icons/common";
 import ItemWrapper from "../other/ItemWrapper";
 import ThemedView from "../themed/ThemedView";
+import useSongItem from "@/features/redux/song-item/useSongItem";
+import { PauseIcon } from "../icons/floatSong";
 
 type PlayButtonProps = {
   onPress: () => void;
+  sectionId: string;
 }
 
 const PlayButton = (props: PlayButtonProps) => {
+  const { songData } = useSongItem();
+  const isThisListPlaying = songData.isPlaying && songData.sectionId === props.sectionId;
+
   return (
     <ItemWrapper
       onPress={props.onPress}
@@ -18,9 +24,13 @@ const PlayButton = (props: PlayButtonProps) => {
         elevation: 20
       }}
     >
-      <ThemedView style={{ left: 2 }}>
-        <PlayIcon />
-      </ThemedView>
+      {isThisListPlaying ? (
+        <PauseIcon size={32} color="black" />
+      ) : (
+        <ThemedView style={{ left: 2 }}>
+          <PlayIcon />
+        </ThemedView>
+      )}
     </ItemWrapper>
   );
 };

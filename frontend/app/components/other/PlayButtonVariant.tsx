@@ -5,6 +5,7 @@ import PlayButton from "../buttons/PlayButton";
 type PlayButtonVariantProps = {
   isPlayButtonSticky: boolean;
   handlePlayButtonPress: () => void;
+  sectionId: string;
 }
 
 const PlayButtonVariant = (props: PlayButtonVariantProps) => {
@@ -21,7 +22,10 @@ const PlayButtonVariant = (props: PlayButtonVariantProps) => {
             zIndex: 9999,
           }}
         >
-          <PlayButton onPress={props.handlePlayButtonPress} />
+          <PlayButton
+            onPress={props.handlePlayButtonPress}
+            sectionId={props.sectionId}
+          />
         </ThemedView>
       )}
     </>

@@ -10,13 +10,13 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 const PlayerScreen = () => {
   const insets = useSafeAreaInsets();
-  const { songItemData } = useSongItem();
+  const { songData } = useSongItem();
 
   return (
     <ThemedScrollView
       style={{
         flex: 1,
-        backgroundColor: songItemData.color || colors.neutral[500],
+        backgroundColor: songData.color || colors.neutral[500],
         paddingTop: insets.top + 16,
         paddingHorizontal: sizes.mainPadding,
         paddingBottom: insets.bottom,
@@ -29,11 +29,11 @@ const PlayerScreen = () => {
         shadowDistance={400}
       />
       <PlayerHeader
-        fromWhere={songItemData.sectionType}
-        artistName={songItemData.artistName}
+        fromWhere={songData.sectionType}
+        artistName={songData.artistName}
       />
       <OptimizedImage
-        source={songItemData.image}
+        source={songData.image}
         style={{
           width: "100%",
           aspectRatio: 1,

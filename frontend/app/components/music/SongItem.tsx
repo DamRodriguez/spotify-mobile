@@ -60,19 +60,18 @@ type SongItemProps = {
 
 const SongItem = (props: SongItemProps) => {
   const data = props.data;
-  const { setSongItemData, songItemData } = useSongItem();
-  const isSongActive = songItemData.id === data.id && songItemData.sectionId === props.sectionId;
+  const { setCurrentSong, songData, togglePlay } = useSongItem();
+  const isSongActive = songData.id === data.id && songData.sectionId === props.sectionId;
 
   const handleSongItemPress = () => {
-    if (!data.color) {
-      setSongItemData({
-        ...data,
-        color: "",
-        sectionId: props.sectionId,
-        sectionType: props.sectionType
-      })
+    if (isSongActive) {
+      togglePlay();
     } else {
-      setSongItemData({ ...data, sectionId: props.sectionId, sectionType: props.sectionType });
+      setCurrentSong({
+        ...data,
+        sectionId: props.sectionId,
+        sectionType: props.sectionType,
+      })
     }
   }
 
