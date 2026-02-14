@@ -18,6 +18,7 @@ import HimRazorbladeRomanceAlbumImg from "@/assets/images/albums/him/razorblade-
 import DepecheModeVideoImage from "@/assets/images/other/depeche-mode-temporal.png"
 import nuevoLanzamientoImg from "@/assets/images/daily-releases/nuevo-lanzamiento.png"
 import discImage from "@/assets/images/other/disc.png"
+import TheCureVideoImage from "@/assets/images/artists/the-cure.png"
 
 const listDinamicScreenItems: ListDinamicScreenDataType[] = [
   {
@@ -48,18 +49,18 @@ const listDinamicScreenItems: ListDinamicScreenDataType[] = [
     title: "The Cure",
     songsDuration: 32,
     headerColor: "#5c1515",
-    videoImage: "",
+    videoImage: TheCureVideoImage,
     songs: [
-      { id: "1", songName: "Just Like Heaven", artistName: "The Cure", mp3: "", image: TheCureKissMeAlbumImg, duration: 130 },
-      { id: "2", songName: "Boys Don't Cry", artistName: "The Cure", mp3: "", image: TheCureBoysDontCryAlbumImg, duration: 130 },
-      { id: "3", songName: "Friday I'm in Love", artistName: "The Cure", mp3: "", image: TheCureFridayImInLoveAlbumImg, duration: 130 },
-      { id: "4", songName: "Lovesong", artistName: "The Cure", mp3: "", image: TheCureDesintegrationAlbumImg, duration: 130 },
-      { id: "5", songName: "Pictures of You", artistName: "The Cure", mp3: "", image: TheCureDesintegrationAlbumImg, duration: 130 },
-      { id: "6", songName: "Close to Me", artistName: "The Cure", mp3: "", image: TheCureTheHeadOnTheDoorAlbumImg, duration: 130 },
-      { id: "7", songName: "In Between Days", artistName: "The Cure", mp3: "", image: TheCureTheHeadOnTheDoorAlbumImg, duration: 130 },
-      { id: "8", songName: "A Forest", artistName: "The Cure", mp3: "", image: TheCureSeventeenSecondsAlbumImg, duration: 130 },
-      { id: "9", songName: "The Lovecats", artistName: "The Cure", mp3: "", image: TheCureJapaneseWhispersAlbumImg, duration: 130 },
-      { id: "10", songName: "Lullaby", artistName: "The Cure", mp3: "", image: TheCureDesintegrationAlbumImg, duration: 130 },
+      { id: "1", songName: "Just Like Heaven", artistName: "The Cure", mp3: "", image: TheCureKissMeAlbumImg, duration: 130, color: "#a14545" },
+      { id: "2", songName: "Boys Don't Cry", artistName: "The Cure", mp3: "", image: TheCureBoysDontCryAlbumImg, duration: 130, color: "#3d60bf" },
+      { id: "3", songName: "Friday I'm in Love", artistName: "The Cure", mp3: "", image: TheCureFridayImInLoveAlbumImg, duration: 130, color: "#541b1b" },
+      { id: "4", songName: "Lovesong", artistName: "The Cure", mp3: "", image: TheCureDesintegrationAlbumImg, duration: 130, color: "#403084" },
+      { id: "5", songName: "Pictures of You", artistName: "The Cure", mp3: "", image: TheCureDesintegrationAlbumImg, duration: 130, color: "#66233d" },
+      { id: "6", songName: "Close to Me", artistName: "The Cure", mp3: "", image: TheCureTheHeadOnTheDoorAlbumImg, duration: 130, color: "#468a99" },
+      { id: "7", songName: "In Between Days", artistName: "The Cure", mp3: "", image: TheCureTheHeadOnTheDoorAlbumImg, duration: 130, color: "#5e8ac3" },
+      { id: "8", songName: "A Forest", artistName: "The Cure", mp3: "", image: TheCureSeventeenSecondsAlbumImg, duration: 130, color: "#1e3992" },
+      { id: "9", songName: "The Lovecats", artistName: "The Cure", mp3: "", image: TheCureJapaneseWhispersAlbumImg, duration: 130, color: "#244416" },
+      { id: "10", songName: "Lullaby", artistName: "The Cure", mp3: "", image: TheCureDesintegrationAlbumImg, duration: 130, color: "#296569" },
     ],
   },
   {

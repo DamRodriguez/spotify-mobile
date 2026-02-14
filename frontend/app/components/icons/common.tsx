@@ -18,7 +18,7 @@ export const BackIcon = ({ size = 30, color = "#fff" }: { size?: number, width?:
   );
 };
 
-export const VerticalDotsIcon = ({ size = 23, color = colors.quaternary[300] }: { size?: number, width?: string, height?: string, color?: string }) => {
+export const VerticalDotsIcon = ({ size = 23, color = colors.softGray }: { size?: number, width?: string, height?: string, color?: string }) => {
   return (
     <Svg width={size} height={size} viewBox="0 0 24 24">
       <Path fill={color} stroke={color} strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M11 12a1 1 0 1 0 2 0a1 1 0 1 0-2 0m0 7a1 1 0 1 0 2 0a1 1 0 1 0-2 0m0-14a1 1 0 1 0 2 0a1 1 0 1 0-2 0" />

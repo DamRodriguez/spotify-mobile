@@ -20,32 +20,34 @@ const UsernameSection = ({ sectionType }: UsernameSectionProps) => {
       style={{ flexDirection: "row", alignItems: "center", gap: 8 }}
     >
       <ThemedView style={{ flexDirection: "row" }}>
-        <ThemedView style={{ alignItems: "center", justifyContent: "center" }}>
-          <ThemedView
-            style={{
-              position: "absolute",
-              left: -2,
-              width: 30,
-              height: 30,
-              borderRadius: 99,
-              backgroundColor: colors.background,
-              zIndex: 1
-            }}
-          />
-          <ThemedView
-            style={{
-              width: 25,
-              height: 25,
-              borderRadius: 99,
-              backgroundColor: colors.quaternary[600],
-              alignItems: "center",
-              justifyContent: "center",
-              zIndex: 10,
-            }}
-          >
-            <PlusIcon size={20} />
+        {sectionType === "playlist" && (
+          <ThemedView style={{ alignItems: "center", justifyContent: "center" }}>
+            <ThemedView
+              style={{
+                position: "absolute",
+                left: -2,
+                width: 30,
+                height: 30,
+                borderRadius: 99,
+                backgroundColor: colors.background,
+                zIndex: 1
+              }}
+            />
+            <ThemedView
+              style={{
+                width: 25,
+                height: 25,
+                borderRadius: 99,
+                backgroundColor: colors.quaternary[600],
+                alignItems: "center",
+                justifyContent: "center",
+                zIndex: 10,
+              }}
+            >
+              <PlusIcon size={20} />
+            </ThemedView>
           </ThemedView>
-        </ThemedView>
+        )}
         <OptimizedImage
           source={sectionType === "playlist" ? userImage : spotifyImage}
           style={{

@@ -10,50 +10,25 @@ import ItemWrapper from "@/components/other/ItemWrapper";
 import useSongItem from "@/features/redux/song-item/useSongItem";
 import { useRouter } from "expo-router";
 import { ROUTES } from "@/navigation/routes";
-import Animated, { Easing, useAnimatedStyle, useSharedValue, withTiming } from "react-native-reanimated";
-import { useEffect } from "react";
-
-const AnimatedItemWrapper = Animated.createAnimatedComponent(ItemWrapper);
 
 const FloatSong = () => {
   const insets = useSafeAreaInsets();
   const { songItemData } = useSongItem();
   const data = songItemData;
   const router = useRouter();
-
-  const translateY = useSharedValue(100);
-  const opacity = useSharedValue(0);
-
-  useEffect(() => {
-    if (!data.duration) return;
-
-    translateY.value = withTiming(0, {
-      duration: 450,
-      easing: Easing.out(Easing.cubic),
-    });
-
-    opacity.value = withTiming(1, { duration: 300 });
-  }, [data.duration, opacity, translateY]);
-
-  const animatedStyle = useAnimatedStyle(() => ({
-    transform: [{ translateY: translateY.value }],
-    opacity: opacity.value,
-  }));
+  if (!data.duration) return null;
 
   return (
-    <AnimatedItemWrapper
+    <ItemWrapper
       onPress={() => { router.push(ROUTES.PLAYER.index) }}
-      style={[
-        {
-          position: "absolute",
-          bottom: insets.bottom + 68,
-          left: 16,
-          right: 16,
-          borderRadius: 6,
-          overflow: "hidden",
-        },
-        animatedStyle,
-      ]}
+      style={{
+        position: "absolute",
+        bottom: insets.bottom + 68,
+        left: 16,
+        right: 16,
+        borderRadius: 6,
+        overflow: "hidden",
+      }}
     >
       <ThemedView
         style={{
@@ -137,7 +112,7 @@ const FloatSong = () => {
 
       </ThemedView>
       <DurationBar duration={data.duration} />
-    </AnimatedItemWrapper>
+    </ItemWrapper>
   );
 };
 

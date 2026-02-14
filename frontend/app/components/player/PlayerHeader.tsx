@@ -60,7 +60,7 @@ const PlayerHeader = (props: PlayerHeaderProps) => {
       </ThemedView>
 
       <ItemWrapper
-        onPress={() => router.back()}
+        onPress={() => { }}
       >
         <VerticalDotsIcon color={colors.neutral[900]} size={24} />
       </ItemWrapper>
