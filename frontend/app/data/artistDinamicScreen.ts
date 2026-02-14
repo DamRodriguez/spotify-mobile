@@ -10,8 +10,9 @@ import LadyGagaArtistImg from "@/assets/images/artists/lady-gaga.png"
 import LadyGagaTheFameAlbumImg from "@/assets/images/albums/lady-gaga/the-fame.png"
 import LadyGagaBornThisWayAlbumImg from "@/assets/images/albums/lady-gaga/born-this-way.png"
 import LadyGagaChromaticaAlbumImg from "@/assets/images/albums/lady-gaga/chromatica.png"
+import { getSongColorByArtist } from "@/utils/getAlbumColors";
 
-export const artistDinamicScreenData: ArtistDinamicScreenDataType[] = [
+export const artistDinamicScreenBase: ArtistDinamicScreenDataType[] = [
   {
     id: "16",
     coverImage: dmCoverImage,
@@ -21,16 +22,16 @@ export const artistDinamicScreenData: ArtistDinamicScreenDataType[] = [
     isFollowing: true,
     headerColor: "#851515",
     songs: [
-      { id: "1", songName: "Enjoy the Silence", artistName: "Depeche Mode", mp3: "", image: DepecheModeViolatorAlbumImg, duration: 130, color: "#5c1212", reproductions: 920091098 },
-      { id: "2", songName: "Personal Jesus", artistName: "Depeche Mode", mp3: "", image: DepecheModeViolatorAlbumImg, duration: 130, color: "#8e4227", reproductions: 810100239 },
-      { id: "3", songName: "Policy of Truth", artistName: "Depeche Mode", mp3: "", image: DepecheModeViolatorAlbumImg, duration: 130, color: "#4a6a85", reproductions: 600123130 },
-      { id: "4", songName: "Never Let Me Down Again", artistName: "Depeche Mode", mp3: "", image: DepecheModeMusicForTheMassesAlbumImg, duration: 130, color: "#752371", reproductions: 590091000 },
-      { id: "5", songName: "Strangelove", artistName: "Depeche Mode", mp3: "", image: DepecheModeMusicForTheMassesAlbumImg, duration: 130, color: "#e46a6a", reproductions: 412010999 },
-      { id: "6", songName: "People Are People", artistName: "Depeche Mode", mp3: "", image: DepecheModeSomeGreatRewardAlbumImg, duration: 130, color: "#6b47c4", reproductions: 400129001 },
-      { id: "7", songName: "Master and Servant", artistName: "Depeche Mode", mp3: "", image: DepecheModeSomeGreatRewardAlbumImg, duration: 130, color: "#298893", reproductions: 330999110 },
-      { id: "8", songName: "Everything Counts", artistName: "Depeche Mode", mp3: "", image: DepecheModeConstructionTimeAgainAlbumImg, duration: 130, color: "#7d360f", reproductions: 290123001 },
-      { id: "9", songName: "Just Can't Get Enough", artistName: "Depeche Mode", mp3: "", image: DepecheModeSpeakSpellAlbumImg, duration: 130, color: "#761818", reproductions: 200900111 },
-      { id: "10", songName: "Blasphemous Rumours", artistName: "Depeche Mode", mp3: "", image: DepecheModeSomeGreatRewardAlbumImg, duration: 130, color: "#7e8d2c", reproductions: 90123100 },
+      { id: "1", songName: "Enjoy the Silence", artistName: "Depeche Mode", mp3: "", image: DepecheModeViolatorAlbumImg, duration: 130, album: "violator", reproductions: 920091098 },
+      { id: "2", songName: "Personal Jesus", artistName: "Depeche Mode", mp3: "", image: DepecheModeViolatorAlbumImg, duration: 130, album: "violator", reproductions: 810100239 },
+      { id: "3", songName: "Policy of Truth", artistName: "Depeche Mode", mp3: "", image: DepecheModeViolatorAlbumImg, duration: 130, album: "violator", reproductions: 600123130 },
+      { id: "4", songName: "Never Let Me Down Again", artistName: "Depeche Mode", mp3: "", image: DepecheModeMusicForTheMassesAlbumImg, duration: 130, album: "music-for-the-masses", reproductions: 590091000 },
+      { id: "5", songName: "Strangelove", artistName: "Depeche Mode", mp3: "", image: DepecheModeMusicForTheMassesAlbumImg, duration: 130, album: "music-for-the-masses", reproductions: 412010999 },
+      { id: "6", songName: "People Are People", artistName: "Depeche Mode", mp3: "", image: DepecheModeSomeGreatRewardAlbumImg, duration: 130, album: "some-great-reward", reproductions: 400129001 },
+      { id: "7", songName: "Master and Servant", artistName: "Depeche Mode", mp3: "", image: DepecheModeSomeGreatRewardAlbumImg, duration: 130, album: "some-great-reward", reproductions: 330999110 },
+      { id: "8", songName: "Everything Counts", artistName: "Depeche Mode", mp3: "", image: DepecheModeConstructionTimeAgainAlbumImg, duration: 130, album: "construction-time-again", reproductions: 290123001 },
+      { id: "9", songName: "Just Can't Get Enough", artistName: "Depeche Mode", mp3: "", image: DepecheModeSpeakSpellAlbumImg, duration: 130, album: "speak-spell", reproductions: 200900111 },
+      { id: "10", songName: "Blasphemous Rumours", artistName: "Depeche Mode", mp3: "", image: DepecheModeSomeGreatRewardAlbumImg, duration: 130, album: "some-great-reward", reproductions: 90123100 },
     ],
   },
   {
@@ -42,17 +43,25 @@ export const artistDinamicScreenData: ArtistDinamicScreenDataType[] = [
     isFollowing: false,
     headerColor: "#771e62",
     songs: [
-      { id: "1", songName: "Just Dance", artistName: "Lady Gaga", mp3: "", image: LadyGagaTheFameAlbumImg, duration: 244, color: "#5c3e86", reproductions: 1800000000 },
-      { id: "2", songName: "Poker Face", artistName: "Lady Gaga", mp3: "", image: LadyGagaTheFameAlbumImg, duration: 238, color: "#432581", reproductions: 3200000000 },
-      { id: "3", songName: "Paparazzi", artistName: "Lady Gaga", mp3: "", image: LadyGagaTheFameAlbumImg, duration: 208, color: "#903769", reproductions: 1400000000 },
-      { id: "4", songName: "Born This Way", artistName: "Lady Gaga", mp3: "", image: LadyGagaBornThisWayAlbumImg, duration: 252, color: "#877634", reproductions: 1700000000 },
-      { id: "5", songName: "Judas", artistName: "Lady Gaga", mp3: "", image: LadyGagaBornThisWayAlbumImg, duration: 249, color: "#762727", reproductions: 950000000 },
-      { id: "6", songName: "The Edge of Glory", artistName: "Lady Gaga", mp3: "", image: LadyGagaBornThisWayAlbumImg, duration: 320, color: "#9e7529", reproductions: 1100000000 },
-      { id: "7", songName: "Stupid Love", artistName: "Lady Gaga", mp3: "", image: LadyGagaChromaticaAlbumImg, duration: 193, color: "#722461", reproductions: 800000000 },
-      { id: "8", songName: "Rain On Me", artistName: "Lady Gaga", mp3: "", image: LadyGagaChromaticaAlbumImg, duration: 182, color: "#26718a", reproductions: 1500000000 },
-      { id: "9", songName: "911", artistName: "Lady Gaga", mp3: "", image: LadyGagaChromaticaAlbumImg, duration: 173, color: "#902727", reproductions: 500000000 },
-      { id: "10", songName: "Replay", artistName: "Lady Gaga", mp3: "", image: LadyGagaChromaticaAlbumImg, duration: 187, color: "#47257d", reproductions: 420000000 },
+      { id: "1", songName: "Just Dance", artistName: "Lady Gaga", mp3: "", image: LadyGagaTheFameAlbumImg, duration: 244, album: "the-fame", reproductions: 1800000000 },
+      { id: "2", songName: "Poker Face", artistName: "Lady Gaga", mp3: "", image: LadyGagaTheFameAlbumImg, duration: 238, album: "the-fame", reproductions: 3200000000 },
+      { id: "3", songName: "Paparazzi", artistName: "Lady Gaga", mp3: "", image: LadyGagaTheFameAlbumImg, duration: 208, album: "the-fame", reproductions: 1400000000 },
+      { id: "4", songName: "Born This Way", artistName: "Lady Gaga", mp3: "", image: LadyGagaBornThisWayAlbumImg, duration: 252, album: "born-this-way", reproductions: 1700000000 },
+      { id: "5", songName: "Judas", artistName: "Lady Gaga", mp3: "", image: LadyGagaBornThisWayAlbumImg, duration: 249, album: "born-this-way", reproductions: 950000000 },
+      { id: "6", songName: "The Edge of Glory", artistName: "Lady Gaga", mp3: "", image: LadyGagaBornThisWayAlbumImg, duration: 320, album: "born-this-way", reproductions: 1100000000 },
+      { id: "7", songName: "Stupid Love", artistName: "Lady Gaga", mp3: "", image: LadyGagaChromaticaAlbumImg, duration: 193, album: "chromatica", reproductions: 800000000 },
+      { id: "8", songName: "Rain On Me", artistName: "Lady Gaga", mp3: "", image: LadyGagaChromaticaAlbumImg, duration: 182, album: "chromatica", reproductions: 1500000000 },
+      { id: "9", songName: "911", artistName: "Lady Gaga", mp3: "", image: LadyGagaChromaticaAlbumImg, duration: 173, album: "chromatica", reproductions: 500000000 },
+      { id: "10", songName: "Replay", artistName: "Lady Gaga", mp3: "", image: LadyGagaChromaticaAlbumImg, duration: 187, album: "chromatica", reproductions: 420000000 },
     ],
-
   }
 ]
+
+export const artistDinamicScreenData: ArtistDinamicScreenDataType[] =
+  artistDinamicScreenBase.map(item => ({
+    ...item,
+    songs: item.songs.map(song => ({
+      ...song,
+      color: getSongColorByArtist(song.artistName, song.album || "")
+    }))
+  }));

@@ -5,11 +5,12 @@ import ThemedView from "@/components/themed/ThemedView";
 import OptimizedImage from "@/components/image/OptimizedImage";
 import ThemedText from "@/components/themed/ThemedText";
 import DurationBar from "./DurationBar";
-import { ComputerIcon, PauseIcon, PlayIcon, PlusIcon } from "@/components/icons/floatSong";
+import { ComputerIcon, PlusIcon } from "@/components/icons/floatSong";
 import ItemWrapper from "@/components/other/ItemWrapper";
 import useSongItem from "@/features/redux/song-item/useSongItem";
 import { useRouter } from "expo-router";
 import { ROUTES } from "@/navigation/routes";
+import { PauseIcon, PlayIcon } from "@/components/icons/common";
 
 const FloatSong = () => {
   const insets = useSafeAreaInsets();
@@ -115,14 +116,14 @@ const FloatSong = () => {
               <ItemWrapper
                 onPress={handleTogglePlayButton}
               >
-                <PlayIcon />
+                <PlayIcon size={30} color={colors.neutral[1000]} />
               </ItemWrapper>
             )}
           </ThemedView>
         </ThemedView>
 
       </ThemedView>
-      <DurationBar duration={songData.duration} />
+      <DurationBar />
     </ItemWrapper>
   );
 };

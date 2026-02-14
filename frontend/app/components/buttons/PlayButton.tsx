@@ -1,9 +1,8 @@
 import { colors } from "@/themes/colors";
-import { PlayIcon } from "../icons/common";
 import ItemWrapper from "../other/ItemWrapper";
 import ThemedView from "../themed/ThemedView";
 import useSongItem from "@/features/redux/song-item/useSongItem";
-import { PauseIcon } from "../icons/floatSong";
+import { PauseIcon, PlayIcon } from "../icons/common";
 
 type PlayButtonProps = {
   onPress: () => void;
@@ -25,7 +24,7 @@ const PlayButton = (props: PlayButtonProps) => {
       }}
     >
       {isThisListPlaying ? (
-        <PauseIcon size={32} color="black" />
+        <PauseIcon size={32} color={colors.neutral[100]} />
       ) : (
         <ThemedView style={{ left: 2 }}>
           <PlayIcon />

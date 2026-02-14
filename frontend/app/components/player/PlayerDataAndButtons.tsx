@@ -4,10 +4,10 @@ import { fontSize } from "@/themes/fontSize";
 import { colors } from "@/themes/colors";
 import ItemWrapper from "../other/ItemWrapper";
 import { BackIcon, HideIcon, MixIcon, NextIcon, RepeatIcon } from "../icons/player";
-import { PauseIcon, PlusIcon } from "../icons/floatSong";
+import { PlusIcon } from "../icons/floatSong";
 import DurationSlider from "../sliders/DurationSlider";
 import useSongItem from "@/features/redux/song-item/useSongItem";
-import { PlayIcon } from "../icons/common";
+import { PauseIcon, PlayIcon } from "../icons/common";
 
 const PlayerDataAndButtons = () => {
   const { songData, togglePlay } = useSongItem();

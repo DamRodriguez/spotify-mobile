@@ -1,29 +1,9 @@
 import ThemedView from "@/components/themed/ThemedView";
+// import useSongItem from "@/features/redux/song-item/useSongItem";
 import { colors } from "@/themes/colors";
-import React, { useEffect, useRef } from "react";
-import { Animated } from "react-native";
 
-type DurationBarProps = {
-  duration: number;
-};
-
-const DurationBar = ({ duration }: DurationBarProps) => {
-  const progress = useRef(new Animated.Value(0)).current;
-
-  useEffect(() => {
-    progress.setValue(0);
-
-    Animated.timing(progress, {
-      toValue: 1,
-      duration,
-      useNativeDriver: false,
-    }).start();
-  }, [duration, progress]);
-
-  const widthInterpolated = progress.interpolate({
-    inputRange: [0, 1],
-    outputRange: ["0%", "100%"],
-  });
+const DurationBar = () => {
+  // const { songData } = useSongItem();
 
   return (
     <ThemedView
@@ -38,14 +18,11 @@ const DurationBar = ({ duration }: DurationBarProps) => {
         elevation: 20,
       }}
     >
-      <Animated.View
-        style={[
-          {
-            height: "100%",
-            backgroundColor: colors.neutral[1000],
-          },
-          { width: widthInterpolated },
-        ]}
+      <ThemedView
+        style={{
+          height: "100%",
+          backgroundColor: colors.neutral[1000],
+        }}
       />
     </ThemedView>
   );

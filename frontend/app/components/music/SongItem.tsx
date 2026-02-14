@@ -48,6 +48,7 @@ export type SongItemData = {
   duration: number;
   color?: string;
   reproductions?: number;
+  album: string;
 }
 
 type SongItemProps = {
