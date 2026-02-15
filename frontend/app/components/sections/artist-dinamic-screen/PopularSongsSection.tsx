@@ -1,4 +1,4 @@
-import { ArtistDinamicScreenDataType } from "@/app/(player-group)/(tabs)/home/artist-dinamic-screen/[id]";
+import { ArtistDinamicScreenDataType } from "@/app/(app)/(player-group)/(tabs)/home/artist-dinamic-screen/[id]";
 import SongItem from "@/components/music/SongItem";
 import ThemedText from "@/components/themed/ThemedText";
 import ThemedView from "@/components/themed/ThemedView";

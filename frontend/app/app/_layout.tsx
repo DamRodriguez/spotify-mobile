@@ -8,19 +8,19 @@ import { store } from '@/redux/store';
 
 const TabsStack = () => {
   return (
-    <Provider store={store}>
-      <GestureHandlerRootView
-        style={{
-          flex: 1,
-          backgroundColor: colors.background
-        }}
-      >
+    <GestureHandlerRootView
+      style={{
+        flex: 1,
+        backgroundColor: colors.background
+      }}
+    >
+      <Provider store={store}>
+        <StatusBar style="light" />
         <PaperProvider>
-          <StatusBar style="light" />
           <Slot />
         </PaperProvider>
-      </GestureHandlerRootView>
-    </Provider >
+      </Provider >
+    </GestureHandlerRootView>
   );
 };
 

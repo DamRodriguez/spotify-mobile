@@ -1,4 +1,4 @@
-import { ArtistDinamicScreenDataType } from "@/app/(player-group)/(tabs)/home/artist-dinamic-screen/[id]";
+import { ArtistDinamicScreenDataType } from "@/app/(app)/(player-group)/(tabs)/home/artist-dinamic-screen/[id]";
 import dmCoverImage from "@/assets/images/artists/depeche-mode.png"
 import DepecheModeViolatorAlbumImg from "@/assets/images/albums/depeche-mode/violator.png"
 import DepecheModeMusicForTheMassesAlbumImg from "@/assets/images/albums/depeche-mode/music-for-the-masses.png"
@@ -20,7 +20,7 @@ export const artistDinamicScreenBase: ArtistDinamicScreenDataType[] = [
     artistName: "Depeche Mode",
     monthlyListeners: 10232990,
     isFollowing: true,
-    headerColor: "#851515",
+    headerColor: "#524c4c",
     songs: [
       { id: "1", songName: "Enjoy the Silence", artistName: "Depeche Mode", mp3: "", image: DepecheModeViolatorAlbumImg, duration: 130, album: "violator", reproductions: 920091098 },
       { id: "2", songName: "Personal Jesus", artistName: "Depeche Mode", mp3: "", image: DepecheModeViolatorAlbumImg, duration: 130, album: "violator", reproductions: 810100239 },
@@ -41,7 +41,7 @@ export const artistDinamicScreenBase: ArtistDinamicScreenDataType[] = [
     artistName: "Lady Gaga",
     monthlyListeners: 7890129,
     isFollowing: false,
-    headerColor: "#771e62",
+    headerColor: "#af5a9b",
     songs: [
       { id: "1", songName: "Just Dance", artistName: "Lady Gaga", mp3: "", image: LadyGagaTheFameAlbumImg, duration: 244, album: "the-fame", reproductions: 1800000000 },
       { id: "2", songName: "Poker Face", artistName: "Lady Gaga", mp3: "", image: LadyGagaTheFameAlbumImg, duration: 238, album: "the-fame", reproductions: 3200000000 },

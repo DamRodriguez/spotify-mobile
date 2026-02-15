@@ -1,4 +1,4 @@
-import { ListDinamicScreenDataType } from "@/app/(player-group)/(tabs)/home/list-dinamic-screen/[type]/[id]";
+import { ListDinamicScreenDataType } from "@/app/(app)/(player-group)/(tabs)/home/list-dinamic-screen/[type]/[id]";
 import DepecheModeViolatorAlbumImg from "@/assets/images/albums/depeche-mode/violator.png"
 import DepecheModeMusicForTheMassesAlbumImg from "@/assets/images/albums/depeche-mode/music-for-the-masses.png"
 import DepecheModeSomeGreatRewardAlbumImg from "@/assets/images/albums/depeche-mode/some-great-reward.png"
@@ -28,7 +28,7 @@ const listDinamicScreenItems: ListDinamicScreenDataType[] = [
     frontImage: "",
     title: "Depeche Mode",
     songsDuration: 40,
-    headerColor: "#473b3b",
+    headerColor: "#446874",
     videoImage: DepecheModeVideoImage,
     songs: [
       { id: "1", songName: "Enjoy the Silence", artistName: "Depeche Mode", mp3: "", image: DepecheModeViolatorAlbumImg, duration: 130, album: "violator" },
@@ -54,7 +54,7 @@ const listDinamicScreenItems: ListDinamicScreenDataType[] = [
     frontImage: "",
     title: "The Cure",
     songsDuration: 32,
-    headerColor: "#5c1515",
+    headerColor: "#863a3a",
     videoImage: TheCureVideoImage,
     songs: [
       { id: "1", songName: "Just Like Heaven", artistName: "The Cure", mp3: "", image: TheCureKissMeAlbumImg, duration: 130, album: "kiss-me-kiss-me-kiss-me" },

@@ -1,4 +1,4 @@
-import { ListDinamicScreenDataType } from "@/app/(player-group)/(tabs)/home/list-dinamic-screen/[type]/[id]";
+import { ListDinamicScreenDataType } from "@/app/(app)/(player-group)/(tabs)/home/list-dinamic-screen/[type]/[id]";
 
 export const getListImages = (
   title: string,
