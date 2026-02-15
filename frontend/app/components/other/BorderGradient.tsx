@@ -11,6 +11,7 @@ type BorderGradientProps = {
   style?: StyleProp<ViewStyle>;
   heightFull?: boolean;
   widthFull?: boolean;
+  hideShadow?: boolean;
 }
 
 const BorderGradient = (props: BorderGradientProps) => {
@@ -70,6 +71,8 @@ const BorderGradient = (props: BorderGradientProps) => {
         return {}
     }
   };
+
+  if (props.hideShadow) return null;
 
   return (
     <LinearGradient

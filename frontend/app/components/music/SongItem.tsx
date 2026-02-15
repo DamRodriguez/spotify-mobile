@@ -45,7 +45,6 @@ export type SongItemData = {
   songName: string;
   mp3: string;
   image: string | ImageSourcePropType;
-  duration: number;
   color?: string;
   reproductions?: number;
   album: string;
@@ -87,7 +86,7 @@ const SongItem = (props: SongItemProps) => {
             style={{
               color: colors.neutral[1000],
               fontSize: fontSize.b3,
-              width: 20,
+              minWidth: 20,
             }}
           >
             {props.index}

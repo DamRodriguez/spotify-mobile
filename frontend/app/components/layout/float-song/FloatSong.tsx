@@ -16,10 +16,10 @@ const FloatSong = () => {
   const insets = useSafeAreaInsets();
   const { songData, togglePlay } = useSongItem();
   const router = useRouter();
-  if (!songData.duration) return null;
+  if (songData.id === "") return null;
 
   const handleTogglePlayButton = () => {
-    togglePlay()
+    togglePlay();
   }
 
   return (

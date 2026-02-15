@@ -78,13 +78,12 @@ const ListDinamicScreenHeader = ({
         }
       ]}
     >
-      {showTitle && (
-        <BorderGradient
-          direction="bottom"
-          shadowSize={sizes.width}
-          style={{ elevation: 20 }}
-        />
-      )}
+      <BorderGradient
+        direction="bottom"
+        shadowSize={sizes.width}
+        style={{ elevation: 20 }}
+        hideShadow={!showTitle}
+      />
       <IconButton
         onPress={() => router.back()}
         icon={<BackIcon />}

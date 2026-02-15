@@ -5,6 +5,7 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { PaperProvider } from 'react-native-paper';
 import { Provider } from 'react-redux';
 import { store } from '@/redux/store';
+import { AudioPlayerEngine } from '@/components/audio/AudioPlayerEngine';
 
 const TabsStack = () => {
   return (
@@ -15,6 +16,7 @@ const TabsStack = () => {
       }}
     >
       <Provider store={store}>
+        <AudioPlayerEngine />
         <StatusBar style="light" />
         <PaperProvider>
           <Slot />

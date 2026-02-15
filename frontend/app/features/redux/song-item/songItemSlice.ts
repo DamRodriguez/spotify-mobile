@@ -16,7 +16,7 @@ const initialState: SongState = {
   songName: "",
   mp3: "",
   image: "",
-  duration: 0,
+  album: "",
   sectionId: "",
   sectionType: "",
   isPlaying: false,

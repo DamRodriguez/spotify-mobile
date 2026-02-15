@@ -31,8 +31,8 @@ const styles = StyleSheet.create({
     position: "absolute",
     alignSelf: "center",
     top: "35%",
-    width: 230,
-    height: 230,
+    width: 210,
+    height: 210,
     zIndex: 1,
   },
 });

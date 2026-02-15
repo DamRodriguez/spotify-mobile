@@ -8,9 +8,12 @@ import { PlusIcon } from "../icons/floatSong";
 import DurationSlider from "../sliders/DurationSlider";
 import useSongItem from "@/features/redux/song-item/useSongItem";
 import { PauseIcon, PlayIcon } from "../icons/common";
+import { useAudioPlayer, useAudioPlayerStatus } from "expo-audio";
 
 const PlayerDataAndButtons = () => {
   const { songData, togglePlay } = useSongItem();
+  const player = useAudioPlayer(songData?.mp3);
+  const status = useAudioPlayerStatus(player);
 
   return (
     <ThemedView
@@ -72,7 +75,7 @@ const PlayerDataAndButtons = () => {
       <DurationSlider
         value={0}
         onValueChange={() => { }}
-        max={songData.duration}
+        max={status.duration}
       />
 
       <ThemedView
