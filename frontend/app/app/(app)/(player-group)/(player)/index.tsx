@@ -20,7 +20,7 @@ const PlayerScreen = () => {
         paddingTop: insets.top + 16,
         paddingHorizontal: sizes.mainPadding,
         paddingBottom: insets.bottom,
-        gap: 50
+        gap: 50,
       }}
     >
       <BorderGradient
@@ -38,7 +38,6 @@ const PlayerScreen = () => {
           width: "100%",
           aspectRatio: 1,
           borderRadius: 6,
-          backgroundColor: "#fff"
         }}
       />
       <PlayerDataAndButtons />

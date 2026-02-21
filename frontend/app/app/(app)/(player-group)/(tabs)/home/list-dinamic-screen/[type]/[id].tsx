@@ -176,7 +176,7 @@ const ListDinamicScreen = () => {
               />
             </ThemedView>
             {data.sectionType === "playlist" && (
-              <HorizontalButtons />
+              <HorizontalButtons style={{ marginBottom: 10 }} />
             )}
             <ThemedView />
           </ThemedView>

@@ -3,36 +3,35 @@ import ThemedText from "../themed/ThemedText";
 import { colors } from "@/themes/colors";
 import { fontSize } from "@/themes/fontSize";
 import { useState } from "react";
-
 import Animated, {
-  useSharedValue,
-  useAnimatedStyle,
-  withTiming,
 } from "react-native-reanimated";
+import useScalePressAnimation from "@/hooks/useScalePressAnimation";
+import useNotification from "@/features/redux/notification/useNotification";
 
 type FollowingButtonProps = {
-  artistId: string;
+  artistName: string;
   isFollowing: boolean;
 };
 
 const AnimatedItemWrapper = Animated.createAnimatedComponent(ItemWrapper);
 
-const FollowingButton = ({ artistId, isFollowing: initialValue }: FollowingButtonProps) => {
+const FollowingButton = ({ artistName, isFollowing: initialValue }: FollowingButtonProps) => {
   const [isFollowing, setIsFollowing] = useState(initialValue);
-
-  const scale = useSharedValue(1);
+  const { animatedStyle, animate } = useScalePressAnimation();
+  const { showNotification } = useNotification();
 
   const handleOnPressButton = () => {
+    animate();
     setIsFollowing((prev) => !prev);
-
-    scale.value = withTiming(1.05, { duration: 120 }, () => {
-      scale.value = withTiming(1, { duration: 120 });
-    });
+    showNotification(
+      "info",
+      isFollowing ?
+        `Entendido, ya no estás siguiendo a ${artistName}.`
+        :
+        `Entendido, estás siguiendo a ${artistName}.`
+    )
   };
 
-  const animatedStyle = useAnimatedStyle(() => ({
-    transform: [{ scale: scale.value }],
-  }));
 
   return (
     <AnimatedItemWrapper

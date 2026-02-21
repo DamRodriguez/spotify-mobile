@@ -10,7 +10,7 @@ export const ROUTES = {
     CREATE: "create",
   },
   PLAYER: {
-    index: "/(player-group)/(player)",
+    index: "/(app)/(player-group)/(player)",
   },
   ERROR: "/error",
 } as const;

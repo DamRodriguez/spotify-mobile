@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import songItemReducer from "@/features/redux/song-item/songItemSlice";
+import notificationReducer from "@/features/redux/notification/notificationSlice"
 
 export const store = configureStore({
   reducer: {
     songItem: songItemReducer,
+    notification: notificationReducer,
   },
 });
 

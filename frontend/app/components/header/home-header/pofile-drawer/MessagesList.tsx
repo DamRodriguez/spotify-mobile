@@ -16,7 +16,6 @@ const styles = StyleSheet.create({
   messageImage: {
     width: 45,
     height: 45,
-    backgroundColor: "#fff",
     borderRadius: 999
   },
   messageItemContainer: {

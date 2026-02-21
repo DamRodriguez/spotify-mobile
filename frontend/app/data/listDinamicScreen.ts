@@ -23,6 +23,7 @@ import { getSongColorByArtist } from "@/utils/getAlbumColors";
 import enjoyTheSilenceMp3 from "@/assets/audio/depeche-mode/violator/enjoy-the-silence.mp3"
 import personalJesusMp3 from "@/assets/audio/depeche-mode/violator/personal-jesus.mp3"
 import neverLetMeDownAgainMp3 from "@/assets/audio/depeche-mode/music-for-the-masses/never-let-me-down-again.mp3"
+import justLikeHeavenMp3 from "@/assets/audio/the-cure/kiss-me/just-like-heaven.mp3"
 
 const listDinamicScreenItems: ListDinamicScreenDataType[] = [
   {
@@ -60,7 +61,7 @@ const listDinamicScreenItems: ListDinamicScreenDataType[] = [
     headerColor: "#863a3a",
     videoImage: TheCureVideoImage,
     songs: [
-      { id: "1", songName: "Just Like Heaven", artistName: "The Cure", mp3: "", image: TheCureKissMeAlbumImg, album: "kiss-me-kiss-me-kiss-me" },
+      { id: "1", songName: "Just Like Heaven", artistName: "The Cure", mp3: justLikeHeavenMp3, image: TheCureKissMeAlbumImg, album: "kiss-me-kiss-me-kiss-me" },
 
       { id: "2", songName: "Boys Don't Cry", artistName: "The Cure", mp3: "", image: TheCureBoysDontCryAlbumImg, album: "boys-dont-cry" },
 

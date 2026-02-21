@@ -21,7 +21,6 @@ const styles = StyleSheet.create({
     gap: 14,
   },
   profileImage: {
-    backgroundColor: "#fff",
     width: 32,
     height: 32,
     borderRadius: 999,

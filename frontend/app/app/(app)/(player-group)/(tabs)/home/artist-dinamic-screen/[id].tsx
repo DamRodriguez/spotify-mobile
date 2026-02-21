@@ -18,6 +18,8 @@ import { SongItemData } from "@/components/music/SongItem";
 import PopularSongsSection from "@/components/sections/artist-dinamic-screen/PopularSongsSection";
 import { HomeListSectionType } from "@/types/homeListSection";
 import usePlayFromList from "@/hooks/usePlayFromList";
+import PopularReleasesSection from "@/components/sections/artist-dinamic-screen/album/PopularReleasesSection";
+import { AlbumItemData } from "@/components/sections/artist-dinamic-screen/album/AlbumItem";
 
 export type ArtistDinamicScreenDataType = {
   id: string;
@@ -27,6 +29,7 @@ export type ArtistDinamicScreenDataType = {
   monthlyListeners: number;
   isFollowing: boolean;
   songs: SongItemData[];
+  albums: AlbumItemData[];
   headerColor: string;
 }
 
@@ -77,7 +80,7 @@ const ArtistDinamicScreen = () => {
           paddingBottom: 250 + bgImageHeight,
           padding: sizes.mainPadding,
           marginTop: insets.top + bgImageHeight,
-          gap: 30,
+          gap: 35,
           backgroundColor: colors.background
         }}
         onScroll={(e) => {
@@ -114,7 +117,7 @@ const ArtistDinamicScreen = () => {
             sectionId={data.id}
             videoImage={data.videoImage}
             followingButtonVariantProps={{
-              artistId: data.id,
+              artistName: data.artistName,
               isFollowing: data.isFollowing
             }}
             onPlayButtonPress={handlePlayButtonPress}
@@ -131,6 +134,8 @@ const ArtistDinamicScreen = () => {
           sectionId={data.id}
           sectionType={sectionType}
         />
+
+        <PopularReleasesSection albums={data.albums} />
 
       </ThemedScrollView>
     </>

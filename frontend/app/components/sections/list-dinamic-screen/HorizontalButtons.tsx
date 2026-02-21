@@ -6,7 +6,11 @@ import { colors } from "@/themes/colors";
 import { fontSize } from "@/themes/fontSize";
 import { FlashList } from "@shopify/flash-list";
 import { useState } from "react";
-import { StyleSheet } from "react-native";
+import { StyleProp, StyleSheet, ViewStyle } from "react-native";
+
+type HorizontalButtonsProps = {
+  style?: StyleProp<ViewStyle>;
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -25,7 +29,7 @@ const styles = StyleSheet.create({
   }
 });
 
-const HorizontalButtons = () => {
+const HorizontalButtons = (props: HorizontalButtonsProps) => {
   const [filter, setFilter] = useState("Todas")
 
   const HorizontalButtonsData = [
@@ -63,11 +67,11 @@ const HorizontalButtons = () => {
       keyExtractor={(_, index) => String(index)}
       extraData={filter}
       ItemSeparatorComponent={() => <ThemedView style={{ width: 10 }} />}
-      style={{
+      contentContainerStyle={[{
         flexDirection: "row",
         alignItems: "center",
-        flex: 1
-      }}
+        flex: 1,
+      }, props.style]}
       renderItem={({ item }) => {
         const Icon = item.icon;
         return (

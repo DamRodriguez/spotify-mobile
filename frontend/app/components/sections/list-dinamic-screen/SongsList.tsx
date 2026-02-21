@@ -41,7 +41,7 @@ const SongsList = (props: SongsListProps) => {
         onScroll={props.onScroll}
         data={props.data}
         keyExtractor={(item) => item.id}
-        ItemSeparatorComponent={() => <ThemedView style={{ height: 6 }} />}
+        ItemSeparatorComponent={() => <ThemedView style={{ height: 15 }} />}
         contentContainerStyle={{
           paddingTop: insets.top + 70,
           paddingBottom: 200,

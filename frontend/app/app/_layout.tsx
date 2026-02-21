@@ -6,6 +6,7 @@ import { PaperProvider } from 'react-native-paper';
 import { Provider } from 'react-redux';
 import { store } from '@/redux/store';
 import { AudioPlayerEngine } from '@/components/audio/AudioPlayerEngine';
+import NotificationLayer from '@/components/notifications/NotificationLayer';
 
 const TabsStack = () => {
   return (
@@ -16,6 +17,7 @@ const TabsStack = () => {
       }}
     >
       <Provider store={store}>
+        <NotificationLayer />
         <AudioPlayerEngine />
         <StatusBar style="light" />
         <PaperProvider>

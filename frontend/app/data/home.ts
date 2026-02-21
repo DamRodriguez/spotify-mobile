@@ -150,22 +150,22 @@ export const favoriteArtistsItems: HorizontalFavoriteArtistsListData[] = [
     artistName: "Depeche Mode"
   },
   {
-    id: "20",
+    id: "17",
     image: LadyGagaArtistImg,
     artistName: "Lady Gaga"
   },
   {
-    id: "19",
+    id: "18",
     image: RammsteinArtistImg,
     artistName: "Rammstein"
   },
   {
-    id: "18",
+    id: "19",
     image: BabasonicosArtistImg,
     artistName: "Babasonicos"
   },
   {
-    id: "17",
+    id: "20",
     image: LacunaCoilArtistImg,
     artistName: "Lacuna Coil"
   },

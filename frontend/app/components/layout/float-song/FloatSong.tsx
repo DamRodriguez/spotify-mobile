@@ -11,12 +11,13 @@ import useSongItem from "@/features/redux/song-item/useSongItem";
 import { useRouter } from "expo-router";
 import { ROUTES } from "@/navigation/routes";
 import { PauseIcon, PlayIcon } from "@/components/icons/common";
+import { sizes } from "@/constants/sizes";
 
 const FloatSong = () => {
   const insets = useSafeAreaInsets();
   const { songData, togglePlay } = useSongItem();
   const router = useRouter();
-  if (songData.id === "") return null;
+  if (!songData.id) return null;
 
   const handleTogglePlayButton = () => {
     togglePlay();
@@ -27,11 +28,13 @@ const FloatSong = () => {
       onPress={() => { router.push(ROUTES.PLAYER.index) }}
       style={{
         position: "absolute",
-        bottom: insets.bottom + 68,
+        bottom: insets.bottom + sizes.tabsHeight,
         left: 16,
         right: 16,
         borderRadius: 6,
         overflow: "hidden",
+        zIndex: 999,
+        elevation: 20
       }}
     >
       <ThemedView
@@ -47,7 +50,6 @@ const FloatSong = () => {
           style={{
             width: 40,
             height: 40,
-            backgroundColor: "#fff",
             borderRadius: 3
           }}
         />

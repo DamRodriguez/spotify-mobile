@@ -6,7 +6,7 @@ import ItemWrapper from "@/components/other/ItemWrapper";
 import ThemedView from "@/components/themed/ThemedView";
 import { colors } from "@/themes/colors";
 import FollowingButton from "../buttons/FollowingButton";
-import { ImageSourcePropType } from "react-native";
+import { ImageSourcePropType, StyleProp, ViewStyle } from "react-native";
 
 type InteractiveSectionProps = {
   sectionId: string;
@@ -19,14 +19,15 @@ type InteractiveSectionProps = {
   onRemixButtonPress: () => void;
   onPlayButtonPress: () => void;
   followingButtonVariantProps?: {
-    artistId: string;
+    artistName: string;
     isFollowing: boolean;
   }
+  style?: StyleProp<ViewStyle>;
 };
 
 const InteractiveSection = (props: InteractiveSectionProps) => {
   return (
-    <ThemedView style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between" }}>
+    <ThemedView style={[{ flexDirection: "row", alignItems: "center", justifyContent: "space-between" }, props.style]}>
       <ThemedView style={{ flexDirection: "row", alignItems: "center", gap: 25 }}>
         <ItemWrapper
           onPress={() => { }}
@@ -61,7 +62,7 @@ const InteractiveSection = (props: InteractiveSectionProps) => {
 
         {props.followingButtonVariantProps && (
           <FollowingButton
-            artistId={props.followingButtonVariantProps.artistId}
+            artistName={props.followingButtonVariantProps.artistName}
             isFollowing={props.followingButtonVariantProps.isFollowing}
           />
         )}

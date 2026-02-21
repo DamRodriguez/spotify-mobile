@@ -20,7 +20,6 @@ const styles = StyleSheet.create({
   image: {
     width: 50,
     height: 50,
-    backgroundColor: "#fff",
     borderRadius: 5
   },
   text: {

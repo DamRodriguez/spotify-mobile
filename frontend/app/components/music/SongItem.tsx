@@ -15,7 +15,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    marginTop: 10,
   },
   itemSubContainer: {
     flexDirection: "row",
@@ -37,6 +36,14 @@ const styles = StyleSheet.create({
   itemTextsContainer: {
     gap: 4,
   },
+  enumerateItemContainer: {
+    minWidth: 20,
+    alignItems: "center",
+  },
+  enumerateItemText: {
+    color: colors.neutral[1000],
+    fontSize: fontSize.b3,
+  }
 });
 
 export type SongItemData = {
@@ -82,15 +89,11 @@ const SongItem = (props: SongItemProps) => {
     >
       <ThemedView style={styles.itemSubContainer}>
         {props.enumerateSongs && (
-          <ThemedText
-            style={{
-              color: colors.neutral[1000],
-              fontSize: fontSize.b3,
-              minWidth: 20,
-            }}
-          >
-            {props.index}
-          </ThemedText>
+          <ThemedView style={styles.enumerateItemContainer}>
+            <ThemedText style={styles.enumerateItemText}>
+              {props.index}
+            </ThemedText>
+          </ThemedView>
         )}
         <OptimizedImage
           source={data.image}

@@ -30,8 +30,6 @@ const DurationBar = () => {
     };
   });
 
-  if (!songData?.mp3) return null;
-
   return (
     <ThemedView
       style={{
