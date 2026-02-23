@@ -17,7 +17,7 @@ import DepecheModeArtistImg from "@/assets/images/artists/depeche-mode.png"
 import BabasonicosArtistImg from "@/assets/images/artists/babasonicos.png"
 import RammsteinArtistImg from "@/assets/images/artists/rammstein.png"
 import LadyGagaArtistImg from "@/assets/images/artists/lady-gaga.png"
-import { listDinamicScreenData } from "./listDinamicScreen";
+import { listDinamicScreenData } from "./list-dinamic-screen/listDinamicScreen";
 import discImage from "@/assets/images/other/disc.png"
 
 export const recentMusicData = [

@@ -12,7 +12,6 @@ const CoverImage = ({ frontImage }: CoverImageProps) => {
   return (
     <ThemedView
       style={{
-        marginTop: 25,
         marginBottom: 10,
         alignItems: "center",
         elevation: 20

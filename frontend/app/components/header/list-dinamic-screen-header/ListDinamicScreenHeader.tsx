@@ -109,7 +109,7 @@ const ListDinamicScreenHeader = ({
           {title}
         </ThemedText>
       </Animated.View>
-    </Animated.View >
+    </Animated.View>
   );
 };
 

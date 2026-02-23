@@ -20,6 +20,7 @@ import { HomeListSectionType } from "@/types/homeListSection";
 import usePlayFromList from "@/hooks/usePlayFromList";
 import PopularReleasesSection from "@/components/sections/artist-dinamic-screen/album/PopularReleasesSection";
 import { AlbumItemData } from "@/components/sections/artist-dinamic-screen/album/AlbumItem";
+import NoContent from "@/components/other/NoContent";
 
 export type ArtistDinamicScreenDataType = {
   id: string;
@@ -36,9 +37,9 @@ export type ArtistDinamicScreenDataType = {
 const ArtistDinamicScreen = () => {
   const { id } = useLocalSearchParams<{ id: string; }>();
   const insets = useSafeAreaInsets();
-  const titleYRef = useRef(0);
   const [isTitleAtTop, setIsTitleAtTop] = useState<boolean>(false);
   const bgImageHeight = 250;
+  const titleYRef = useRef(0);
   const scrollY = useSharedValue(0);
   const sectionType: HomeListSectionType = "artist"
 
@@ -54,11 +55,7 @@ const ArtistDinamicScreen = () => {
 
   if (!data) {
     return (
-      <ThemedView style={{ padding: 16 }}>
-        <ThemedText style={{ color: "#fff" }}>
-          No se encontró el contenido solicitado.
-        </ThemedText>
-      </ThemedView>
+      <NoContent />
     );
   }
 
@@ -135,7 +132,10 @@ const ArtistDinamicScreen = () => {
           sectionType={sectionType}
         />
 
-        <PopularReleasesSection albums={data.albums} />
+        <PopularReleasesSection
+          albums={data.albums}
+          artistId={data.id}
+        />
 
       </ThemedScrollView>
     </>

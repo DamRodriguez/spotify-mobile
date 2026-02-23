@@ -15,8 +15,18 @@ const TabBar = ({ navigation, state, descriptors }: TabBarProps) => {
   const sizes = Dimensions.get("window");
   const insets = useSafeAreaInsets();
 
-  const handlePress = (route: string) => {
-    navigation.navigate(route);
+  const handlePress = (routeName: string, routeKey: string, isFocused: boolean) => {
+    if (isFocused) {
+      navigation.emit({
+        type: "tabPress",
+        target: routeKey,
+        canPreventDefault: true,
+      });
+
+      navigation.navigate(routeName, { screen: undefined });
+    } else {
+      navigation.navigate(routeName);
+    }
   };
 
   return (
@@ -51,7 +61,9 @@ const TabBar = ({ navigation, state, descriptors }: TabBarProps) => {
             title={options.title}
             icon={options.tabBarIcon({ focused: isFocused, color: "", size: 0 })}
             isFocused={isFocused}
-            onPress={() => { handlePress(route.name); }}
+            onPress={() =>
+              handlePress(route.name, route.key, isFocused)
+            }
           />
         );
       })}

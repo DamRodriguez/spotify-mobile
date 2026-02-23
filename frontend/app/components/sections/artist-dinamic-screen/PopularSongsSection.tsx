@@ -1,6 +1,5 @@
-import { ArtistDinamicScreenDataType } from "@/app/(app)/(player-group)/(tabs)/home/artist-dinamic-screen/[id]";
 import TextButton from "@/components/buttons/TextButton";
-import SongItem from "@/components/music/SongItem";
+import SongItem, { SongItemData } from "@/components/music/SongItem";
 import BorderGradient from "@/components/other/BorderGradient";
 import SmallTitle from "@/components/other/SmallTitle";
 import ThemedView from "@/components/themed/ThemedView";
@@ -10,13 +9,17 @@ import { useState } from "react";
 import Animated, { useAnimatedStyle, useSharedValue, withTiming } from "react-native-reanimated";
 
 type PopularSongsSectionProps = {
-  songs: ArtistDinamicScreenDataType["songs"];
+  songs: SongItemData[];
   sectionId: string;
   sectionType: HomeListSectionType;
 }
 
-const INITIAL_HEIGHT = 400;
-const CONTENT_HEIGHT = 690;
+const songItemHeight = 55;
+const songItemGap = 15;
+const minSongItemsToShow = 6;
+const maxSongItemsToShow = 10;
+const initialContainerHeight = (songItemHeight + songItemGap) * minSongItemsToShow - songItemGap;
+const expandedContainerHeight = (songItemHeight + songItemGap) * maxSongItemsToShow - songItemGap;;
 
 const PopularSongsSection = ({ songs, sectionId, sectionType }: PopularSongsSectionProps) => {
   const [isSongSectionFull, setIsSongSectionFull] = useState(false);
@@ -29,7 +32,7 @@ const PopularSongsSection = ({ songs, sectionId, sectionType }: PopularSongsSect
 
   const toggle = () => {
     setIsSongSectionFull((prev) => {
-      height.value = withTiming(prev ? INITIAL_HEIGHT : CONTENT_HEIGHT, {
+      height.value = withTiming(prev ? initialContainerHeight : expandedContainerHeight, {
         duration: 300,
       });
 
@@ -48,7 +51,7 @@ const PopularSongsSection = ({ songs, sectionId, sectionType }: PopularSongsSect
         <Animated.View
           style={[{
             overflow: "hidden",
-            gap: 15
+            gap: songItemGap
           }, animatedStyle]}
         >
           {songs.map((item, index) => (

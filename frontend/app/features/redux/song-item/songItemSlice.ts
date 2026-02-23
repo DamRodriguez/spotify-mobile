@@ -2,12 +2,13 @@ import { SongItemData } from "@/components/music/SongItem";
 import { HomeListSectionType } from "@/types/homeListSection";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-export type CurrentSongPayload = Omit<SongState, "isPlaying">;
+export type CurrentSongPayload = Omit<SongState, "isPlaying" | "resetKey">;
 
 export type SongState = SongItemData & {
   sectionId: string;
   sectionType: HomeListSectionType;
   isPlaying: boolean;
+  resetKey: number;
 }
 
 const initialState: SongState = {
@@ -20,6 +21,7 @@ const initialState: SongState = {
   sectionId: "",
   sectionType: "",
   isPlaying: false,
+  resetKey: 0,
 };
 
 const SongItemSlice = createSlice({
@@ -27,16 +29,19 @@ const SongItemSlice = createSlice({
   initialState,
   reducers: {
     setCurrentSong: (state, action: PayloadAction<CurrentSongPayload>) => {
+      const isSameSong = state.id === action.payload.id && state.sectionId === action.payload.sectionId;
+
       return {
         ...state,
         ...action.payload,
         isPlaying: true,
+        resetKey: !isSameSong ? state.resetKey + 1 : state.resetKey,
       };
     },
 
     setPlayFromList: (
       state,
-      action: PayloadAction<{ song: SongState }>
+      action: PayloadAction<{ song: CurrentSongPayload }>
     ) => {
       const newSong = action.payload.song;
 
@@ -48,6 +53,7 @@ const SongItemSlice = createSlice({
         return {
           ...newSong,
           isPlaying: true,
+          resetKey: !isSameList ? state.resetKey + 1 : state.resetKey,
         };
       }
     },
@@ -55,8 +61,13 @@ const SongItemSlice = createSlice({
     togglePlay: (state) => {
       state.isPlaying = !state.isPlaying;
     },
+
+    resetSong: (state) => {
+      state.isPlaying = true;
+      state.resetKey += 1;
+    },
   },
 });
 
-export const { setCurrentSong, setPlayFromList, togglePlay } = SongItemSlice.actions;
+export const { setCurrentSong, setPlayFromList, togglePlay, resetSong } = SongItemSlice.actions;
 export default SongItemSlice.reducer;

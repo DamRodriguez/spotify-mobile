@@ -1,5 +1,6 @@
 import HomeHeader from "@/components/header/home-header/HomeHeader";
 import { Stack } from "expo-router";
+import AlbumsHeader from "@/components/header/albums-header/AlbumsHeader";
 
 const homeStackScreens = [
   {
@@ -18,6 +19,12 @@ const homeStackScreens = [
     name: "artist-dinamic-screen/[id]",
     options: {
       header: () => null
+    },
+  },
+  {
+    name: "artist-dinamic-screen/albums/[id]",
+    options: {
+      header: () => <AlbumsHeader />
     },
   },
 ];

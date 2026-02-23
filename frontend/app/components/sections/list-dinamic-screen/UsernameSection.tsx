@@ -1,4 +1,4 @@
-import { ListDinamicScreenDataType } from "@/app/(app)/(player-group)/(tabs)/home/list-dinamic-screen/[type]/[id]";
+import { AlbumSection, OtherSection } from "@/app/(app)/(player-group)/(tabs)/home/list-dinamic-screen/[type]/[id]";
 import OptimizedImage from "@/components/image/OptimizedImage";
 import ThemedText from "@/components/themed/ThemedText";
 import ThemedView from "@/components/themed/ThemedView";
@@ -8,15 +8,55 @@ import spotifyImage from '@/assets/images/logos/spotify-logo.png';
 import userImage from "@/assets/images/other/user.png"
 import { PlusIcon } from "@/components/icons/horizontalButtons";
 import ItemWrapper from "@/components/other/ItemWrapper";
+import { HomeListSectionType } from "@/types/homeListSection";
+import { useRouter } from "expo-router";
+import { ROUTES } from "@/navigation/routes";
 
-type UsernameSectionProps = {
-  sectionType: ListDinamicScreenDataType["sectionType"];
-}
+type UsernameSectionProps =
+  {
+    sectionType: "album",
+    artist: {
+      id: AlbumSection["id"],
+      image: AlbumSection["artist"]["image"],
+      name: AlbumSection["artist"]["name"]
+    }
+  }
+  |
+  {
+    sectionType: OtherSection["sectionType"],
+    artist?: {
+      image: undefined,
+      name: undefined
+    }
+  };
 
-const UsernameSection = ({ sectionType }: UsernameSectionProps) => {
+const UsernameSection = ({ sectionType, artist }: UsernameSectionProps) => {
+  const router = useRouter();
+
+  const getImageSource = (sectionType: HomeListSectionType) => {
+    if (sectionType === "playlist") return userImage;
+    if (sectionType === "album") return artist?.image;
+    return spotifyImage;
+  }
+
+  const getText = (sectionType: HomeListSectionType) => {
+    if (sectionType === "playlist") return "username";
+    if (sectionType === "album") return artist?.name;
+    return "Spotify";
+  }
+
+  const handleOnPress = () => {
+    if (sectionType === "album") {
+      router.push(ROUTES.MAIN.HOME.artistDinamicScreen.index(artist.id));
+    }
+    if (sectionType === "playlist") {
+
+    }
+  }
+
   return (
     <ItemWrapper
-      onPress={() => { }}
+      onPress={handleOnPress}
       style={{ flexDirection: "row", alignItems: "center", gap: 8 }}
     >
       <ThemedView style={{ flexDirection: "row" }}>
@@ -49,12 +89,12 @@ const UsernameSection = ({ sectionType }: UsernameSectionProps) => {
           </ThemedView>
         )}
         <OptimizedImage
-          source={sectionType === "playlist" ? userImage : spotifyImage}
+          source={getImageSource(sectionType)}
           style={{
             width: 25,
             height: 25,
             borderRadius: 999,
-            marginLeft: -5,
+            marginLeft: sectionType === "playlist" ? -5 : 0,
           }}
         />
       </ThemedView>
@@ -63,7 +103,7 @@ const UsernameSection = ({ sectionType }: UsernameSectionProps) => {
         fontSize: fontSize.b2,
         fontWeight: 600
       }}>
-        {sectionType === "playlist" ? "username" : "Spotify"}
+        {getText(sectionType)}
       </ThemedText>
     </ItemWrapper>
   );

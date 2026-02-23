@@ -2,13 +2,21 @@ import OptimizedImage from "@/components/image/OptimizedImage";
 import ItemWrapper from "@/components/other/ItemWrapper";
 import ThemedText from "@/components/themed/ThemedText";
 import ThemedView from "@/components/themed/ThemedView";
+import { ROUTES } from "@/navigation/routes";
 import { colors } from "@/themes/colors";
 import { fontSize } from "@/themes/fontSize";
 import { ImageSourcePropType, StyleSheet } from "react-native";
 
-export type AlbumItemType = "Álbum" | "Sencillo" | "EP";
+export const ALBUM_TYPES = [
+  "Álbum",
+  "Sencillo",
+  "EP",
+] as const;
+
+export type AlbumItemType = typeof ALBUM_TYPES[number];
 
 export type AlbumItemData = {
+  id: string;
   image: string | ImageSourcePropType;
   title: string;
   releaseDate: number;
@@ -17,6 +25,7 @@ export type AlbumItemData = {
 
 type AlbumItemProps = {
   data: AlbumItemData;
+  withoutType?: boolean;
 }
 
 const styles = StyleSheet.create({
@@ -47,7 +56,10 @@ const AlbumItem = (props: AlbumItemProps) => {
   const data = props.data;
 
   return (
-    <ItemWrapper style={styles.mainContainer}>
+    <ItemWrapper
+      routerLink={ROUTES.MAIN.HOME.listDinamicScreen("album", data.id)}
+      style={styles.mainContainer}
+    >
       <OptimizedImage
         source={data.image}
         style={styles.image}
@@ -57,7 +69,7 @@ const AlbumItem = (props: AlbumItemProps) => {
           {data.title}
         </ThemedText>
         <ThemedText style={styles.textSubtitle}>
-          {data.releaseDate} • {data.type}
+          {data.releaseDate} {!props.withoutType && `• ${data.type}`}
         </ThemedText>
       </ThemedView>
     </ItemWrapper>

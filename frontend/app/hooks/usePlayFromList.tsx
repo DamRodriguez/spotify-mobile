@@ -33,7 +33,6 @@ const usePlayFromList = ({
       ...firstSong,
       sectionId,
       sectionType,
-      isPlaying: true,
     });
   }, [firstSong, sectionId, sectionType, setPlayFromList]);
 

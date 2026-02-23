@@ -18,8 +18,10 @@ const styles = StyleSheet.create({
   },
   itemSubContainer: {
     flexDirection: "row",
-    gap: 12,
     alignItems: "center",
+  },
+  itemImageContainer: {
+    height: 55,
   },
   itemImage: {
     width: 55,
@@ -48,6 +50,7 @@ const styles = StyleSheet.create({
 
 export type SongItemData = {
   id: string;
+  artistId: string;
   artistName: string;
   songName: string;
   mp3: string;
@@ -67,12 +70,12 @@ type SongItemProps = {
 
 const SongItem = (props: SongItemProps) => {
   const data = props.data;
-  const { setCurrentSong, songData, togglePlay } = useSongItem();
+  const { setCurrentSong, songData, resetSong } = useSongItem();
   const isSongActive = songData.id === data.id && songData.sectionId === props.sectionId;
 
   const handleSongItemPress = () => {
     if (isSongActive) {
-      togglePlay();
+      resetSong();
     } else {
       setCurrentSong({
         ...data,
@@ -95,10 +98,19 @@ const SongItem = (props: SongItemProps) => {
             </ThemedText>
           </ThemedView>
         )}
-        <OptimizedImage
-          source={data.image}
-          style={styles.itemImage}
-        />
+        <ThemedView style={styles.itemImageContainer}>
+          {props.sectionType !== "album" && (
+            <OptimizedImage
+              source={data.image}
+              style={[
+                {
+                  marginRight: 12,
+                  marginLeft: props.enumerateSongs ? 12 : 0,
+                },
+                styles.itemImage]}
+            />
+          )}
+        </ThemedView>
         <ThemedView style={styles.itemTextsContainer}>
           <ThemedText
             numberOfLines={1}

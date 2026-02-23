@@ -2,7 +2,7 @@ import {
   setCurrentSong as setCurrentSongAction,
   setPlayFromList as setPlayFromListAction,
   togglePlay as togglePlayAction,
-  SongState,
+  resetSong as resetSongAction,
   CurrentSongPayload,
 } from "@/features/redux/song-item/songItemSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
@@ -15,7 +15,7 @@ const useSongItem = () => {
     dispatch(setCurrentSongAction(data));
   };
 
-  const setPlayFromList = (song: SongState) => {
+  const setPlayFromList = (song: CurrentSongPayload) => {
     dispatch(
       setPlayFromListAction({
         song,
@@ -27,11 +27,16 @@ const useSongItem = () => {
     dispatch(togglePlayAction());
   };
 
+  const resetSong = () => {
+    dispatch(resetSongAction());
+  };
+
   return {
     setCurrentSong,
     songData: state,
     setPlayFromList,
-    togglePlay
+    togglePlay,
+    resetSong,
   };
 };
 

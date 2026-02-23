@@ -41,7 +41,7 @@ const YourFavoriteArtistsSection = () => {
         <ItemWrapper
           key={index}
           style={styles.itemContainer}
-          routerLink={`${ROUTES.MAIN.HOME.artistDinamicScreen}/${item.id}`}
+          routerLink={ROUTES.MAIN.HOME.artistDinamicScreen.index(item.id)}
         >
           <OptimizedImage
             source={item.image}

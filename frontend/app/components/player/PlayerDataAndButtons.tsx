@@ -9,11 +9,18 @@ import DurationSlider from "../sliders/DurationSlider";
 import useSongItem from "@/features/redux/song-item/useSongItem";
 import { PauseIcon, PlayIcon } from "../icons/common";
 import { useAudioPlayer, useAudioPlayerStatus } from "expo-audio";
+import { useRouter } from "expo-router";
+import { ROUTES } from "@/navigation/routes";
 
 const PlayerDataAndButtons = () => {
   const { songData, togglePlay } = useSongItem();
   const player = useAudioPlayer(songData?.mp3);
   const status = useAudioPlayerStatus(player);
+  const router = useRouter();
+
+  const handleOnArtistPress = () => {
+    router.push(ROUTES.MAIN.HOME.artistDinamicScreen.index(songData.artistId));
+  }
 
   return (
     <ThemedView
@@ -44,15 +51,22 @@ const PlayerDataAndButtons = () => {
           >
             {songData.songName}
           </ThemedText>
-          <ThemedText
-            numberOfLines={1}
+          <ItemWrapper
+            onPress={handleOnArtistPress}
             style={{
-              fontSize: fontSize.h8,
-              color: colors.opaqueWhite,
+              alignSelf: "flex-start"
             }}
           >
-            {songData.artistName}
-          </ThemedText>
+            <ThemedText
+              numberOfLines={1}
+              style={{
+                fontSize: fontSize.h8,
+                color: colors.opaqueWhite,
+              }}
+            >
+              {songData.artistName}
+            </ThemedText>
+          </ItemWrapper>
         </ThemedView>
 
         <ThemedView

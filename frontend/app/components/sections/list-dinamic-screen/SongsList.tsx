@@ -5,7 +5,7 @@ import { flashListDefaults } from "@/config/flashListDefaults";
 import { sizes } from "@/constants/sizes";
 import { HomeListSectionType } from "@/types/homeListSection";
 import { FlashList, FlashListRef } from "@shopify/flash-list";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 type SongsListProps = {
@@ -22,14 +22,14 @@ const SongsList = (props: SongsListProps) => {
   const insets = useSafeAreaInsets();
   const listRef = useRef<FlashListRef<SongItemData>>(null);
 
-  useEffect(() => {
-    requestAnimationFrame(() => {
+  const handleOnLoad = () => {
+    if (props.sectionType !== "album") {
       listRef.current?.scrollToOffset({
         offset: 150,
         animated: false
       });
-    });
-  }, [insets.top]);
+    }
+  }
 
   return (
     <ThemedView style={{ flex: 1 }}>
@@ -38,12 +38,13 @@ const SongsList = (props: SongsListProps) => {
         {...flashListDefaults}
         onEndReached={props.onEndReached}
         ListHeaderComponent={props.topSections}
+        onLoad={handleOnLoad}
         onScroll={props.onScroll}
         data={props.data}
         keyExtractor={(item) => item.id}
         ItemSeparatorComponent={() => <ThemedView style={{ height: 15 }} />}
         contentContainerStyle={{
-          paddingTop: insets.top + 70,
+          paddingTop: props.sectionType === "album" ? insets.top : insets.top + 70,
           paddingBottom: 200,
           paddingHorizontal: sizes.mainPadding,
         }}
