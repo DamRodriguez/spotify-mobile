@@ -18,7 +18,7 @@ const PlayerScreen = () => {
         backgroundColor: songData.color || colors.neutral[500],
         paddingTop: insets.top + 16,
         paddingHorizontal: sizes.mainPadding,
-        paddingBottom: insets.bottom + 100,
+        paddingBottom: insets.bottom + 200,
         gap: 50,
       }}
     >

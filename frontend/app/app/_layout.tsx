@@ -23,7 +23,7 @@ const TabsStack = () => {
         <PaperProvider>
           <Slot />
         </PaperProvider>
-      </Provider >
+      </Provider>
     </GestureHandlerRootView>
   );
 };

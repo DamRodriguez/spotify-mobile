@@ -11,8 +11,7 @@ const HomeScreen = () => {
     <ThemedScrollView
       contentContainerStyle={{
         paddingHorizontal: sizes.mainPadding,
-        marginTop: 10,
-        gap: 30,
+        gap: 25,
         paddingBottom: 200
       }}
     >

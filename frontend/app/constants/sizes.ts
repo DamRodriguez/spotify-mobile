@@ -1,4 +1,4 @@
 export const sizes = {
   mainPadding: 18,
-  tabsHeight: 68,
+  tabsHeight: 60,
 };

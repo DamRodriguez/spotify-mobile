@@ -34,7 +34,7 @@ const TabItem = ({
         flex: 1,
         alignItems: "center",
         justifyContent: "center",
-        gap: 10,
+        gap: 5,
       }}
     >
       <ThemedView>
@@ -43,8 +43,8 @@ const TabItem = ({
       <ThemedText
         style={
           {
-            fontSize: fontSize.b3,
-            fontWeight: 600,
+            fontSize: fontSize.b4,
+            fontWeight: 500,
             color: isFocused ? colors.neutral[1000] : colors.softWhite,
           }
         }

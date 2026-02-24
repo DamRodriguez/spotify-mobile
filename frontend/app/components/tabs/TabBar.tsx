@@ -5,6 +5,7 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import BorderGradient from "../other/BorderGradient";
 import { Dimensions } from "react-native";
 import { useRouter } from "expo-router";
+import { sizes } from "@/constants/sizes";
 
 type TabBarProps = {
   navigation: BottomTabBarProps["navigation"];
@@ -13,7 +14,7 @@ type TabBarProps = {
 };
 
 const TabBar = ({ navigation, state, descriptors }: TabBarProps) => {
-  const sizes = Dimensions.get("window");
+  const screenSizes = Dimensions.get("window");
   const insets = useSafeAreaInsets();
   const router = useRouter();
 
@@ -35,12 +36,12 @@ const TabBar = ({ navigation, state, descriptors }: TabBarProps) => {
         bottom: 0,
       }}
     >
-      {Array.from({ length: 3 }, (_, i) => (
+      {Array.from({ length: 4 }, (_, i) => (
         <BorderGradient
           key={i}
           direction="bottom"
-          shadowSize={sizes.width}
-          shadowDistance={insets.bottom + 75}
+          shadowSize={screenSizes.width}
+          shadowDistance={insets.bottom + sizes.tabsHeight}
           shadowColor="rgb(0, 0, 0)"
         />
       ))}

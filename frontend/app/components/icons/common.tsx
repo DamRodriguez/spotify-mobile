@@ -42,7 +42,7 @@ export const PlayIcon = ({ size = 32, color = colors.neutral[100] }: { size?: nu
   );
 };
 
-export const PauseIcon = ({ size = 30, color = colors.neutral[1000] }: { size?: number, width?: string, height?: string, color?: string }) => {
+export const PauseIcon = ({ size = 26, color = colors.neutral[1000] }: { size?: number, width?: string, height?: string, color?: string }) => {
   return (
     <Svg width={size} height={size} viewBox="0 0 20 20">
       <Path fill={color} d="M5 4h3v12H5V4zm7 0h3v12h-3V4z" />

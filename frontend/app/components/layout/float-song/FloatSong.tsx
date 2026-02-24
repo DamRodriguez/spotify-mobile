@@ -58,7 +58,7 @@ const FloatSong = () => {
             flex: 1,
             flexDirection: "row",
             justifyContent: "space-between",
-            gap: 4
+            gap: 15
           }}
         >
           <ThemedView
@@ -71,7 +71,7 @@ const FloatSong = () => {
             <ThemedText
               numberOfLines={1}
               style={{
-                fontWeight: "bold",
+                fontWeight: 600,
                 fontSize: fontSize.b2,
                 color: colors.neutral[1000]
               }}
@@ -118,7 +118,7 @@ const FloatSong = () => {
               <ItemWrapper
                 onPress={handleTogglePlayButton}
               >
-                <PlayIcon size={30} color={colors.neutral[1000]} />
+                <PlayIcon size={26} color={colors.neutral[1000]} />
               </ItemWrapper>
             )}
           </ThemedView>

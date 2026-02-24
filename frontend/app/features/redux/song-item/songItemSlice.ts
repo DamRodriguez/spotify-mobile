@@ -13,6 +13,7 @@ export type SongState = SongItemData & {
 
 const initialState: SongState = {
   id: "",
+  artistId: "",
   artistName: "",
   songName: "",
   mp3: "",

@@ -1,7 +1,7 @@
 import { colors } from "@/themes/colors";
 import Svg, { G, Path } from "react-native-svg";
 
-export const ComputerIcon = ({ size = 30, color = colors.neutral[1000] }: { size?: number, width?: string, height?: string, color?: string }) => {
+export const ComputerIcon = ({ size = 26, color = colors.neutral[1000] }: { size?: number, width?: string, height?: string, color?: string }) => {
   return (
     <Svg width={size} height={size} viewBox="0 0 14 14" fill={color}>
       <G fill="none" stroke={color} strokeLinecap="round" strokeLinejoin="round">
@@ -13,7 +13,7 @@ export const ComputerIcon = ({ size = 30, color = colors.neutral[1000] }: { size
   );
 };
 
-export const PlusIcon = ({ size = 30, color = colors.neutral[1000] }: { size?: number, width?: string, height?: string, color?: string }) => {
+export const PlusIcon = ({ size = 26, color = colors.neutral[1000] }: { size?: number, width?: string, height?: string, color?: string }) => {
   return (
     <Svg width={size} height={size} viewBox="0 0 24 24">
       <Path fill={color} d="M12 21a9 9 0 1 1 9-9a9 9 0 0 1-9 9Zm0-16.5a7.5 7.5 0 1 0 7.5 7.5A7.5 7.5 0 0 0 12 4.5Z" />

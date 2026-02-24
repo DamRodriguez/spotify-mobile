@@ -8,15 +8,16 @@ import { PlusIcon } from "../icons/floatSong";
 import DurationSlider from "../sliders/DurationSlider";
 import useSongItem from "@/features/redux/song-item/useSongItem";
 import { PauseIcon, PlayIcon } from "../icons/common";
-import { useAudioPlayer, useAudioPlayerStatus } from "expo-audio";
 import { useRouter } from "expo-router";
 import { ROUTES } from "@/navigation/routes";
+import { getAudioInstance } from "@/utils/audio/audioInstance";
+import useSongProgress from "@/features/redux/song-progress/useSongProgress";
 
 const PlayerDataAndButtons = () => {
   const { songData, togglePlay } = useSongItem();
-  const player = useAudioPlayer(songData?.mp3);
-  const status = useAudioPlayerStatus(player);
+  const player = getAudioInstance();
   const router = useRouter();
+  const { state } = useSongProgress();
 
   const handleOnArtistPress = () => {
     router.push(ROUTES.MAIN.HOME.artistDinamicScreen.index(songData.artistId));
@@ -87,9 +88,9 @@ const PlayerDataAndButtons = () => {
       </ThemedView>
 
       <DurationSlider
-        value={0}
-        onValueChange={() => { }}
-        max={status.duration}
+        value={state.position}
+        max={state.duration}
+        onValueChange={(val) => player.seekTo(val)}
       />
 
       <ThemedView
@@ -149,9 +150,9 @@ const PlayerDataAndButtons = () => {
         >
           <RepeatIcon />
         </ItemWrapper>
-      </ThemedView >
+      </ThemedView>
 
-    </ThemedView >
+    </ThemedView>
   );
 };
 
