@@ -15,11 +15,10 @@ const playerGroupScreens: {
     {
       name: "(player)/index",
       options: {
-        header: () => null,
-        animation: "slide_from_bottom",
+        headerShown: false,
         presentation: "formSheet",
+        sheetCornerRadius: 24,
         gestureEnabled: true,
-        gestureDirection: "vertical",
       },
     },
   ];

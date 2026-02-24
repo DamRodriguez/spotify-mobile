@@ -14,12 +14,11 @@ const PlayerScreen = () => {
 
   return (
     <ThemedScrollView
-      style={{
-        flex: 1,
+      contentContainerStyle={{
         backgroundColor: songData.color || colors.neutral[500],
         paddingTop: insets.top + 16,
         paddingHorizontal: sizes.mainPadding,
-        paddingBottom: insets.bottom,
+        paddingBottom: insets.bottom + 100,
         gap: 50,
       }}
     >

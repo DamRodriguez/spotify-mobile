@@ -4,16 +4,19 @@ import { NativeScrollEvent, NativeSyntheticEvent, ScrollView, type StyleProp, ty
 type ThemedScrollViewProps = {
   children: ReactNode;
   style?: StyleProp<ViewStyle>;
+  contentContainerStyle?: StyleProp<ViewStyle>;
   onScroll?: (event: NativeSyntheticEvent<NativeScrollEvent>) => void;
 };
 
-const ThemedScrollView = ({ children, style, onScroll }: ThemedScrollViewProps) => {
+const ThemedScrollView = ({ children, contentContainerStyle, style, onScroll }: ThemedScrollViewProps) => {
   return (
     <ScrollView
       overScrollMode="never"
       keyboardShouldPersistTaps="handled"
       showsVerticalScrollIndicator={false}
-      contentContainerStyle={[{ flexGrow: 1 }, style]}
+      nestedScrollEnabled
+      contentContainerStyle={[{}, contentContainerStyle]}
+      style={style}
       onScroll={onScroll}
       scrollEventThrottle={16}
     >

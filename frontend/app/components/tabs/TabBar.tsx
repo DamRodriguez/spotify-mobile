@@ -4,6 +4,7 @@ import ThemedView from "@/components/themed/ThemedView";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import BorderGradient from "../other/BorderGradient";
 import { Dimensions } from "react-native";
+import { useRouter } from "expo-router";
 
 type TabBarProps = {
   navigation: BottomTabBarProps["navigation"];
@@ -14,16 +15,11 @@ type TabBarProps = {
 const TabBar = ({ navigation, state, descriptors }: TabBarProps) => {
   const sizes = Dimensions.get("window");
   const insets = useSafeAreaInsets();
+  const router = useRouter();
 
-  const handlePress = (routeName: string, routeKey: string, isFocused: boolean) => {
+  const handlePress = (routeName: string, isFocused: boolean) => {
     if (isFocused) {
-      navigation.emit({
-        type: "tabPress",
-        target: routeKey,
-        canPreventDefault: true,
-      });
-
-      navigation.navigate(routeName, { screen: undefined });
+      router.navigate(routeName.toLowerCase());
     } else {
       navigation.navigate(routeName);
     }
@@ -61,9 +57,7 @@ const TabBar = ({ navigation, state, descriptors }: TabBarProps) => {
             title={options.title}
             icon={options.tabBarIcon({ focused: isFocused, color: "", size: 0 })}
             isFocused={isFocused}
-            onPress={() =>
-              handlePress(route.name, route.key, isFocused)
-            }
+            onPress={() => handlePress(route.name, isFocused)}
           />
         );
       })}

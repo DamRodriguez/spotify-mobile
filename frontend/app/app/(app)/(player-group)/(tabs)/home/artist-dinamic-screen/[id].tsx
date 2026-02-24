@@ -73,7 +73,7 @@ const ArtistDinamicScreen = () => {
         artistCoverImage={data.coverImage}
       />
       <ThemedScrollView
-        style={{
+        contentContainerStyle={{
           paddingBottom: 250 + bgImageHeight,
           padding: sizes.mainPadding,
           marginTop: insets.top + bgImageHeight,

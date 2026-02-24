@@ -9,7 +9,7 @@ import YourFavoriteArtistsSection from "@/components/sections/home/horizontal-li
 const HomeScreen = () => {
   return (
     <ThemedScrollView
-      style={{
+      contentContainerStyle={{
         paddingHorizontal: sizes.mainPadding,
         marginTop: 10,
         gap: 30,
