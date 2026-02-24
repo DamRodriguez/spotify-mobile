@@ -56,7 +56,7 @@ export const BasicNotification = ({ type, text }: BasicNotificationProps) => {
     <ThemedView
       style={[{
         borderRadius: 6,
-        padding: 16,
+        padding: 14,
         elevation: 5
       }, basicNotificationItem.bgStyle]}
     >

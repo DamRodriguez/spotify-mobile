@@ -1,29 +1,41 @@
-import { usePathname } from "expo-router";
-import React, { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   Dimensions,
   Pressable,
+  StyleSheet,
   View,
   type ViewStyle,
 } from "react-native";
 import { Portal } from "react-native-paper";
 import Animated, {
-  runOnJS,
-  type SharedValue,
-  useAnimatedReaction,
   useAnimatedStyle,
   useSharedValue,
   withTiming,
+  interpolate,
 } from "react-native-reanimated";
 
 interface AnimatedModalProps {
-  visible: SharedValue<boolean>;
+  visible: boolean;
   onClose?: () => void;
   children: React.ReactNode;
   style?: ViewStyle;
   height?: number;
   direction?: "bottom" | "left" | "right";
+  duration?: number;
 }
+
+const styles = StyleSheet.create({
+  modalBase: {
+    position: "absolute",
+    width: "100%",
+    backgroundColor: "white",
+  },
+  sideModal: {
+    top: 0,
+    bottom: 0,
+    width: "85%",
+  },
+});
 
 const AnimatedModal: React.FC<AnimatedModalProps> = ({
   visible,
@@ -32,100 +44,92 @@ const AnimatedModal: React.FC<AnimatedModalProps> = ({
   style,
   height,
   direction = "bottom",
+  duration = 500,
 }) => {
-  const pathname = usePathname();
-  const screenHeight = height ? height : Dimensions.get("window").height;
-  const screenWidth = Dimensions.get("window").width;
-  const animatedValue = useSharedValue(0);
-  const [isMounted, setIsMounted] = useState(false);
-  const animationDuration = 500;
+  const screen = Dimensions.get("window");
+  const screenHeight = height ?? screen.height;
+  const screenWidth = screen.width;
 
-  const modalSize = useMemo(() => (
-    direction === "left" || direction === "right" ? screenWidth : screenHeight
-  ), [direction, screenWidth, screenHeight]);
+  const progress = useSharedValue(0);
+  const [mounted, setMounted] = useState(visible);
 
-  useAnimatedReaction(
-    () => visible.value,
-    show => {
-      if (show) {
-        runOnJS(setIsMounted)(true);
-        animatedValue.value = withTiming(modalSize, {
-          duration: animationDuration,
-        });
-      } else {
-        animatedValue.value = withTiming(0, {
-          duration: animationDuration,
-        }, finished => {
-          if (finished) {
-            runOnJS(setIsMounted)(false);
-            if (onClose)
-              runOnJS(onClose)();
-          }
-        });
-      }
-    },
-    [modalSize, onClose],
-  );
+  const modalSize = useMemo(() => {
+    return direction === "left" || direction === "right"
+      ? screenWidth
+      : screenHeight;
+  }, [direction, screenWidth, screenHeight]);
 
   useEffect(() => {
-    if (visible.value && onClose) {
-      onClose();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pathname]);
+    if (visible) {
+      setMounted(true);
+      progress.value = withTiming(1, { duration });
+    } else {
+      progress.value = withTiming(0, { duration });
 
-  const animatedStyle = useAnimatedStyle(() => {
+      const timeout = setTimeout(() => {
+        setMounted(false);
+      }, duration);
+
+      return () => clearTimeout(timeout);
+    }
+  }, [visible, duration, progress]);
+
+  const backdropStyle = useAnimatedStyle(() => ({
+    opacity: interpolate(
+      progress.value,
+      [0, 1],
+      [0, 0.4],
+      "clamp"
+    ),
+  }));
+
+  const modalStyle = useAnimatedStyle(() => {
+    const translate = modalSize * (1 - progress.value);
+
     switch (direction) {
       case "bottom":
         return {
-          transform: [{ translateY: screenHeight - animatedValue.value }],
+          transform: [{ translateY: translate }],
         };
       case "left":
         return {
-          transform: [{ translateX: -screenWidth + animatedValue.value }],
+          transform: [{ translateX: -translate }],
         };
       case "right":
         return {
-          transform: [{ translateX: screenWidth - animatedValue.value }],
+          transform: [{ translateX: translate }],
         };
       default:
-        return {}
+        return {};
     }
   });
 
-  if (!isMounted) return null;
+  if (!mounted) return null;
 
   return (
     <Portal>
-      <View
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-        }}
-      >
+      <View style={StyleSheet.absoluteFill}>
         <Pressable
-          onPress={() => { visible.value = false; }}
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-          }}
-        />
+          onPress={onClose}
+          style={StyleSheet.absoluteFill}
+        >
+          <Animated.View
+            style={[
+              StyleSheet.absoluteFill,
+              { backgroundColor: "#000" },
+              backdropStyle,
+            ]}
+          />
+        </Pressable>
+
         <Animated.View
           style={[
-            {
-              position: "absolute",
-              left: 0,
-              right: 0,
-              bottom: 0,
-              overflow: "hidden",
-            },
-            animatedStyle,
+            styles.modalBase,
+            direction !== "bottom" && styles.sideModal,
+            direction === "left" && { left: 0 },
+            direction === "right" && { right: 0 },
+            direction === "bottom" && { bottom: 0 },
+            modalStyle,
             style,
           ]}
         >

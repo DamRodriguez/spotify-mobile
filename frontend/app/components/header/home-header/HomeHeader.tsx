@@ -5,11 +5,11 @@ import OptimizedImage from "@/components/image/OptimizedImage";
 import { sizes } from "@/constants/sizes";
 import HorizontalFilters from "@/components/header/home-header/HorizontalFilters";
 import ItemWrapper from "@/components/other/ItemWrapper";
-import { useSharedValue } from "react-native-reanimated";
 import ProfileDrawer from "./pofile-drawer/ProfileDrawer";
 import AnimatedModal from "@/components/modal/AnimatedModal";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import userImage from "@/assets/images/other/user.png"
+import { useState } from "react";
 
 const styles = StyleSheet.create({
   container: {
@@ -29,16 +29,16 @@ const styles = StyleSheet.create({
 
 const HomeHeader = () => {
   const insets = useSafeAreaInsets();
-  const profileDrawerVisible = useSharedValue<boolean>(false);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const openProfileDrawer = () => {
     Keyboard.dismiss();
-    profileDrawerVisible.value = true;
+    setIsDrawerOpen(true)
   };
 
   const closeProfileDrawer = () => {
     Keyboard.dismiss();
-    profileDrawerVisible.value = false;
+    setIsDrawerOpen(false);
   };
 
   return (
@@ -59,7 +59,8 @@ const HomeHeader = () => {
       </ThemedView>
 
       <AnimatedModal
-        visible={profileDrawerVisible}
+        visible={isDrawerOpen}
+        onClose={closeProfileDrawer}
         direction="left"
         style={{
           top: 0,

@@ -10,25 +10,24 @@ import { colors } from "@/themes/colors";
 import useSongProgress from "@/features/redux/song-progress/useSongProgress";
 
 const DurationBar = () => {
-  const { state: { position, duration } } = useSongProgress();
-
+  const { state } = useSongProgress();
   const [containerWidth, setContainerWidth] = useState(0);
   const animatedWidth = useSharedValue(0);
 
   useEffect(() => {
-    if (!duration || containerWidth === 0) {
+    if (!state.duration || containerWidth === 0) {
       animatedWidth.value = 0;
       return;
     }
 
-    const ratio = position / duration;
+    const ratio = state.position / state.duration;
     const newWidth = containerWidth * ratio;
 
     animatedWidth.value = withTiming(newWidth, {
       duration: 0,
       easing: Easing.linear,
     });
-  }, [position, duration, containerWidth, animatedWidth]);
+  }, [state.position, state.duration, containerWidth, animatedWidth]);
 
   const animatedStyle = useAnimatedStyle(() => {
     return {
@@ -55,7 +54,7 @@ const DurationBar = () => {
         style={[
           {
             height: "100%",
-            backgroundColor: colors.neutral[900],
+            backgroundColor: colors.neutral[1000],
           },
           animatedStyle,
         ]}
