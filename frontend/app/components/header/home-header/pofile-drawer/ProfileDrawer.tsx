@@ -1,4 +1,3 @@
-import { CloseIcon } from "@/components/icons/common";
 import OptimizedImage from "@/components/image/OptimizedImage";
 import ItemWrapper from "@/components/other/ItemWrapper";
 import ThemedText from "@/components/themed/ThemedText";
@@ -80,11 +79,7 @@ const styles = StyleSheet.create({
   }
 });
 
-type ProfileDrawerProps = {
-  onClose: () => void;
-}
-
-const ProfileDrawer = (props: ProfileDrawerProps) => {
+const ProfileDrawer = () => {
   const insets = useSafeAreaInsets();
 
   return (
@@ -117,9 +112,6 @@ const ProfileDrawer = (props: ProfileDrawerProps) => {
             </ItemWrapper>
           </ThemedView>
         </ThemedView>
-        <ItemWrapper onPress={props.onClose}>
-          <CloseIcon />
-        </ItemWrapper>
       </ThemedView>
 
       <MessagesList

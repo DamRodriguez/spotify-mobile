@@ -63,15 +63,12 @@ const HomeHeader = () => {
         onClose={closeProfileDrawer}
         direction="left"
         style={{
-          top: 0,
           backgroundColor: colors.quaternary[600],
           width: "90%",
           elevation: 50,
         }}
       >
-        <ProfileDrawer
-          onClose={closeProfileDrawer}
-        />
+        <ProfileDrawer />
       </AnimatedModal>
     </>
   );

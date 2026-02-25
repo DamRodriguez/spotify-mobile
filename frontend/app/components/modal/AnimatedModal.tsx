@@ -13,6 +13,9 @@ import Animated, {
   withTiming,
   interpolate,
 } from "react-native-reanimated";
+import GestureHandler from "../gesture/GestureHandler";
+
+type directions = "down" | "left" | "right";
 
 interface AnimatedModalProps {
   visible: boolean;
@@ -20,7 +23,7 @@ interface AnimatedModalProps {
   children: React.ReactNode;
   style?: ViewStyle;
   height?: number;
-  direction?: "bottom" | "left" | "right";
+  direction?: directions;
   duration?: number;
 }
 
@@ -43,7 +46,7 @@ const AnimatedModal: React.FC<AnimatedModalProps> = ({
   children,
   style,
   height,
-  direction = "bottom",
+  direction = "down",
   duration = 500,
 }) => {
   const screen = Dimensions.get("window");
@@ -87,7 +90,7 @@ const AnimatedModal: React.FC<AnimatedModalProps> = ({
     const translate = modalSize * (1 - progress.value);
 
     switch (direction) {
-      case "bottom":
+      case "down":
         return {
           transform: [{ translateY: translate }],
         };
@@ -125,15 +128,22 @@ const AnimatedModal: React.FC<AnimatedModalProps> = ({
         <Animated.View
           style={[
             styles.modalBase,
-            direction !== "bottom" && styles.sideModal,
+            direction !== "down" && styles.sideModal,
             direction === "left" && { left: 0 },
             direction === "right" && { right: 0 },
-            direction === "bottom" && { bottom: 0 },
+            direction === "down" && { bottom: 0 },
             modalStyle,
             style,
           ]}
         >
-          {children}
+          <GestureHandler
+            {...{
+              [`onSwipe${direction.charAt(0).toUpperCase() + direction.slice(1)
+                }`]: onClose,
+            }}
+          >
+            {children}
+          </GestureHandler>
         </Animated.View>
       </View>
     </Portal>
