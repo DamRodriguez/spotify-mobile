@@ -1,4 +1,4 @@
-import { ListDinamicScreenDataType } from "@/app/(app)/(player-group)/(tabs)/home/list-dinamic-screen/[type]/[id]";
+import { ListDinamicScreenDataType } from "@/app/(app)/(player-group)/(drawer-group)/(tabs)/home/list-dinamic-screen/[type]/[id]";
 import nuevoLanzamientoImg from "@/assets/images/daily-releases/nuevo-lanzamiento.png"
 
 export const dailyReleases: ListDinamicScreenDataType[] = [

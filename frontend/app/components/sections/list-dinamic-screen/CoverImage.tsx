@@ -1,4 +1,4 @@
-import { ListDinamicScreenDataType } from "@/app/(app)/(player-group)/(tabs)/home/list-dinamic-screen/[type]/[id]";
+import { ListDinamicScreenDataType } from "@/app/(app)/(player-group)/(drawer-group)/(tabs)/home/list-dinamic-screen/[type]/[id]";
 import OptimizedImage from "@/components/image/OptimizedImage";
 import ThemedView from "@/components/themed/ThemedView";
 

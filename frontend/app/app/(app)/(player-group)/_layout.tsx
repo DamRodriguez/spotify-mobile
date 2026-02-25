@@ -6,9 +6,9 @@ const playerGroupScreens: {
   options: NativeStackNavigationOptions;
 }[] = [
     {
-      name: "(tabs)",
+      name: "(drawer-group)",
       options: {
-        header: () => null,
+        headerShown: false,
         animation: "fade",
       },
     },

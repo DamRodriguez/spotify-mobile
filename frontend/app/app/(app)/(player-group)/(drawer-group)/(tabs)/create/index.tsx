@@ -1,11 +1,14 @@
 import ThemedText from "@/components/themed/ThemedText";
 import ThemedView from "@/components/themed/ThemedView";
 import { sizes } from "@/constants/sizes";
+import { colors } from "@/themes/colors";
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: sizes.mainPadding
+    paddingHorizontal: sizes.mainPadding,
+    backgroundColor: colors.background,
+    flex: 1
   },
   text: {
     color: "#fff"

@@ -1,4 +1,4 @@
-import { AlbumSection, OtherSection } from "@/app/(app)/(player-group)/(tabs)/home/list-dinamic-screen/[type]/[id]";
+import { AlbumSection, OtherSection } from "@/app/(app)/(player-group)/(drawer-group)/(tabs)/home/list-dinamic-screen/[type]/[id]";
 import OptimizedImage from "@/components/image/OptimizedImage";
 import ThemedText from "@/components/themed/ThemedText";
 import ThemedView from "@/components/themed/ThemedView";

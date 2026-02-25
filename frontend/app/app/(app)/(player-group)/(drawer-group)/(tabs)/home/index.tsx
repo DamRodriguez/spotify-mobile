@@ -5,6 +5,7 @@ import YourPlaylistsSection from "@/components/sections/home/horizontal-lists/Yo
 import ThemedScrollView from "@/components/themed/ThemedScrollView";
 import { sizes } from "@/constants/sizes";
 import YourFavoriteArtistsSection from "@/components/sections/home/horizontal-lists/YourFavoriteArtistsSection";
+import { colors } from "@/themes/colors";
 
 const HomeScreen = () => {
   return (
@@ -12,7 +13,8 @@ const HomeScreen = () => {
       contentContainerStyle={{
         paddingHorizontal: sizes.mainPadding,
         gap: 25,
-        paddingBottom: 200
+        paddingBottom: 200,
+        backgroundColor: colors.background
       }}
     >
       <RecentMusicSection />

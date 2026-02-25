@@ -50,8 +50,8 @@ export default function GestureHandler({
     });
 
   const swipe = Gesture.Pan()
-    .activeOffsetX([-25, 25])
-    .activeOffsetY([-25, 25])
+    .activeOffsetX([-20, 20])
+    .activeOffsetY([-20, 20])
     .failOffsetX([-30, 30])
     .failOffsetY([-30, 30])
     .simultaneousWithExternalGesture(Gesture.Native())

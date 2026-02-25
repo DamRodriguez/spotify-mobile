@@ -3,6 +3,7 @@ import ListFooterSpinner from "@/components/other/ListFooterSpinner";
 import ThemedView from "@/components/themed/ThemedView";
 import { flashListDefaults } from "@/config/flashListDefaults";
 import { sizes } from "@/constants/sizes";
+import { colors } from "@/themes/colors";
 import { HomeListSectionType } from "@/types/homeListSection";
 import { FlashList, FlashListRef } from "@shopify/flash-list";
 import { useRef } from "react";
@@ -47,6 +48,7 @@ const SongsList = (props: SongsListProps) => {
           paddingTop: props.sectionType === "album" ? insets.top : insets.top + 70,
           paddingBottom: 200,
           paddingHorizontal: sizes.mainPadding,
+          backgroundColor: colors.background
         }}
         ListFooterComponent={<ListFooterSpinner isLoadingMore={props.isLoadingMore} />}
         ListEmptyComponent={<></>}

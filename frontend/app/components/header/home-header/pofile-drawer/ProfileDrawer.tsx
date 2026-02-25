@@ -10,12 +10,18 @@ import ListItemsSection from "./ListItemsSection";
 import MessagesList from "./MessagesList";
 import { sizes } from "@/constants/sizes";
 import userImage from "@/assets/images/other/user.png"
+import { DrawerContentComponentProps } from "@react-navigation/drawer";
 
 const styles = StyleSheet.create({
+  mainContainer: {
+    flex: 1,
+    backgroundColor: colors.quaternary[600]
+  },
   container: {
     borderColor: colors.softSlate,
     borderBottomWidth: 1,
     flex: 1,
+    backgroundColor: colors.quaternary[600]
   },
   profileContainer: {
     flexDirection: "row",
@@ -79,53 +85,57 @@ const styles = StyleSheet.create({
   }
 });
 
-const ProfileDrawer = () => {
+const ProfileDrawer = (props: DrawerContentComponentProps) => {
   const insets = useSafeAreaInsets();
 
   return (
     <ThemedView
-      style={[{
-        marginBottom: insets.bottom,
-        marginTop: insets.top,
-      }, styles.container]}
+      style={styles.mainContainer}
     >
-      <ThemedView style={styles.profileContainer}>
-        <ThemedView style={styles.usernameContainer}>
-          <ItemWrapper
-            onPress={() => { }}
-          >
-            <OptimizedImage
-              source={userImage}
-              style={styles.profileImage}
-            />
-          </ItemWrapper>
-          <ThemedView style={styles.usernameTextContainer}>
-            <ThemedText style={styles.usernameText}>
-              username
-            </ThemedText>
+      <ThemedView
+        style={[{
+          marginBottom: insets.bottom,
+          marginTop: insets.top,
+        }, styles.container]}
+      >
+        <ThemedView style={styles.profileContainer}>
+          <ThemedView style={styles.usernameContainer}>
             <ItemWrapper
               onPress={() => { }}
             >
-              <ThemedText style={styles.seeProfileText}>
-                Ver perfil
-              </ThemedText>
+              <OptimizedImage
+                source={userImage}
+                style={styles.profileImage}
+              />
             </ItemWrapper>
+            <ThemedView style={styles.usernameTextContainer}>
+              <ThemedText style={styles.usernameText}>
+                username
+              </ThemedText>
+              <ItemWrapper
+                onPress={() => { }}
+              >
+                <ThemedText style={styles.seeProfileText}>
+                  Ver perfil
+                </ThemedText>
+              </ItemWrapper>
+            </ThemedView>
           </ThemedView>
         </ThemedView>
-      </ThemedView>
 
-      <MessagesList
-        onEndReached={() => { }}
-        isLoadingMore={false}
-        topSections={
-          <ThemedView style={styles.messagesSection}>
-            <ListItemsSection />
-            <ThemedText style={styles.messagesTitle}>
-              Mensajes
-            </ThemedText>
-          </ThemedView>
-        }
-      />
+        <MessagesList
+          onEndReached={() => { }}
+          isLoadingMore={false}
+          topSections={
+            <ThemedView style={styles.messagesSection}>
+              <ListItemsSection />
+              <ThemedText style={styles.messagesTitle}>
+                Mensajes
+              </ThemedText>
+            </ThemedView>
+          }
+        />
+      </ThemedView>
     </ThemedView>
   );
 };

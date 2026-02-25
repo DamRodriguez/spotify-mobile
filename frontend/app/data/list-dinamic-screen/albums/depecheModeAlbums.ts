@@ -1,4 +1,4 @@
-import { ListDinamicScreenDataType } from "@/app/(app)/(player-group)/(tabs)/home/list-dinamic-screen/[type]/[id]";
+import { ListDinamicScreenDataType } from "@/app/(app)/(player-group)/(drawer-group)/(tabs)/home/list-dinamic-screen/[type]/[id]";
 import DepecheModeViolatorAlbumImg from "@/assets/images/albums/depeche-mode/violator.png"
 import enjoyTheSilenceMp3 from "@/assets/audio/depeche-mode/violator/enjoy-the-silence.mp3"
 import personalJesusMp3 from "@/assets/audio/depeche-mode/violator/personal-jesus.mp3"
