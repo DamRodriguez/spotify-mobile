@@ -5,7 +5,7 @@ import { JSX } from "react";
 type tabItemsData = {
   name: string;
   text: string;
-  icon: React.FC<{ fill: string }>;
+  icon: React.ComponentType<{ fill: string }>;
   header?: () => JSX.Element;
 }
 

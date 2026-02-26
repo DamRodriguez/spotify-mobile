@@ -7,11 +7,8 @@ type Props = {
   onSingleTap?: () => void;
   onDoubleTap?: () => void;
   onLongPress?: (active: boolean) => void;
-  onPullRefresh?: () => void;
-  onSwipeLeft?: () => void;
-  onSwipeRight?: () => void;
-  onSwipeUp?: () => void;
-  onSwipeDown?: () => void;
+  onPanUpdate?: (event: any) => void;
+  onPanEnd?: (event: any) => void;
   children: React.ReactNode;
 };
 
@@ -19,11 +16,8 @@ export default function GestureHandler({
   onSingleTap,
   onDoubleTap,
   onLongPress,
-  onPullRefresh,
-  onSwipeLeft,
-  onSwipeRight,
-  onSwipeUp,
-  onSwipeDown,
+  onPanUpdate,
+  onPanEnd,
   children,
 }: Props) {
   const singleTap = Gesture.Tap().onEnd((_event, success) => {
@@ -49,42 +43,26 @@ export default function GestureHandler({
       if (onLongPress) runOnJS(onLongPress)(false);
     });
 
-  const swipe = Gesture.Pan().onEnd(event => {
-    const threshold = 50;
-
-    const { translationX, translationY } = event;
-    const absX = Math.abs(translationX);
-    const absY = Math.abs(translationY);
-
-    if (absX > absY && absX > threshold) {
-      if (translationX > 0 && onSwipeRight) {
-        runOnJS(onSwipeRight)();
-      } else if (translationX < 0 && onSwipeLeft) {
-        runOnJS(onSwipeLeft)();
+  const pan = Gesture.Pan()
+    .onUpdate((event) => {
+      if (onPanUpdate) {
+        onPanUpdate(event);
       }
-      return;
-    }
-
-    if (absY > absX && absY > threshold) {
-      if (translationY > 0) {
-        if (onSwipeDown) runOnJS(onSwipeDown)();
-        if (onPullRefresh) runOnJS(onPullRefresh)();
-      } else {
-        if (onSwipeUp) runOnJS(onSwipeUp)();
+    })
+    .onEnd((event) => {
+      if (onPanEnd) {
+        onPanEnd(event);
       }
-    }
-  });
+    });
 
   const composed = Gesture.Simultaneous(
     Gesture.Exclusive(doubleTap, singleTap, longPress),
-    swipe
+    pan
   );
 
   return (
     <GestureDetector gesture={composed}>
-      <View style={{ flex: 1 }}>
-        {children}
-      </View>
+      <View style={{ flex: 1 }}>{children}</View>
     </GestureDetector>
   );
 }

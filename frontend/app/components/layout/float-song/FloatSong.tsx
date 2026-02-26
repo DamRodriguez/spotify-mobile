@@ -33,7 +33,6 @@ const FloatSong = () => {
         right: 16,
         borderRadius: 6,
         overflow: "hidden",
-        zIndex: 999,
         elevation: 20
       }}
     >

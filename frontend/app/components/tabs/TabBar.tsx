@@ -6,14 +6,17 @@ import BorderGradient from "../other/BorderGradient";
 import { Dimensions } from "react-native";
 import { useRouter } from "expo-router";
 import { sizes } from "@/constants/sizes";
+import { SetStateAction, Dispatch } from "react";
 
 type TabBarProps = {
   navigation: BottomTabBarProps["navigation"];
   state: BottomTabBarProps["state"];
   descriptors: BottomTabBarProps["descriptors"];
+  isCreateModalOpen: boolean;
+  setIsCreateModalOpen: Dispatch<SetStateAction<boolean>>;
 };
 
-const TabBar = ({ navigation, state, descriptors }: TabBarProps) => {
+const TabBar = ({ navigation, state, descriptors, isCreateModalOpen, setIsCreateModalOpen }: TabBarProps) => {
   const screenSizes = Dimensions.get("window");
   const insets = useSafeAreaInsets();
   const router = useRouter();
@@ -34,6 +37,7 @@ const TabBar = ({ navigation, state, descriptors }: TabBarProps) => {
         paddingTop: 15,
         position: "absolute",
         bottom: 0,
+        zIndex: 99
       }}
     >
       {Array.from({ length: 4 }, (_, i) => (
@@ -53,12 +57,15 @@ const TabBar = ({ navigation, state, descriptors }: TabBarProps) => {
 
         return (
           <TabItem
+            index={index}
             key={route.key}
             name={route.name}
             title={options.title}
-            icon={options.tabBarIcon({ focused: isFocused, color: "", size: 0 })}
+            icon={options.tabBarIcon?.({ focused: isFocused, color: "", size: 24 })}
             isFocused={isFocused}
             onPress={() => handlePress(route.name, isFocused)}
+            isCreateModalOpen={isCreateModalOpen}
+            setIsCreateModalOpen={setIsCreateModalOpen}
           />
         );
       })}

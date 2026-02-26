@@ -47,18 +47,15 @@ export const LibraryIcon = ({ fill = "#fff" }: { fill?: string }) => {
   )
 }
 
-export const PlusIcon = ({ size = iconSize, fill = "#fff" }: { size?: number, fill?: string }) => {
+export const PlusIcon = ({ size = 26, fill = "#fff" }: { size?: number, fill?: string }) => {
   return (
-    <Svg
-      width={size}
-      height={size}
-      viewBox="0 0 16 16"
-    >
+    <Svg width={size} height={size} viewBox="0 0 1024 1024">
       <Path
-        fill={fill}
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M8 1.75a.75.75 0 0 1 .75.75v4.75h4.75a.75.75 0 0 1 0 1.5H8.75v4.75a.75.75 0 0 1-1.5 0V8.75H2.5a.75.75 0 0 1 0-1.5h4.75V2.5A.75.75 0 0 1 8 1.75"
+        d="M512 200 V824 M200 512 H824"
+        stroke={fill}
+        strokeWidth={80}
+        strokeLinecap="round"
+        fill="none"
       />
     </Svg>
   )
