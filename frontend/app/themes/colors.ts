@@ -7,7 +7,8 @@ export const colors = {
   opaqueGray: "#FFFFFF33",
   softGray: "#6a6a6aff",
   softSlate: "#475557B2",
-  mainGreen: "#1DB954",
+  mainGreen: "#1ED75F",
+  mediumGray: "#1F1F1F",
   primary: {
     10: "#3a39731a",
     50: "#514FA080",
@@ -56,6 +57,7 @@ export const colors = {
     400: "#65797c",
     500: "#475557",
     600: "#242627ff",
+    700: "rgb(29, 31, 31)"
   },
   quintary: {
     10: "#0215261a",

@@ -64,7 +64,7 @@ const HorizontalFilters = () => {
         const getBgColor = () => {
           if (filter !== item.text) return colors.quaternary[600];
           if (item.text === "Wrapped") return colors.neutral[1000];
-          return colors.green[200];
+          return colors.mainGreen;
         };
 
         const getTextColor = () => {

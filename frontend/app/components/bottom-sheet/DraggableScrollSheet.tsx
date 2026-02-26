@@ -53,7 +53,7 @@ export default function DraggableScrollSheet({
     } else {
       translateY.value = withTiming(
         SHEET_HEIGHT,
-        { duration: 220 },
+        { duration: 200 },
         (finished) => {
           if (finished) {
             runOnJS(setIsMounted)(false);
@@ -63,19 +63,6 @@ export default function DraggableScrollSheet({
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [visible]);
-
-  const closeWithAnimation = () => {
-    translateY.value = withTiming(
-      SHEET_HEIGHT,
-      { duration: 220 },
-      (finished) => {
-        if (finished) {
-          runOnJS(setIsMounted)(false);
-          runOnJS(onClose)();
-        }
-      }
-    );
-  };
 
   const scrollHandler = useAnimatedScrollHandler({
     onScroll: (event) => {
@@ -96,7 +83,7 @@ export default function DraggableScrollSheet({
       ) {
         translateY.value = withTiming(
           SHEET_HEIGHT,
-          { duration: 220 },
+          { duration: 200 },
           (finished) => {
             if (finished) {
               runOnJS(setIsMounted)(false);
@@ -131,7 +118,7 @@ export default function DraggableScrollSheet({
       ]}
     >
       <Pressable
-        onPress={closeWithAnimation}
+        onPress={onClose}
         style={[StyleSheet.absoluteFill, overlayStyle]}
       >
         <Animated.View

@@ -15,13 +15,13 @@ import { DrawerContentComponentProps } from "@react-navigation/drawer";
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    backgroundColor: colors.quaternary[600]
+    backgroundColor: colors.mediumGray
   },
   container: {
     borderColor: colors.softSlate,
     borderBottomWidth: 1,
     flex: 1,
-    backgroundColor: colors.quaternary[600]
+    backgroundColor: colors.mediumGray
   },
   profileContainer: {
     flexDirection: "row",
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
   messagesTitle: {
     color: colors.neutral[1000],
     fontSize: fontSize.h7,
-    fontWeight: 600,
+    fontWeight: 800,
     marginBottom: 20
   },
   messagesSection: {

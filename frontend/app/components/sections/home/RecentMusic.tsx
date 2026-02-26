@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     flexDirection: "row",
     alignItems: "center",
-    gap: 15,
+    gap: 10,
     overflow: "hidden",
   },
   image: {
