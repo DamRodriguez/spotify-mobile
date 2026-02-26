@@ -26,7 +26,7 @@ const PlayerDataAndButtons = () => {
   return (
     <ThemedView
       style={{
-        gap: 20
+        gap: 15
       }}
     >
       <ThemedView
@@ -46,7 +46,7 @@ const PlayerDataAndButtons = () => {
             numberOfLines={1}
             style={{
               fontSize: fontSize.h7,
-              fontWeight: 600,
+              fontWeight: 700,
               color: colors.neutral[1000]
             }}
           >
@@ -61,7 +61,7 @@ const PlayerDataAndButtons = () => {
             <ThemedText
               numberOfLines={1}
               style={{
-                fontSize: fontSize.h8,
+                fontSize: fontSize.b1,
                 color: colors.opaqueWhite,
               }}
             >
@@ -82,7 +82,7 @@ const PlayerDataAndButtons = () => {
           </ItemWrapper>
 
           <ItemWrapper>
-            <PlusIcon size={45} />
+            <PlusIcon size={40} />
           </ItemWrapper>
         </ThemedView>
       </ThemedView>

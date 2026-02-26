@@ -3,6 +3,7 @@ import ThemedText from '@/components/themed/ThemedText';
 import ThemedView from '@/components/themed/ThemedView';
 import { colors } from '@/themes/colors';
 import { fontSize } from '@/themes/fontSize';
+import { StyleSheet } from 'react-native';
 
 export type CreateModalItemData = {
   icon: React.FC;
@@ -15,6 +16,35 @@ type CreateModalItemProps = {
   data: CreateModalItemData;
 }
 
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 15,
+  },
+  iconWrapper: {
+    width: 65,
+    height: 65,
+    borderRadius: 999,
+    backgroundColor: colors.opaqueGray,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  textContainer: {
+    gap: 5,
+    flexShrink: 1,
+  },
+  title: {
+    color: colors.neutral[1000],
+    fontWeight: "800",
+    fontSize: fontSize.b1,
+  },
+  subtitle: {
+    color: colors.opaqueWhite,
+    fontSize: fontSize.b3,
+  },
+});
+
 const CreateModalItem = (props: CreateModalItemProps) => {
   const data = props.data;
   const Icon = data.icon;
@@ -22,45 +52,18 @@ const CreateModalItem = (props: CreateModalItemProps) => {
   return (
     <ItemWrapper
       onPress={data.onPress}
-      style={{
-        flexDirection: "row",
-        alignItems: "center",
-        gap: 15,
-      }}
+      style={styles.container}
     >
-      <ThemedView
-        style={{
-          width: 65,
-          height: 65,
-          borderRadius: 999,
-          backgroundColor: colors.opaqueGray,
-          justifyContent: "center",
-          alignItems: "center"
-        }}
-      >
+      <ThemedView style={styles.iconWrapper}>
         <Icon />
       </ThemedView>
-      <ThemedView
-        style={{
-          gap: 5,
-          flexShrink: 1
-        }}
-      >
-        <ThemedText
-          style={{
-            color: colors.neutral[1000],
-            fontWeight: 800,
-            fontSize: fontSize.b1
-          }}
-        >
+
+      <ThemedView style={styles.textContainer}>
+        <ThemedText style={styles.title}>
           {data.title}
         </ThemedText>
-        <ThemedText
-          style={{
-            color: colors.opaqueWhite,
-            fontSize: fontSize.b3,
-          }}
-        >
+
+        <ThemedText style={styles.subtitle}>
           {data.subtitle}
         </ThemedText>
       </ThemedView>

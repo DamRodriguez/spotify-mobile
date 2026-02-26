@@ -4,7 +4,6 @@ import CreateModal from "@/components/modal/create-modal/CreateModal";
 import TabBar from "@/components/tabs/TabBar";
 import ThemedView from "@/components/themed/ThemedView";
 import { tabItems } from "@/config/tabs";
-import { colors } from "@/themes/colors";
 import { Tabs } from "expo-router";
 import { useState } from "react";
 
@@ -37,17 +36,8 @@ const TabsLayout = () => {
                 name={item.name}
                 options={{
                   title: item.text,
-                  header: item.header ? item.header : () => <></>,
-                  tabBarIcon: ({ focused }) => {
-                    const getIconColor = () => {
-                      if (focused && !isCreateModalOpen) return colors.neutral[1000];
-                      if (isCreateModalOpen && index === 3) return colors.neutral[100];
-                      return colors.softWhite;
-                    }
-                    return (
-                      <Icon fill={getIconColor()} />
-                    )
-                  },
+                  headerShown: false,
+                  tabBarIcon: () => <Icon />,
                 }}
               />
             )

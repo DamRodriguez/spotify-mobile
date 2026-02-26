@@ -50,7 +50,7 @@ const DurationSlider: React.FC<DurationSliderProps> = ({
       >
         <ThemedText
           style={{
-            fontSize: fontSize.b2,
+            fontSize: fontSize.b3,
             color: colors.opaqueWhite,
           }}
         >
@@ -59,7 +59,7 @@ const DurationSlider: React.FC<DurationSliderProps> = ({
 
         <ThemedText
           style={{
-            fontSize: fontSize.b2,
+            fontSize: fontSize.b3,
             color: colors.opaqueWhite,
           }}
         >

@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     color: colors.neutral[1000]
   },
   textSubtitle: {
-    fontSize: fontSize.b2,
+    fontSize: fontSize.b3,
     color: colors.opaqueWhite
   }
 })

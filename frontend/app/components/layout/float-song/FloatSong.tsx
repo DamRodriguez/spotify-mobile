@@ -40,7 +40,7 @@ const FloatSong = () => {
         style={{
           backgroundColor: songData.color || colors.neutral[500],
           flexDirection: "row",
-          padding: 10,
+          padding: 8,
           gap: 10,
         }}
       >

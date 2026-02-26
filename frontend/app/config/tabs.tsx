@@ -1,12 +1,10 @@
 import { HomeIcon, LibraryIcon, PlusIcon, SearchIcon } from "@/components/icons/tabs";
 import { TABS } from "@/navigation/tabs";
-import { JSX } from "react";
 
 type tabItemsData = {
   name: string;
   text: string;
-  icon: React.ComponentType<{ fill: string }>;
-  header?: () => JSX.Element;
+  icon: React.FC;
 }
 
 export const tabItems: tabItemsData[] = [

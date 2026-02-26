@@ -77,7 +77,7 @@ const NotificationLayer = () => {
         {
           position: "absolute",
           bottom: songData.id
-            ? insets.bottom + 130
+            ? insets.bottom + 125
             : insets.bottom + sizes.tabsHeight,
           left: sizes.mainPadding,
           right: sizes.mainPadding,

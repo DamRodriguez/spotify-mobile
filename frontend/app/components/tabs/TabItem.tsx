@@ -1,4 +1,4 @@
-import { useCallback, useEffect, Dispatch, SetStateAction } from "react";
+import React, { useCallback, useEffect, Dispatch, SetStateAction } from "react";
 import { TouchableOpacity } from "react-native";
 import ThemedText from "@/components/themed/ThemedText";
 import { buttons } from "@/constants/buttons";
@@ -32,6 +32,21 @@ const TabItem = ({
   isCreateModalOpen,
   setIsCreateModalOpen
 }: TabItemProps) => {
+  const getIconColor = () => {
+    if (isFocused && !isCreateModalOpen) return colors.neutral[1000];
+    if (isCreateModalOpen && index === 3) return colors.neutral[100];
+    return colors.softWhite;
+  }
+
+  const renderIcon = () => {
+    if (!React.isValidElement<{ fill?: string; color?: string }>(icon)) {
+      return icon;
+    }
+    return React.cloneElement(icon, {
+      fill: getIconColor(),
+      color: getIconColor(),
+    });
+  };
 
   const isCreateTab = index === 3;
 
@@ -114,11 +129,11 @@ const TabItem = ({
               animatedIconStyle,
             ]}
           >
-            {icon}
+            {renderIcon()}
           </Animated.View>
         ) : (
           <>
-            {icon}
+            {renderIcon()}
           </>
         )}
       </ThemedView>

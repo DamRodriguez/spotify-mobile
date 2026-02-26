@@ -33,7 +33,7 @@ const InteractiveSection = (props: InteractiveSectionProps) => {
           onPress={() => { }}
           style={{
             borderWidth: 2,
-            borderColor: colors.softGray,
+            borderColor: colors.opaqueWhite,
             borderRadius: 10,
             padding: 3,
           }}
@@ -68,7 +68,7 @@ const InteractiveSection = (props: InteractiveSectionProps) => {
         )}
 
         <ItemWrapper onPress={() => { }}>
-          <VerticalDotsIcon size={32} />
+          <VerticalDotsIcon size={28} />
         </ItemWrapper>
       </ThemedView>
 

@@ -1,5 +1,6 @@
 import OptimizedImage from "@/components/image/OptimizedImage";
 import BorderGradient from "@/components/other/BorderGradient";
+import ExploreSection from "@/components/player/explore/ExploreSection";
 import PlayerDataAndButtons from "@/components/player/PlayerDataAndButtons";
 import PlayerHeader from "@/components/player/PlayerHeader";
 import ThemedScrollView from "@/components/themed/ThemedScrollView";
@@ -18,14 +19,15 @@ const PlayerScreen = () => {
         backgroundColor: songData.color || colors.neutral[500],
         paddingTop: insets.top + 16,
         paddingHorizontal: sizes.mainPadding,
-        paddingBottom: insets.bottom + 200,
-        gap: 50,
+        paddingBottom: insets.bottom + 50,
+        gap: 40,
       }}
     >
       <BorderGradient
         direction="bottom"
         heightFull
-        shadowDistance={400}
+        shadowDistance={800}
+        shadowColor={colors.background}
       />
       <PlayerHeader
         fromWhere={songData.sectionType}
@@ -40,6 +42,10 @@ const PlayerScreen = () => {
         }}
       />
       <PlayerDataAndButtons />
+      <ExploreSection
+        artistName={songData.artistName}
+        songName={songData.songName}
+      />
     </ThemedScrollView>
   );
 }
