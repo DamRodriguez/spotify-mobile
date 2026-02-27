@@ -37,14 +37,15 @@ const RecentMusicSection = () => {
       data={recentMusicData}
       keyExtractor={(_, index) => String(index)}
       numColumns={2}
-      renderItem={({ item }) => {
+      renderItem={({ item, index }) => {
         const gap = 8;
+        const isLastTwo = index >= recentMusicData.length - 2;
         return (
           <ItemWrapper
             style={[{
               marginRight: item.id % 2 === 0 ? 0 : gap / 2,
               marginLeft: item.id % 2 === 0 ? gap / 2 : 0,
-              marginBottom: gap
+              marginBottom: isLastTwo ? 0 : gap
             }, styles.container]}
           >
             <OptimizedImage

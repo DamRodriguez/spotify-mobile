@@ -17,7 +17,7 @@ const playerGroupScreens: {
       options: {
         headerShown: false,
         presentation: "formSheet",
-        sheetCornerRadius: 24,
+        sheetCornerRadius: 15,
         gestureEnabled: true,
       },
     },

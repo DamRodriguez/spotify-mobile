@@ -1,9 +1,11 @@
 import OptimizedImage from "@/components/image/OptimizedImage";
 import BorderGradient from "@/components/other/BorderGradient";
 import ExploreSection from "@/components/player/explore/ExploreSection";
+import InteractiveButtonsSection from "@/components/player/InteractiveButtonsSection";
 import PlayerDataAndButtons from "@/components/player/PlayerDataAndButtons";
 import PlayerHeader from "@/components/player/PlayerHeader";
 import ThemedScrollView from "@/components/themed/ThemedScrollView";
+import ThemedView from "@/components/themed/ThemedView";
 import { sizes } from "@/constants/sizes";
 import useSongItem from "@/features/redux/song-item/useSongItem";
 import { colors } from "@/themes/colors";
@@ -26,7 +28,7 @@ const PlayerScreen = () => {
       <BorderGradient
         direction="bottom"
         heightFull
-        shadowDistance={800}
+        shadowDistance={1000}
         shadowColor={colors.background}
       />
       <PlayerHeader
@@ -42,10 +44,18 @@ const PlayerScreen = () => {
         }}
       />
       <PlayerDataAndButtons />
-      <ExploreSection
-        artistName={songData.artistName}
-        songName={songData.songName}
-      />
+      <ThemedView
+        style={{
+          gap: 25
+        }}
+      >
+        <InteractiveButtonsSection />
+        <ExploreSection
+          artistName={songData.artistName}
+          songName={songData.songName}
+          albumImg={songData.image}
+        />
+      </ThemedView>
     </ThemedScrollView>
   );
 }

@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
   title: {
     color: colors.neutral[1000],
     fontSize: fontSize.h6,
-    fontWeight: 600,
+    fontWeight: 800,
   },
 });
 

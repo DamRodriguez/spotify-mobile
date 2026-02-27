@@ -49,6 +49,9 @@ const styles = StyleSheet.create({
     color: colors.neutral[1000],
     fontSize: fontSize.b3,
     fontWeight: "700",
+    textShadowColor: "rgba(0,0,0,0.4)",
+    textShadowOffset: { width: 0, height: 2 },
+    textShadowRadius: 5,
   },
 });
 

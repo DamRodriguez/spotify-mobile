@@ -4,17 +4,21 @@ import { colors } from "@/themes/colors";
 import { fontSize } from "@/themes/fontSize";
 import ExploreItem, { ExploreItemsData } from "./ExploreItem";
 import CommonContainer from "../CommonContainer";
+import { ImageSourcePropType } from "react-native";
+import DepecheModeImg1 from "@/assets/images/other/depeche-mode-temporal.png"
+import DepecheModeImg2 from "@/assets/images/artists/depeche-mode.png"
 
 type ExploreSectionProps = {
   artistName: string;
   songName: string;
+  albumImg: string | ImageSourcePropType;
 }
 
 const ExploreSection = (props: ExploreSectionProps) => {
   const exploreItems: ExploreItemsData = {
-    songs: { image: "" },
-    similarBand: { image: "" },
-    similarSong: { image: "" }
+    songs: { image: DepecheModeImg2 },
+    similarBand: { image: DepecheModeImg1 },
+    similarSong: { image: props.albumImg }
   }
 
   return (
