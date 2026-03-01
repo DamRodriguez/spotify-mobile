@@ -48,8 +48,8 @@ const styles = StyleSheet.create({
   title: {
     color: colors.neutral[1000],
     fontSize: fontSize.b3,
-    fontWeight: "700",
-    textShadowColor: "rgba(0,0,0,0.4)",
+    fontWeight: 800,
+    textShadowColor: "rgba(0,0,0,0.2)",
     textShadowOffset: { width: 0, height: 2 },
     textShadowRadius: 5,
   },

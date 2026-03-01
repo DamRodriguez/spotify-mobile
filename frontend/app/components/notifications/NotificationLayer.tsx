@@ -11,18 +11,24 @@ import useNotification from "@/features/redux/notification/useNotification";
 import { BasicNotification } from "@/components/notifications/BasicNotification";
 import { sizes } from "@/constants/sizes";
 import useSongItem from "@/features/redux/song-item/useSongItem";
+import { usePathname } from "expo-router";
 
 const AUTO_CLOSE_MS = 2500;
 const ANIMATION_MS = 250;
 const START_OFFSET = 10;
 
 const NotificationLayer = () => {
+  const pathname = usePathname();
   const insets = useSafeAreaInsets();
   const { songData } = useSongItem();
   const { hideNotification, state } = useNotification();
 
   const [mounted, setMounted] = useState(false);
   const progress = useSharedValue(0);
+
+  useEffect(() => {
+    setMounted(false);
+  }, [pathname])
 
   useEffect(() => {
     if (state.isVisible) {

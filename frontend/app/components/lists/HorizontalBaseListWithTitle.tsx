@@ -6,7 +6,6 @@ import { colors } from '@/themes/colors';
 import { fontSize } from '@/themes/fontSize';
 import { FlashList, ListRenderItem } from '@shopify/flash-list';
 import { StyleSheet } from 'react-native';
-import React from 'react';
 
 const styles = StyleSheet.create({
   container: {
@@ -19,13 +18,17 @@ const styles = StyleSheet.create({
   },
 });
 
-type HorizontalBaseListWithTitleProps<T> = {
+type WithId = {
+  id: string;
+};
+
+type HorizontalBaseListWithTitleProps<T extends WithId> = {
   title: string;
   data: T[];
   renderItem: ListRenderItem<T>;
 };
 
-function HorizontalBaseListWithTitle<T>(
+function HorizontalBaseListWithTitle<T extends WithId>(
   props: HorizontalBaseListWithTitleProps<T>
 ) {
   return (
@@ -39,7 +42,7 @@ function HorizontalBaseListWithTitle<T>(
         data={props.data}
         horizontal
         onEndReached={() => { }}
-        keyExtractor={(_, index) => String(index)}
+        keyExtractor={(item) => item.id}
         ItemSeparatorComponent={() => (
           <ThemedView style={{ width: 15 }} />
         )}

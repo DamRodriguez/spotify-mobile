@@ -1,5 +1,11 @@
-import { Lora_400Regular, Lora_700Bold, useFonts as useFontsLora } from "@expo-google-fonts/lora";
 import { NotoSans_400Regular, NotoSans_500Medium, NotoSans_700Bold, useFonts as useFontsNotoSans } from "@expo-google-fonts/noto-sans";
+import {
+  PlusJakartaSans_400Regular,
+  PlusJakartaSans_500Medium,
+  PlusJakartaSans_600SemiBold,
+  PlusJakartaSans_700Bold,
+  useFonts as useFontsPlusJakartaSans,
+} from '@expo-google-fonts/plus-jakarta-sans';
 
 /**
  * Carga las fuentes y devuelve si se cargaron correctamente.
@@ -13,12 +19,14 @@ const useLoadFonts = () => {
     NotoSans_700Bold,
   });
 
-  const [loraFontsLoaded, loraSansError] = useFontsLora({
-    Lora_400Regular,
-    Lora_700Bold,
-  });
+  const [plusJakartaSansFontsLoaded, setPlusJakartaSansFontsLoaded] = useFontsPlusJakartaSans({
+    PlusJakartaSans_400Regular,
+    PlusJakartaSans_500Medium,
+    PlusJakartaSans_600SemiBold,
+    PlusJakartaSans_700Bold,
+  })
 
-  return { loaded: notoSansFontsLoaded && loraFontsLoaded, error: notoSansError || loraSansError };
+  return { loaded: notoSansFontsLoaded && plusJakartaSansFontsLoaded, error: notoSansError || setPlusJakartaSansFontsLoaded };
 };
 
 export default useLoadFonts;

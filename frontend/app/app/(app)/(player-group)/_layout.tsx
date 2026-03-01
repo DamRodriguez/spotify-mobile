@@ -13,7 +13,7 @@ const playerGroupScreens: {
       },
     },
     {
-      name: "(player)/index",
+      name: "player/index",
       options: {
         headerShown: false,
         presentation: "formSheet",
