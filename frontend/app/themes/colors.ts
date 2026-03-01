@@ -9,6 +9,7 @@ export const colors = {
   softSlate: "#475557B2",
   mainGreen: "#1ED75F",
   mediumGray: "#1F1F1F",
+  mediumGray2: "#282828",
   primary: {
     10: "#3a39731a",
     50: "#514FA080",

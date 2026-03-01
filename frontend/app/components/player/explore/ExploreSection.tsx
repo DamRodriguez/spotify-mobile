@@ -2,28 +2,24 @@ import ThemedText from "@/components/themed/ThemedText";
 import ThemedView from "@/components/themed/ThemedView";
 import { colors } from "@/themes/colors";
 import { fontSize } from "@/themes/fontSize";
-import ExploreItem, { ExploreItemsData } from "./ExploreItem";
 import CommonContainer from "../CommonContainer";
-import { ImageSourcePropType } from "react-native";
-import DepecheModeImg1 from "@/assets/images/other/depeche-mode-temporal.png"
-import DepecheModeImg2 from "@/assets/images/artists/depeche-mode.png"
+import { PlayerSongData } from "@/app/(app)/(player-group)/player";
+import ExploreItem from "@/components/player/explore/ExploreItem";
+
+type ExploreImageKey = keyof PlayerSongData["exploreImages"];
 
 type ExploreSectionProps = {
   artistName: string;
   songName: string;
-  albumImg: string | ImageSourcePropType;
+  images: PlayerSongData["exploreImages"]
 }
 
 const ExploreSection = (props: ExploreSectionProps) => {
-  const exploreItems: ExploreItemsData = {
-    songs: { image: DepecheModeImg2 },
-    similarBand: { image: DepecheModeImg1 },
-    similarSong: { image: props.albumImg }
-  }
+  const keys = Object.keys(props.images) as ExploreImageKey[];
 
   return (
     <CommonContainer
-      style={{ gap: 10 }}
+      style={{ gap: 10, padding: 20 }}
     >
       <ThemedText
         style={{
@@ -40,16 +36,15 @@ const ExploreSection = (props: ExploreSectionProps) => {
           gap: 15
         }}
       >
-        {(Object.keys(exploreItems) as (keyof ExploreItemsData)[]).map((key) => {
-          return (
-            <ExploreItem
-              key={key}
-              data={{ type: key, image: exploreItems[key].image }}
-              artistName={props.artistName}
-              songName={props.songName}
-            />
-          );
-        })}
+        {keys.map((key) => (
+          <ExploreItem
+            key={key}
+            type={key}
+            image={props.images[key]}
+            artistName={props.artistName}
+            songName={props.songName}
+          />
+        ))}
       </ThemedView>
     </CommonContainer>
   );

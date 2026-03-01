@@ -35,8 +35,8 @@ const SongsList = (props: SongsListProps) => {
   return (
     <ThemedView style={{ flex: 1 }}>
       <FlashList
-        ref={listRef}
         {...flashListDefaults}
+        ref={listRef}
         onEndReached={props.onEndReached}
         ListHeaderComponent={props.topSections}
         onLoad={handleOnLoad}

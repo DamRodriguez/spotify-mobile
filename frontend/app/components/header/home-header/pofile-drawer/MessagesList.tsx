@@ -127,7 +127,6 @@ const MessagesList = (props: MessagesListProps) => {
         onEndReached={props.onEndReached}
         ListHeaderComponent={props.topSections}
         data={messagesItems}
-        nestedScrollEnabled
         keyExtractor={(_, index) => String(index)}
         ItemSeparatorComponent={() => <ThemedView style={{ height: 20 }} />}
         contentContainerStyle={{

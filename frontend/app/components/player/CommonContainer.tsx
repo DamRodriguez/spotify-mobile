@@ -12,9 +12,9 @@ const CommonContainer = (props: CommonContainerProps) => {
   return (
     <ThemedView
       style={[{
-        backgroundColor: colors.mediumGray,
-        padding: 20,
+        backgroundColor: colors.mediumGray2,
         borderRadius: 10,
+        overflow: "hidden"
       }, props.style]}
     >
       {props.children}

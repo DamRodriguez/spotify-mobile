@@ -21,6 +21,7 @@ import UsernameSection from '@/components/sections/list-dinamic-screen/UsernameS
 import usePlayFromList from '@/hooks/usePlayFromList';
 import SearchInput from '@/components/sections/list-dinamic-screen/SearchInput';
 import { AlbumItemType } from '@/components/sections/artist-dinamic-screen/album/AlbumItem';
+import NoContent from '@/components/other/NoContent';
 
 type BaseSection = {
   id: string;
@@ -80,11 +81,7 @@ const ListDinamicScreen = () => {
 
   if (!data) {
     return (
-      <ThemedView style={{ padding: 16 }}>
-        <ThemedText style={{ color: "#fff" }}>
-          No se encontró el contenido solicitado.
-        </ThemedText>
-      </ThemedView>
+      <NoContent />
     );
   }
 

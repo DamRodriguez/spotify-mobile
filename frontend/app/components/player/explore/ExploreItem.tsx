@@ -1,31 +1,16 @@
+import { PlayerSongData } from "@/app/(app)/(player-group)/player";
 import OptimizedImage from "@/components/image/OptimizedImage";
+import BorderGradient from "@/components/other/BorderGradient";
 import ItemWrapper from "@/components/other/ItemWrapper";
 import ThemedText from "@/components/themed/ThemedText";
 import ThemedView from "@/components/themed/ThemedView";
 import { colors } from "@/themes/colors";
 import { fontSize } from "@/themes/fontSize";
-import { ImageSourcePropType, StyleSheet } from "react-native";
-
-type ExploreItemImage = string | ImageSourcePropType;
-
-export type ExploreItemsData = {
-  songs: { image: ExploreItemImage };
-  similarBand: { image: ExploreItemImage };
-  similarSong: { image: ExploreItemImage };
-};
-
-export type ExploreItemType =
-  | "songs"
-  | "similarBand"
-  | "similarSong";
-
-export type ExploreItemData = {
-  type: ExploreItemType;
-  image: ExploreItemImage;
-};
+import { StyleSheet } from "react-native";
 
 type ExploreItemProps = {
-  data: ExploreItemData;
+  type: keyof PlayerSongData["exploreImages"];
+  image: PlayerSongData["exploreImages"][keyof PlayerSongData["exploreImages"]];
   artistName: string;
   songName: string;
 };
@@ -34,11 +19,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     height: 170,
+    overflow: "hidden",
+    borderRadius: 10,
   },
   image: {
     width: "100%",
     height: "100%",
-    borderRadius: 10,
   },
   overlay: {
     position: "absolute",
@@ -49,17 +35,13 @@ const styles = StyleSheet.create({
     color: colors.neutral[1000],
     fontSize: fontSize.b3,
     fontWeight: 800,
-    textShadowColor: "rgba(0,0,0,0.2)",
-    textShadowOffset: { width: 0, height: 2 },
-    textShadowRadius: 5,
   },
 });
 
 const ExploreItem = (props: ExploreItemProps) => {
-  const data = props.data;
 
   const renderTitle = () => {
-    switch (data.type) {
+    switch (props.type) {
       case "songs":
         return `Canciones de ${props.artistName}`;
       case "similarBand":
@@ -72,8 +54,14 @@ const ExploreItem = (props: ExploreItemProps) => {
   return (
     <ItemWrapper style={styles.container}>
       <OptimizedImage
-        source={data.image}
+        source={props.image}
         style={styles.image}
+      />
+      <BorderGradient
+        direction="bottom"
+        heightFull
+        shadowDistance={100}
+        shadowColor="rgba(0,0,0,0.6)"
       />
       <ThemedView style={styles.overlay}>
         <ThemedText

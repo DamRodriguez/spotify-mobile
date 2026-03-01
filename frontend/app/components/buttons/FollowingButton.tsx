@@ -7,15 +7,17 @@ import Animated, {
 } from "react-native-reanimated";
 import useScalePressAnimation from "@/hooks/useScalePressAnimation";
 import useNotification from "@/features/redux/notification/useNotification";
+import { StyleProp, ViewStyle } from "react-native";
 
 type FollowingButtonProps = {
   artistName: string;
   isFollowing: boolean;
+  containerStyle?: StyleProp<ViewStyle>
 };
 
 const AnimatedItemWrapper = Animated.createAnimatedComponent(ItemWrapper);
 
-const FollowingButton = ({ artistName, isFollowing: initialValue }: FollowingButtonProps) => {
+const FollowingButton = ({ artistName, isFollowing: initialValue, containerStyle }: FollowingButtonProps) => {
   const [isFollowing, setIsFollowing] = useState(initialValue);
   const { animatedStyle, animate } = useScalePressAnimation();
   const { showNotification } = useNotification();
@@ -32,7 +34,6 @@ const FollowingButton = ({ artistName, isFollowing: initialValue }: FollowingBut
     )
   };
 
-
   return (
     <AnimatedItemWrapper
       onPress={handleOnPressButton}
@@ -47,6 +48,7 @@ const FollowingButton = ({ artistName, isFollowing: initialValue }: FollowingBut
           borderRadius: 6,
         },
         animatedStyle,
+        containerStyle
       ]}
     >
       <ThemedText

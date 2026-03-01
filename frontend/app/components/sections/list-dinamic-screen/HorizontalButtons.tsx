@@ -2,6 +2,7 @@ import { EditIcon, MixIcon, OrderIcon, PencilIcon, PlusIcon } from "@/components
 import ItemWrapper from "@/components/other/ItemWrapper";
 import ThemedText from "@/components/themed/ThemedText";
 import ThemedView from "@/components/themed/ThemedView";
+import { flashListDefaults } from "@/config/flashListDefaults";
 import { colors } from "@/themes/colors";
 import { fontSize } from "@/themes/fontSize";
 import { FlashList } from "@shopify/flash-list";
@@ -57,13 +58,9 @@ const HorizontalButtons = (props: HorizontalButtonsProps) => {
 
   return (
     <FlashList
+      {...flashListDefaults}
       data={HorizontalButtonsData}
       horizontal
-      showsHorizontalScrollIndicator={false}
-      overScrollMode="never"
-      bounces={false}
-      bouncesZoom={false}
-      alwaysBounceVertical={false}
       keyExtractor={(_, index) => String(index)}
       extraData={filter}
       ItemSeparatorComponent={() => <ThemedView style={{ width: 10 }} />}

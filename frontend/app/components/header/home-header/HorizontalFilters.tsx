@@ -1,6 +1,7 @@
 import ItemWrapper from "@/components/other/ItemWrapper";
 import ThemedText from "@/components/themed/ThemedText";
 import ThemedView from "@/components/themed/ThemedView";
+import { flashListDefaults } from "@/config/flashListDefaults";
 import { colors } from "@/themes/colors";
 import { fontSize } from "@/themes/fontSize";
 import { FlashList } from "@shopify/flash-list";
@@ -19,10 +20,16 @@ const styles = StyleSheet.create({
   }
 });
 
-const HorizontalFilters = () => {
-  const [filter, setFilter] = useState("Todas")
+type Filter = "Todas" | "Wrapped" | "Música" | "Podcasts";
 
-  const horizontalFiltersData = [
+type HorizontalFiltersData = {
+  text: Filter;
+}
+
+const HorizontalFilters = () => {
+  const [filter, setFilter] = useState<Filter>("Todas")
+
+  const horizontalFiltersData: HorizontalFiltersData[] = [
     {
       text: "Todas"
     },
@@ -35,23 +42,13 @@ const HorizontalFilters = () => {
     {
       text: "Podcasts"
     },
-    {
-      text: "Prueba"
-    },
-    {
-      text: "Otra prueba"
-    }
   ]
 
   return (
     <FlashList
+      {...flashListDefaults}
       data={horizontalFiltersData}
       horizontal
-      showsHorizontalScrollIndicator={false}
-      overScrollMode="never"
-      bounces={false}
-      bouncesZoom={false}
-      alwaysBounceVertical={false}
       keyExtractor={(_, index) => String(index)}
       extraData={filter}
       ItemSeparatorComponent={() => <ThemedView style={{ width: 10 }} />}

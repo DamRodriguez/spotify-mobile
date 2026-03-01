@@ -9,5 +9,6 @@ export const flashListDefaults: Partial<FlashListProps<any>> = {
   bouncesZoom: false,
   alwaysBounceVertical: false,
   showsVerticalScrollIndicator: false,
-  showsHorizontalScrollIndicator: false
+  showsHorizontalScrollIndicator: false,
+  nestedScrollEnabled: true
 };

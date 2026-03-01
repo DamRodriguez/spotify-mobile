@@ -12,6 +12,7 @@ import { BasicNotification } from "@/components/notifications/BasicNotification"
 import { sizes } from "@/constants/sizes";
 import useSongItem from "@/features/redux/song-item/useSongItem";
 import { usePathname } from "expo-router";
+import { ROUTES } from "@/navigation/routes";
 
 const AUTO_CLOSE_MS = 2500;
 const ANIMATION_MS = 250;
@@ -22,7 +23,7 @@ const NotificationLayer = () => {
   const insets = useSafeAreaInsets();
   const { songData } = useSongItem();
   const { hideNotification, state } = useNotification();
-
+  const isPlayerScreen = pathname === ROUTES.PLAYER.index;
   const [mounted, setMounted] = useState(false);
   const progress = useSharedValue(0);
 
@@ -75,6 +76,12 @@ const NotificationLayer = () => {
     opacity: progress.value,
   }));
 
+  const getBottomDistance = () => {
+    if (isPlayerScreen) return insets.bottom;
+    if (songData.id) return insets.bottom + 125;
+    return insets.bottom + sizes.tabsHeight;
+  }
+
   if (!mounted) return null;
 
   return (
@@ -82,9 +89,7 @@ const NotificationLayer = () => {
       style={[
         {
           position: "absolute",
-          bottom: songData.id
-            ? insets.bottom + 125
-            : insets.bottom + sizes.tabsHeight,
+          bottom: getBottomDistance(),
           left: sizes.mainPadding,
           right: sizes.mainPadding,
           zIndex: 1,
