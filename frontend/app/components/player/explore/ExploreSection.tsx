@@ -1,10 +1,8 @@
-import ThemedText from "@/components/themed/ThemedText";
 import ThemedView from "@/components/themed/ThemedView";
-import { colors } from "@/themes/colors";
-import { fontSize } from "@/themes/fontSize";
 import CommonContainer from "../CommonContainer";
 import { PlayerSongData } from "@/app/(app)/(player-group)/player";
 import ExploreItem from "@/components/player/explore/ExploreItem";
+import SmallTitle from "../SmallTitle";
 
 type ExploreImageKey = keyof PlayerSongData["exploreImages"];
 
@@ -19,17 +17,9 @@ const ExploreSection = (props: ExploreSectionProps) => {
 
   return (
     <CommonContainer
-      style={{ gap: 10, padding: 20 }}
+      style={{ gap: 15, padding: 20 }}
     >
-      <ThemedText
-        style={{
-          fontSize: fontSize.b1,
-          fontWeight: 800,
-          color: colors.neutral[1000]
-        }}
-      >
-        Explora {props.artistName}
-      </ThemedText>
+      <SmallTitle title={`Explora ${props.artistName}`} />
       <ThemedView
         style={{
           flexDirection: "row",

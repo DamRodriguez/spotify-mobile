@@ -10,6 +10,7 @@ import ItemWrapper from "../other/ItemWrapper";
 import BorderGradient from "../other/BorderGradient";
 import FollowingButton from "../buttons/FollowingButton";
 import { ROUTES } from "@/navigation/routes";
+import SmallTitle from "./SmallTitle";
 
 type AboutArtistSectionProps = {
   artistId: string;
@@ -45,15 +46,7 @@ const AboutArtistSection = (props: AboutArtistSectionProps) => {
             padding: 20
           }}
         >
-          <ThemedText
-            style={{
-              fontSize: fontSize.b1,
-              fontWeight: 800,
-              color: colors.neutral[1000]
-            }}
-          >
-            Acerca del artista
-          </ThemedText>
+          <SmallTitle title="Acerca del artista" />
         </ThemedView>
         <ThemedView
           style={{ padding: 20, gap: 15 }}
@@ -103,14 +96,14 @@ const AboutArtistSection = (props: AboutArtistSectionProps) => {
             </ThemedView>
             <FollowingButton
               artistName={props.artistName}
-              isFollowing={false}
+              isFollowing={true}
               containerStyle={{
                 borderRadius: 99
               }}
             />
           </ThemedView>
           <ThemedText
-            numberOfLines={4}
+            numberOfLines={3}
             style={{
               color: colors.opaqueWhite,
               fontSize: fontSize.b2

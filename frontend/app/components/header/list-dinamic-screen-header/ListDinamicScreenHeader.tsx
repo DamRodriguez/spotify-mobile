@@ -12,8 +12,9 @@ import { colors } from "@/themes/colors";
 import { fontSize } from "@/themes/fontSize";
 import { useRouter } from "expo-router";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { Dimensions, StyleProp, ViewStyle } from "react-native";
+import { StyleProp, ViewStyle } from "react-native";
 import BorderGradient from "@/components/other/BorderGradient";
+import { sizes } from "@/constants/sizes";
 
 type ListDinamicScreenHeaderProps = {
   title: string;
@@ -32,7 +33,6 @@ const ListDinamicScreenHeader = ({
   iconBgColor,
   absolute
 }: ListDinamicScreenHeaderProps) => {
-  const sizes = Dimensions.get("window");
   const insets = useSafeAreaInsets();
   const router = useRouter();
 
@@ -61,7 +61,7 @@ const ListDinamicScreenHeader = ({
       style={[
         {
           paddingTop: insets.top,
-          paddingHorizontal: 16,
+          paddingHorizontal: sizes.mainPadding,
           paddingBottom: 8,
           flexDirection: "row",
           alignItems: "center",
@@ -80,7 +80,7 @@ const ListDinamicScreenHeader = ({
     >
       <BorderGradient
         direction="bottom"
-        shadowSize={sizes.width}
+        widthFull
         style={{ elevation: 20 }}
         hideShadow={!showTitle}
       />
@@ -103,7 +103,7 @@ const ListDinamicScreenHeader = ({
           style={{
             color: colors.neutral[1000],
             fontSize: fontSize.h7,
-            fontWeight: "700",
+            fontWeight: 700,
           }}
         >
           {title}

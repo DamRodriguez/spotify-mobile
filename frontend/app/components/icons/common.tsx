@@ -36,8 +36,8 @@ export const SearchIcon = ({ size = 23, color = colors.neutral[1000] }: { size?:
 
 export const PlayIcon = ({ size = 32, color = colors.neutral[100] }: { size?: number, width?: string, height?: string, color?: string }) => {
   return (
-    <Svg width={size} height={size} viewBox="0 0 20 20">
-      <Path fill={color} d="m4 4l12 6l-12 6z" />
+    <Svg width={size} height={size} viewBox="0 0 32 32">
+      <Path fill={color} d="M6.684 25.682L24.316 15.5L6.684 5.318v20.364z" />
     </Svg>
   );
 };

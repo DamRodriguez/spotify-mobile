@@ -10,18 +10,14 @@ import ItemWrapper from "@/components/other/ItemWrapper";
 import useSongItem from "@/features/redux/song-item/useSongItem";
 import { useRouter } from "expo-router";
 import { ROUTES } from "@/navigation/routes";
-import { PauseIcon, PlayIcon } from "@/components/icons/common";
 import { sizes } from "@/constants/sizes";
+import TogglePlayButton from "@/components/music/TogglePlayButton";
 
 const FloatSong = () => {
   const insets = useSafeAreaInsets();
-  const { songData, togglePlay } = useSongItem();
+  const { songData } = useSongItem();
   const router = useRouter();
   if (!songData.id) return null;
-
-  const handleTogglePlayButton = () => {
-    togglePlay();
-  }
 
   return (
     <ItemWrapper
@@ -107,25 +103,13 @@ const FloatSong = () => {
               <PlusIcon />
             </ItemWrapper>
 
-            {songData.isPlaying ? (
-              <ItemWrapper
-                onPress={handleTogglePlayButton}
-              >
-                <PauseIcon />
-              </ItemWrapper>
-            ) : (
-              <ItemWrapper
-                onPress={handleTogglePlayButton}
-              >
-                <PlayIcon size={26} color={colors.neutral[1000]} />
-              </ItemWrapper>
-            )}
+            <TogglePlayButton />
           </ThemedView>
         </ThemedView>
 
       </ThemedView>
       <DurationBar />
-    </ItemWrapper>
+    </ItemWrapper >
   );
 };
 

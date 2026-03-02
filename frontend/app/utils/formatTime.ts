@@ -1,5 +1,6 @@
-export const formatTime = (seconds: number) => {
+export const formatTime = (seconds: number, minWithCero?: boolean) => {
   const mins = Math.floor(seconds / 60);
   const secs = Math.floor(seconds % 60);
-  return `${mins}:${secs.toString().padStart(2, "0")}`;
+  const minsFormatted = minWithCero ? mins.toString().padStart(2, "0") : mins;
+  return `${minsFormatted}:${secs.toString().padStart(2, "0")}`;
 };

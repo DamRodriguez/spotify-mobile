@@ -6,16 +6,20 @@ import ExploreSection from "@/components/player/explore/ExploreSection";
 import InteractiveButtonsSection from "@/components/player/InteractiveButtonsSection";
 import PlayerDataAndButtons from "@/components/player/PlayerDataAndButtons";
 import PlayerHeader from "@/components/player/PlayerHeader";
+import PlayerStickyHeader from "@/components/player/PlayerStickyHeader";
+import { RelatedMusicVideoData } from "@/components/player/related-music-videos/RelatedMusicVideoItem";
+import RelatedMusicVideosSection from "@/components/player/related-music-videos/RelatedMusicVideosSection";
 import ThemedScrollView from "@/components/themed/ThemedScrollView";
 import ThemedView from "@/components/themed/ThemedView";
 import { sizes } from "@/constants/sizes";
 import { playerSongData } from "@/data/player/playerSongData";
 import useSongItem from "@/features/redux/song-item/useSongItem";
 import { colors } from "@/themes/colors";
-import { ImageSourcePropType } from "react-native";
+import { useRef, useState } from "react";
+import { ImageSourcePropType, LayoutChangeEvent } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
-type PlayerSongImage = string | ImageSourcePropType;
+export type PlayerSongImage = string | ImageSourcePropType;
 
 export type PlayerSongData = {
   id: string;
@@ -28,7 +32,8 @@ export type PlayerSongData = {
     image: PlayerSongImage,
     monthlyListeners: number,
     textInformation: string,
-  }
+  },
+  relatedMusicVideo: RelatedMusicVideoData[],
 }
 
 const PlayerScreen = () => {
@@ -37,6 +42,9 @@ const PlayerScreen = () => {
   const playerData = playerSongData.find(
     (item) => item.id === songData.artistId,
   );
+  const playerButtonsYRef = useRef(0);
+  const [isPlayerButtonsAtTop, setIsPlayerButtonsAtTop] = useState(false);
+
   if (!playerData) {
     return (
       <NoContent />
@@ -44,57 +52,80 @@ const PlayerScreen = () => {
   }
 
   return (
-    <ThemedScrollView
-      contentContainerStyle={{
-        backgroundColor: songData.color || colors.neutral[500],
-        paddingTop: insets.top + 16,
-        paddingHorizontal: sizes.mainPadding,
-        paddingBottom: insets.bottom + 50,
-        gap: 40,
-      }}
-    >
-      <BorderGradient
-        direction="bottom"
-        heightFull
-        shadowDistance={1800}
-        shadowColor={colors.background}
-      />
-      <PlayerHeader
-        fromWhere={songData.sectionType}
+    <>
+      <PlayerStickyHeader
+        isVisible={isPlayerButtonsAtTop}
+        headerColor={songData.color}
+        songName={songData.songName}
         artistName={songData.artistName}
       />
-      <OptimizedImage
-        source={songData.image}
-        style={{
-          width: "100%",
-          aspectRatio: 1,
-          borderRadius: 6,
+      <ThemedScrollView
+        contentContainerStyle={{
+          backgroundColor: songData.color || colors.neutral[500],
+          paddingTop: insets.top + 16,
+          paddingHorizontal: sizes.mainPadding,
+          paddingBottom: insets.bottom + 50,
+          gap: 40,
         }}
-      />
-      <PlayerDataAndButtons />
-      <ThemedView
-        style={{
-          gap: 25
+        onScroll={(e) => {
+          const scrollY = e.nativeEvent.contentOffset.y;
+          const reachedButtonsTop = scrollY - 85 >= playerButtonsYRef.current;
+          setIsPlayerButtonsAtTop(reachedButtonsTop);
         }}
       >
-        <InteractiveButtonsSection />
-        <ExploreSection
+        <BorderGradient
+          direction="bottom"
+          heightFull
+          shadowDistance={2000}
+          shadowColor={colors.background}
+        />
+        <PlayerHeader
+          fromWhere={songData.sectionType}
           artistName={songData.artistName}
-          songName={songData.songName}
-          images={{
-            ...playerData.exploreImages,
-            similarSong: songData.image
+        />
+        <OptimizedImage
+          source={songData.image}
+          style={{
+            width: "100%",
+            aspectRatio: 1,
+            borderRadius: 6,
           }}
         />
-        <AboutArtistSection
-          artistId={songData.artistId}
-          artistName={songData.artistName}
-          image={playerData.aboutArtist.image}
-          monthlyListeners={playerData.aboutArtist.monthlyListeners}
-          textInformation={playerData.aboutArtist.textInformation}
-        />
-      </ThemedView>
-    </ThemedScrollView>
+        <ThemedView
+          onLayout={(e: LayoutChangeEvent) => {
+            playerButtonsYRef.current = e.nativeEvent.layout.y;
+          }}
+        >
+          <PlayerDataAndButtons />
+        </ThemedView>
+        <ThemedView
+          style={{
+            gap: 25
+          }}
+        >
+          <InteractiveButtonsSection />
+          <ExploreSection
+            artistName={songData.artistName}
+            songName={songData.songName}
+            images={{
+              ...playerData.exploreImages,
+              similarSong: songData.image
+            }}
+          />
+          <AboutArtistSection
+            artistId={songData.artistId}
+            artistName={songData.artistName}
+            image={playerData.aboutArtist.image}
+            monthlyListeners={playerData.aboutArtist.monthlyListeners}
+            textInformation={playerData.aboutArtist.textInformation}
+          />
+          <RelatedMusicVideosSection
+            data={playerData.relatedMusicVideo}
+            artistName={songData.artistName}
+          />
+        </ThemedView>
+      </ThemedScrollView>
+    </>
   );
 }
 
