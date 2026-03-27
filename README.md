@@ -9,10 +9,7 @@ Este proyecto se centra en la fluidez de la interfaz de usuario, la gestión de 
 
 Aquí puedes ver el funcionamiento de la aplicación en tiempo real:
 
-<div style="border: 12px solid #282828; border-radius: 35px; width: 300px; overflow: hidden; background: #000;">
-  <video src="https://github.com/user-attachments/assets/677203a6-cf4f-4213-bf28-df6f68ceb3ea" width="100%" controls>
-  </video>
-</div>
+<video src="https://github.com/user-attachments/assets/677203a6-cf4f-4213-bf28-df6f68ceb3ea" width="100%" controls></video>
 
 ---
 
