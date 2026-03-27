@@ -10,7 +10,7 @@ Este proyecto se centra en la fluidez de la interfaz de usuario, la gestión de 
 Aquí puedes ver el funcionamiento de la aplicación en tiempo real:
 
 <div align="center">
-  <video src="https://github.com/user-attachments/assets/677203a6-cf4f-4213-bf28-df6f68ceb3ea" width="300" controls muted autoplay loop style="max-width: 100%; border-radius: 20px;">
+  <video src="https://github.com/user-attachments/assets/677203a6-cf4f-4213-bf28-df6f68ceb3ea" width="300" controls autoplay loop style="max-width: 100%; border-radius: 20px;">
   </video>
 </div>
 
