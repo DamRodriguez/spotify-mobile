@@ -62,26 +62,23 @@ export type SongItemData = {
 
 type SongItemProps = {
   data: SongItemData;
+  listSongs: SongItemData[];
   enumerateSongs?: boolean;
-  index?: number;
+  index: number;
   sectionId: string
   sectionType: HomeListSectionType;
 }
 
 const SongItem = (props: SongItemProps) => {
   const data = props.data;
-  const { setCurrentSong, songData, resetSong } = useSongItem();
-  const isSongActive = songData.id === data.id && songData.sectionId === props.sectionId;
+  const { setQueueAndPlay, currentSong, resetSong, songState } = useSongItem();
+  const isSongActive = currentSong?.id === data.id && songState.sectionId === props.sectionId;
 
   const handleSongItemPress = () => {
     if (isSongActive) {
       resetSong();
     } else {
-      setCurrentSong({
-        ...data,
-        sectionId: props.sectionId,
-        sectionType: props.sectionType,
-      })
+      setQueueAndPlay(props.listSongs, props.index, props.sectionId, props.sectionType)
     }
   }
 
@@ -94,7 +91,7 @@ const SongItem = (props: SongItemProps) => {
         {props.enumerateSongs && (
           <ThemedView style={styles.enumerateItemContainer}>
             <ThemedText style={styles.enumerateItemText}>
-              {props.index}
+              {props.index + 1}
             </ThemedText>
           </ThemedView>
         )}

@@ -9,13 +9,13 @@ type TogglePlayButtonProps = {
 }
 
 const TogglePlayButton = (props: TogglePlayButtonProps) => {
-  const { songData, togglePlay } = useSongItem();
+  const { songState, togglePlay } = useSongItem();
   const handleTogglePlayButton = () => {
     togglePlay();
   }
   return (
     <>
-      {songData.isPlaying ? (
+      {songState.isPlaying ? (
         <ItemWrapper
           onPress={handleTogglePlayButton}
         >

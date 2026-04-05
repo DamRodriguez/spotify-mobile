@@ -15,9 +15,9 @@ import TogglePlayButton from "@/components/music/TogglePlayButton";
 
 const FloatSong = () => {
   const insets = useSafeAreaInsets();
-  const { songData } = useSongItem();
+  const { currentSong } = useSongItem();
   const router = useRouter();
-  if (!songData.id) return null;
+  if (!currentSong?.id) return null;
 
   return (
     <ItemWrapper
@@ -34,14 +34,14 @@ const FloatSong = () => {
     >
       <ThemedView
         style={{
-          backgroundColor: songData.color || colors.neutral[500],
+          backgroundColor: currentSong.color || colors.neutral[500],
           flexDirection: "row",
           padding: 8,
           gap: 10,
         }}
       >
         <OptimizedImage
-          source={songData.image}
+          source={currentSong.image}
           style={{
             width: 40,
             height: 40,
@@ -71,7 +71,7 @@ const FloatSong = () => {
                 color: colors.neutral[1000]
               }}
             >
-              {songData.songName}
+              {currentSong.songName}
             </ThemedText>
             <ThemedText
               numberOfLines={1}
@@ -80,7 +80,7 @@ const FloatSong = () => {
                 color: colors.opaqueWhite
               }}
             >
-              {songData.artistName}
+              {currentSong.artistName}
             </ThemedText>
           </ThemedView>
 

@@ -1,5 +1,4 @@
 import { useCallback, useMemo } from "react";
-
 import { SongItemData } from "@/components/music/SongItem";
 import useSongItem from "@/features/redux/song-item/useSongItem";
 import { HomeListSectionType } from "@/types/homeListSection";
@@ -15,30 +14,48 @@ const usePlayFromList = ({
   sectionId,
   sectionType,
 }: UsePlayFromListParams) => {
-  const { setPlayFromList } = useSongItem();
+  const {
+    songState,
+    setQueueAndPlay,
+    togglePlay,
+  } = useSongItem();
 
   const safeSongs = useMemo<SongItemData[]>(() => {
     return songs ?? [];
   }, [songs]);
 
-  const firstSong = useMemo<SongItemData | undefined>(() => {
-    return safeSongs[0];
-  }, [safeSongs]);
+  const canPlay = !!safeSongs.length && !!sectionId && !!sectionType;
 
   const handlePlayButtonPress = useCallback(() => {
-    if (!firstSong) return;
-    if (!sectionId || !sectionType) return;
+    if (!canPlay) return;
 
-    setPlayFromList({
-      ...firstSong,
-      sectionId,
-      sectionType,
-    });
-  }, [firstSong, sectionId, sectionType, setPlayFromList]);
+    const isSameSection = songState.sectionId === sectionId;
+
+    if (isSameSection && songState.queue.length > 0) {
+      togglePlay();
+      return;
+    }
+
+    setQueueAndPlay(
+      safeSongs,
+      0,
+      sectionId!,
+      sectionType!
+    );
+  }, [
+    canPlay,
+    songState.sectionId,
+    songState.queue.length,
+    sectionId,
+    sectionType,
+    safeSongs,
+    togglePlay,
+    setQueueAndPlay,
+  ]);
 
   return {
     handlePlayButtonPress,
-    canPlay: !!firstSong && !!sectionId && !!sectionType,
+    canPlay,
   };
 };
 

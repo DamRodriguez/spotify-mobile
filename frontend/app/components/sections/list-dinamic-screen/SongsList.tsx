@@ -52,11 +52,13 @@ const SongsList = (props: SongsListProps) => {
         }}
         ListFooterComponent={<ListFooterSpinner isLoadingMore={props.isLoadingMore} />}
         ListEmptyComponent={<></>}
-        renderItem={({ item }) => (
+        renderItem={({ item, index }) => (
           <SongItem
             data={item}
+            listSongs={props.data}
             sectionId={props.sectionId}
             sectionType={props.sectionType}
+            index={index}
           />
         )}
       />

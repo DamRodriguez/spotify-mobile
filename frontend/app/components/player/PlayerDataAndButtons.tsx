@@ -14,13 +14,13 @@ import { getAudioInstance } from "@/utils/audio/audioInstance";
 import useSongProgress from "@/features/redux/song-progress/useSongProgress";
 
 const PlayerDataAndButtons = () => {
-  const { songData, togglePlay } = useSongItem();
+  const { currentSong, songState, togglePlay, nextSong, previousSong } = useSongItem();
   const player = getAudioInstance();
   const router = useRouter();
   const { state } = useSongProgress();
 
   const handleOnArtistPress = () => {
-    router.push(ROUTES.MAIN.HOME.artistDinamicScreen.index(songData.artistId));
+    router.push(ROUTES.MAIN.HOME.artistDinamicScreen.index(currentSong?.artistId));
   }
 
   return (
@@ -50,7 +50,7 @@ const PlayerDataAndButtons = () => {
               color: colors.neutral[1000]
             }}
           >
-            {songData.songName}
+            {currentSong?.songName}
           </ThemedText>
           <ItemWrapper
             onPress={handleOnArtistPress}
@@ -65,7 +65,7 @@ const PlayerDataAndButtons = () => {
                 color: colors.opaqueWhite,
               }}
             >
-              {songData.artistName}
+              {currentSong?.artistName}
             </ThemedText>
           </ItemWrapper>
         </ThemedView>
@@ -114,7 +114,7 @@ const PlayerDataAndButtons = () => {
           }}
         >
           <ItemWrapper
-            onPress={() => { }}
+            onPress={() => { previousSong() }}
           >
             <BackIcon />
           </ItemWrapper>
@@ -130,7 +130,7 @@ const PlayerDataAndButtons = () => {
               alignItems: "center"
             }}
           >
-            {songData.isPlaying ? (
+            {songState.isPlaying ? (
               <PauseIcon size={35} color="black" />
             ) : (
               <ThemedView style={{ left: 2 }}>
@@ -140,7 +140,7 @@ const PlayerDataAndButtons = () => {
           </ItemWrapper>
 
           <ItemWrapper
-            onPress={() => { }}
+            onPress={() => { nextSong() }}
           >
             <NextIcon />
           </ItemWrapper>

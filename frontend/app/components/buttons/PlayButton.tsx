@@ -14,8 +14,8 @@ type PlayButtonProps = {
 const AnimatedItemWrapper = Animated.createAnimatedComponent(ItemWrapper);
 
 const PlayButton = (props: PlayButtonProps) => {
-  const { songData } = useSongItem();
-  const isThisListPlaying = songData.isPlaying && songData.sectionId === props.sectionId;
+  const { songState } = useSongItem();
+  const isThisListPlaying = songState.isPlaying && songState.sectionId === props.sectionId;
   const { animatedStyle, animate } = useScalePressAnimation();
 
   const handleOnPress = () => {

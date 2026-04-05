@@ -2,23 +2,18 @@ import { SongItemData } from "@/components/music/SongItem";
 import { HomeListSectionType } from "@/types/homeListSection";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-export type CurrentSongPayload = Omit<SongState, "isPlaying" | "resetKey">;
-
-export type SongState = SongItemData & {
+export type SongState = {
+  queue: SongItemData[];
+  currentIndex: number | null;
   sectionId: string;
   sectionType: HomeListSectionType;
   isPlaying: boolean;
   resetKey: number;
-}
+};
 
 const initialState: SongState = {
-  id: "",
-  artistId: "",
-  artistName: "",
-  songName: "",
-  mp3: "",
-  image: "",
-  album: "",
+  queue: [],
+  currentIndex: null,
   sectionId: "",
   sectionType: "",
   isPlaying: false,
@@ -29,34 +24,47 @@ const SongItemSlice = createSlice({
   name: "SongItem",
   initialState,
   reducers: {
-    setCurrentSong: (state, action: PayloadAction<CurrentSongPayload>) => {
-      const isSameSong = state.id === action.payload.id && state.sectionId === action.payload.sectionId;
+    setQueueAndPlay: (
+      state,
+      action: PayloadAction<{
+        songs: SongItemData[];
+        startIndex: number;
+        sectionId: string;
+        sectionType: HomeListSectionType;
+      }>
+    ) => {
+      const { songs, startIndex, sectionId, sectionType } = action.payload;
 
-      return {
-        ...state,
-        ...action.payload,
-        isPlaying: true,
-        resetKey: !isSameSong ? state.resetKey + 1 : state.resetKey,
-      };
+      state.queue = songs;
+      state.currentIndex = startIndex;
+      state.sectionId = sectionId;
+      state.sectionType = sectionType;
+      state.isPlaying = true;
+      state.resetKey += 1;
     },
 
-    setPlayFromList: (
-      state,
-      action: PayloadAction<{ song: CurrentSongPayload }>
-    ) => {
-      const newSong = action.payload.song;
+    nextSong: (state) => {
+      if (state.currentIndex === null) return;
 
-      const isSameList = state.sectionId === newSong.sectionId;
+      const nextIndex = state.currentIndex + 1;
 
-      if (isSameList) {
-        state.isPlaying = !state.isPlaying;
-      } else {
-        return {
-          ...newSong,
-          isPlaying: true,
-          resetKey: !isSameList ? state.resetKey + 1 : state.resetKey,
-        };
-      }
+      if (nextIndex >= state.queue.length) return;
+
+      state.currentIndex = nextIndex;
+      state.isPlaying = true;
+      state.resetKey += 1;
+    },
+
+    previousSong: (state) => {
+      if (state.currentIndex === null) return;
+
+      const prevIndex = state.currentIndex - 1;
+
+      if (prevIndex < 0) return;
+
+      state.currentIndex = prevIndex;
+      state.isPlaying = true;
+      state.resetKey += 1;
     },
 
     togglePlay: (state) => {
@@ -70,5 +78,12 @@ const SongItemSlice = createSlice({
   },
 });
 
-export const { setCurrentSong, setPlayFromList, togglePlay, resetSong } = SongItemSlice.actions;
+export const {
+  setQueueAndPlay,
+  nextSong,
+  previousSong,
+  togglePlay,
+  resetSong,
+} = SongItemSlice.actions;
+
 export default SongItemSlice.reducer;

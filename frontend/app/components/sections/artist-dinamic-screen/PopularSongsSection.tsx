@@ -58,7 +58,8 @@ const PopularSongsSection = ({ songs, sectionId, sectionType }: PopularSongsSect
             <SongItem
               key={index}
               data={item}
-              index={index + 1}
+              listSongs={songs}
+              index={index}
               sectionId={sectionId}
               sectionType={sectionType}
               enumerateSongs

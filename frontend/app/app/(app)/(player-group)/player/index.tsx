@@ -21,7 +21,7 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export type PlayerSongImage = string | ImageSourcePropType;
 
-export type PlayerSongData = {
+export type PlayercurrentSong = {
   id: string;
   exploreImages: {
     songs: PlayerSongImage;
@@ -38,9 +38,9 @@ export type PlayerSongData = {
 
 const PlayerScreen = () => {
   const insets = useSafeAreaInsets();
-  const { songData } = useSongItem();
+  const { currentSong, songState } = useSongItem();
   const playerData = playerSongData.find(
-    (item) => item.id === songData.artistId,
+    (item) => item.id === currentSong?.artistId,
   );
   const playerButtonsYRef = useRef(0);
   const [isPlayerButtonsAtTop, setIsPlayerButtonsAtTop] = useState(false);
@@ -51,17 +51,19 @@ const PlayerScreen = () => {
     );
   }
 
+  if (!currentSong) return null;
+
   return (
     <>
       <PlayerStickyHeader
         isVisible={isPlayerButtonsAtTop}
-        headerColor={songData.color}
-        songName={songData.songName}
-        artistName={songData.artistName}
+        headerColor={currentSong.color}
+        songName={currentSong.songName}
+        artistName={currentSong.artistName}
       />
       <ThemedScrollView
         contentContainerStyle={{
-          backgroundColor: songData.color || colors.neutral[500],
+          backgroundColor: currentSong.color || colors.neutral[500],
           paddingTop: insets.top + 16,
           paddingHorizontal: sizes.mainPadding,
           paddingBottom: insets.bottom + 50,
@@ -80,11 +82,11 @@ const PlayerScreen = () => {
           shadowColor={colors.background}
         />
         <PlayerHeader
-          fromWhere={songData.sectionType}
-          artistName={songData.artistName}
+          fromWhere={songState.sectionType}
+          artistName={currentSong.artistName}
         />
         <OptimizedImage
-          source={songData.image}
+          source={currentSong.image}
           style={{
             width: "100%",
             aspectRatio: 1,
@@ -105,23 +107,23 @@ const PlayerScreen = () => {
         >
           <InteractiveButtonsSection />
           <ExploreSection
-            artistName={songData.artistName}
-            songName={songData.songName}
+            artistName={currentSong.artistName}
+            songName={currentSong.songName}
             images={{
               ...playerData.exploreImages,
-              similarSong: songData.image
+              similarSong: currentSong.image
             }}
           />
           <AboutArtistSection
-            artistId={songData.artistId}
-            artistName={songData.artistName}
+            artistId={currentSong.artistId}
+            artistName={currentSong.artistName}
             image={playerData.aboutArtist.image}
             monthlyListeners={playerData.aboutArtist.monthlyListeners}
             textInformation={playerData.aboutArtist.textInformation}
           />
           <RelatedMusicVideosSection
             data={playerData.relatedMusicVideo}
-            artistName={songData.artistName}
+            artistName={currentSong.artistName}
           />
         </ThemedView>
       </ThemedScrollView>

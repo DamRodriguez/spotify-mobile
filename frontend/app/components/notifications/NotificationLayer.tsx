@@ -21,7 +21,7 @@ const START_OFFSET = 10;
 const NotificationLayer = () => {
   const pathname = usePathname();
   const insets = useSafeAreaInsets();
-  const { songData } = useSongItem();
+  const { currentSong } = useSongItem();
   const { hideNotification, state } = useNotification();
   const isPlayerScreen = pathname === ROUTES.PLAYER.index;
   const [mounted, setMounted] = useState(false);
@@ -78,7 +78,7 @@ const NotificationLayer = () => {
 
   const getBottomDistance = () => {
     if (isPlayerScreen) return insets.bottom;
-    if (songData.id) return insets.bottom + 125;
+    if (currentSong?.id) return insets.bottom + 125;
     return insets.bottom + sizes.tabsHeight;
   }
 

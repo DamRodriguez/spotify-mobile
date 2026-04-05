@@ -53,6 +53,7 @@ const PlayerStickyHeader = (props: PlayerStickyHeaderProps) => {
           top: 0,
           left: 0,
           right: 0,
+          pointerEvents: props.isVisible ? "auto" : "none"
         },
         headerStyle,
         props.containerStyle,

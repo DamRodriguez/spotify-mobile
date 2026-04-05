@@ -1,26 +1,40 @@
 import {
-  setCurrentSong as setCurrentSongAction,
-  setPlayFromList as setPlayFromListAction,
+  setQueueAndPlay as setQueueAndPlayAction,
+  nextSong as nextSongAction,
+  previousSong as previousSongAction,
   togglePlay as togglePlayAction,
   resetSong as resetSongAction,
-  CurrentSongPayload,
 } from "@/features/redux/song-item/songItemSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { SongItemData } from "@/components/music/SongItem";
+import { HomeListSectionType } from "@/types/homeListSection";
 
 const useSongItem = () => {
   const dispatch = useAppDispatch();
-  const state = useAppSelector(state => state.songItem);
+  const state = useAppSelector((state) => state.songItem);
 
-  const setCurrentSong = (data: CurrentSongPayload) => {
-    dispatch(setCurrentSongAction(data));
-  };
-
-  const setPlayFromList = (song: CurrentSongPayload) => {
+  const setQueueAndPlay = (
+    songs: SongItemData[],
+    startIndex: number,
+    sectionId: string,
+    sectionType: HomeListSectionType
+  ) => {
     dispatch(
-      setPlayFromListAction({
-        song,
+      setQueueAndPlayAction({
+        songs,
+        startIndex,
+        sectionId,
+        sectionType,
       })
     );
+  };
+
+  const nextSong = () => {
+    dispatch(nextSongAction());
+  };
+
+  const previousSong = () => {
+    dispatch(previousSongAction());
   };
 
   const togglePlay = () => {
@@ -31,10 +45,17 @@ const useSongItem = () => {
     dispatch(resetSongAction());
   };
 
+  const currentSong =
+    state.currentIndex !== null
+      ? state.queue[state.currentIndex]
+      : null;
+
   return {
-    setCurrentSong,
-    songData: state,
-    setPlayFromList,
+    songState: state,
+    currentSong,
+    setQueueAndPlay,
+    nextSong,
+    previousSong,
     togglePlay,
     resetSong,
   };
